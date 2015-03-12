@@ -18,12 +18,12 @@ public class Model {
 		list = new ArrayList<Value>();
 	
 		//Verbindung mit Repository erstellen
-		RepositoryConnection con = repo.getConnection();
+		//RepositoryConnection con = repo.getConnection();
 		
 		
 			//Query definieren
 			String queryString = "SELECT * {?x ?y ?z}";
-			TupleQuery tupleQuery = con.prepareTupleQuery(QueryLanguage.SPARQL, queryString);
+		//	TupleQuery tupleQuery = con.prepareTupleQuery(QueryLanguage.SPARQL, queryString);
 			
 	}
 	
