@@ -20,7 +20,7 @@ public class Model {
 		//Verbindung mit Repository erstellen
 		//RepositoryConnection con = repo.getConnection();
 		
-		
+		//test
 			//Query definieren
 			String queryString = "SELECT * {?x ?y ?z}";
 		//	TupleQuery tupleQuery = con.prepareTupleQuery(QueryLanguage.SPARQL, queryString);
