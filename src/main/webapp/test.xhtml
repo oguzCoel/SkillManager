@@ -12,15 +12,27 @@
 <f:view>
 
 <h:body>
+
+	<h1>Abfragen Sesame Triple Store</h1>
 	<h:form>
 
-<<<<<<< HEAD
-		<p:commandButton value="View" icon="ui-icon-extlink"/>
-=======
-		N4ame: <h:inputText id ="name"/>
-		<br/>
-		Vorname: <h:inputText id ="vorname"/>
->>>>>>> b39b853680ff0a5b824d94d9b6e904fb7975dcd2
+
+	<p:outputLabel for="console" value="Basic:" />
+        <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:130px">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+        </p:selectOneMenu>
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <p:commandButton value="Submit" action="/test2.xhtml" />
+
 						
 		
 		
