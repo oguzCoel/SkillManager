@@ -1,6 +1,7 @@
 package skillmanager;
 
 import java.util.ArrayList;
+import ch.quickline.business.domain.*;
 
 import javax.faces.bean.ManagedBean;
 
@@ -58,6 +59,16 @@ public class ModelTest {
 		
 		for (String s: list){
 			System.out.println(s);
+		}
+		
+		System.out.println();
+		
+		ArrayList<Lecturer> lecturers = new ArrayList<Lecturer>();
+		LecturerBean lec = new LecturerBean();
+		lecturers = lec.getLecturerList();
+		
+		for (Lecturer i: lecturers){
+			System.out.println(i.getFirst_name() + " " + i.getLast_name() + " " + i.getModul());
 		}
 		
 	}
