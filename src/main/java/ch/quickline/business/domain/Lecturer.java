@@ -1,5 +1,8 @@
 package ch.quickline.business.domain;
 
+import javax.faces.bean.ManagedBean;
+
+
 public class Lecturer {
 	private String first_name;
 	private String last_name;
