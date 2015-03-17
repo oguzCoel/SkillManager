@@ -21,7 +21,7 @@ public class SesameStudentDao implements StudentDao {
 			RepositoryConnection con = SesameDaoFactory.createConnection();
 		
 		
-		String updateString = "PREFIX ab: <http://people.brunel.ac.uk/~csstnns/university.owl#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> INSERT DATA { ab:Student2 rdf:type owl:NamedIndividual }";
+		String updateString = "PREFIX ab: <http://people.brunel.ac.uk/~csstnns/university.owl#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> INSERT DATA { ab:Student7 rdf:type owl:NamedIndividual }";
 		Update update = con.prepareUpdate(QueryLanguage.SPARQL, updateString);
 		
 		update.execute();
