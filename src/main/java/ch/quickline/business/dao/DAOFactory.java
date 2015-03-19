@@ -4,17 +4,17 @@ public abstract class DAOFactory {
 	public static final String SESAME = "sesame";
 	public static final String MYSQL = "mysql";
 	
-	public abstract LecturerDao getLecturerDao();
 	public abstract StudentDao getStudentDao();
 	
-	public static DAOFactory(String whichfactory){
-		switch (whichfactory){
-		case "sesame":
+	public static DAOFactory getDAOFactory(PersistenceType type){
+		switch (type){
+		case SESAME:
 			return new SesameDaoFactory();
+		/*
 		case "mysql":
 			return new MysqlDbDaoFactory();
-			
-			default
+			*/
+			default:
 			return null;
 		}
 	}

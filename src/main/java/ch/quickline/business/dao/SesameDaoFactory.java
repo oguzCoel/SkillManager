@@ -10,6 +10,8 @@ public class SesameDaoFactory extends DAOFactory {
 	public static final String sesameServer = "http://localhost:8080/openrdf-sesame";
 	public static final String repositoryId = "uni";
 	
+	
+	
 		public static RepositoryConnection createConnection() throws RepositoryException{
 			Repository repo = new HTTPRepository(sesameServer, repositoryId);
 			try {
@@ -28,8 +30,6 @@ public class SesameDaoFactory extends DAOFactory {
 			return new SesameStudentDao();
 		}
 		
-		public LecturerDao getLecturerDao(){
-			return new LecturerDao;
-		}
+		
 
 }
