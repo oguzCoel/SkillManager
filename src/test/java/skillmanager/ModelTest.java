@@ -1,6 +1,10 @@
 package skillmanager;
 
 import java.util.ArrayList;
+
+import ch.quickline.business.dao.DAOFactory;
+import ch.quickline.business.dao.PersistenceType;
+import ch.quickline.business.dao.StudentDao;
 import ch.quickline.business.domain.*;
 
 import javax.faces.bean.ManagedBean;
@@ -70,6 +74,12 @@ public class ModelTest {
 		for (Lecturer i: lecturers){
 			System.out.println(i.getFirst_name() + " " + i.getLast_name() + " " + i.getModul());
 		}
+		
+		DAOFactory sesFac = DAOFactory.getDAOFactory(PersistenceType.SESAME);
+		
+		StudentDao studentDao = sesFac.getStudentDao();
+		
+		studentDao.insertStudent()
 		
 	}
 			
