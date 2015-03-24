@@ -1,5 +1,7 @@
 package ch.quickline.business.dao;
 
+import java.text.MessageFormat;
+
 import org.openrdf.model.Model;
 import org.openrdf.model.URI;
 import org.openrdf.model.ValueFactory;
@@ -27,19 +29,30 @@ public class SesameStudentDao implements StudentDao {
 			RepositoryConnection con = SesameDaoFactory.createConnection();
 		
 		
-<<<<<<< HEAD
-		String updateString = "PREFIX ab: <http://people.brunel.ac.uk/~csstnns/university.owl#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> INSERT DATA { ab:Student7 rdf:type owl:NamedIndividual }";
-		Update update = con.prepareUpdate(QueryLanguage.SPARQL, updateString);
-=======
-		String updateString =   "PREFIX ab: <http://people.brunel.ac.uk/~csstnns/university.owl#>" +
-							   "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
-							   "PREFIX owl: <http://www.w3.org/2002/07/owl#>" +
-							   "INSERT DATA { ab:Lectuter10 rdf:type owl:NamedIndividual ." +
-							   "ab:Lecturer10 rdf:type ab:Lecturer ." +
-							   "ab:Lecturer10 ab:staffID ? ." +
-							   "ab:Lecturer10 ab:first_name ? ." +
-							   "ab:Lecturer10 ab:last_name ? }";
->>>>>>> refs/remotes/origin/oguz
+
+		
+			 
+
+			StringBuilder stringBuilder=new StringBuilder();
+			stringBuilder.append("PREFIX ab: <http://people.brunel.ac.uk/~csstnns/university.owl#> \n ");
+			stringBuilder.append("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n ");
+			stringBuilder.append("PREFIX owl: <http://www.w3.org/2002/07/owl#> \n ");
+			stringBuilder.append("INSERT DATA { ab:Lectuter10 rdf:type owl:NamedIndividual .\n ");
+			stringBuilder.append("ab:Lecturer12 rdf:type ab:Lecturer . \n " );
+			stringBuilder.append("ab:Lecturer12 ab:staffID ");
+			stringBuilder.append("'" + staffID + "'. \n");
+			stringBuilder.append("ab:Lecturer12 ab:first_name ");
+			stringBuilder.append("'" + first_name + "'. \n");
+			stringBuilder.append("ab:Lecturer12 ab:last_name ");
+			stringBuilder.append("'" + last_name + "'. \n");
+			stringBuilder.append("}  \n");
+		
+			
+		
+	
+
+		String updateString = stringBuilder.toString();
+
 		
 		
 		Update update = con.prepareUpdate(QueryLanguage.SPARQL, updateString);
