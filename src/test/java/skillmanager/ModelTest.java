@@ -10,6 +10,9 @@ import ch.quickline.business.domain.*;
 import javax.faces.bean.ManagedBean;
 
 import org.openrdf.model.Value;
+
+import ch.quickline.business.dao.*;
+
 import org.openrdf.query.BindingSet;
 import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.QueryEvaluationException;
@@ -75,11 +78,20 @@ public class ModelTest {
 			System.out.println(i.getFirst_name() + " " + i.getLast_name() + " " + i.getModul());
 		}
 		
+		
+		
+
 		DAOFactory sesFac = DAOFactory.getDAOFactory(PersistenceType.SESAME);
 		
 		StudentDao studentDao = sesFac.getStudentDao();
 		
-		studentDao.insertStudent()
+		studentDao.insertStudent("1313", "Murat", "Babatas");
+
+		
+		
+		
+		
+		
 		
 	}
 			
