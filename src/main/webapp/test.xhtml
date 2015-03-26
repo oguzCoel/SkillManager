@@ -7,16 +7,49 @@
 	xmlns:p="http://primefaces.org/ui">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+<title>Insert data to sesam repository</title>
 </head>
 
-    <body>
-    
-    <h:form>
-    
-  <p:inputText />
-    
-    </h:form>
-    </body>
+<h:head>
+<title>Insert Data</title>
+</h:head>
+<h:body>
+<f:view>
+
+
+<h:form>
+    <h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel  value="StaffID: " />
+        <p:inputMask id="staffID" value="#{student.staffID}" />
+ 
+        <p:outputLabel  value="Firstname:" />
+        <p:inputMask id="firstName" value="#{student.first_name}" />
+ 
+        <p:outputLabel  value="Lastname:" />
+        <p:inputMask id="lastName" value="#{student.last_name}" />
+ 
+       
+ 
+        <p:commandButton value="Reset" type="reset" />
+        <p:commandButton value="Submit" action="#{student.insertStudent}" update="display" oncomplete="PF('dlg').show()"/>
+    </h:panelGrid>
+ 
+    <p:dialog widgetVar="dlg" modal="true" resizable="false" header="Values" showEffect="fade">
+        <p:panelGrid id="display" columns="2" columnClasses="label,value">
+            <h:outputText value="StaffID: " />
+            <h:outputText id="staff" value="#{student.staffID}" />
+ 
+            <h:outputText value="Firstname: " />
+            <h:outputText id="first" value="#{student.first_name}" />
+ 
+            <h:outputText value="Lastname: " />
+            <h:outputText id="last" value="#{student.last_name}"/>
+ 
+        </p:panelGrid>
+    </p:dialog>
+</h:form>
+</f:view>
+</h:body>
+
    
 </html>
