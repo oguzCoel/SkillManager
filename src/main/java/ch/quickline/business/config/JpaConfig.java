@@ -18,8 +18,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages={"ch.coel.oguz.service"})
-@EnableJpaRepositories("ch.coel.oguz.repository")
+@ComponentScan(basePackages={"ch.business.quickline.service"})
+@EnableJpaRepositories("ch.business.quickline.repository")
 @EnableTransactionManagement
 public class JpaConfig {
   @Bean
@@ -37,7 +37,7 @@ public class JpaConfig {
     LocalContainerEntityManagerFactoryBean em = 
         new LocalContainerEntityManagerFactoryBean();
     em.setDataSource(dataSource());
-    em.setPackagesToScan(new String[] { "ch.coel.oguz.domain" });
+    em.setPackagesToScan(new String[] { "ch.business.quickline.domain" });
 
     JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
     em.setJpaVendorAdapter(vendorAdapter);
