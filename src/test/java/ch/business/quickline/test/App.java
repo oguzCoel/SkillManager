@@ -18,8 +18,8 @@ public class App {
 		Abteilung abteilung = new Abteilung();
 		abteilung.setAbteilungName("Service Center");
 		System.out.println("AbteilungID before persisting: " + abteilung.getAbteilungId());
-		abteilungRepository.delete(3);
-		service.save(abteilung);
+		abteilungRepository.delete(2);
+		//service.save(abteilung);
 		System.out.println("AbteilungID after persisting: " + abteilung.getAbteilungId());
 		
 
