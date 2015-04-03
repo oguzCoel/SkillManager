@@ -5,16 +5,21 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<head>
+<h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
-</head>
+</h:head>
 
-    <body>
-    
-<ui:composition> 
-   <h1>Default Header</h1>	
-</ui:composition>
+<body>
+    	<h:form>
+   			<h:panelGrid columns="2">
+   			<h:outputLabel for="abteilungName" value="Abteilungsname:"/>
+   			<h:inputText id="abteilung" value="#{abteilungController.abteilung.abteilungName}"/>
+   			<h:commandButton id="saveButton" value="Save" action="#{abteilungController.save}"/>
+   			</h:panelGrid>
+ 
+</h:form>
+		
     </body>
    
 </html>

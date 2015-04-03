@@ -1,4 +1,4 @@
-package ch.quickline.business.config;
+package ch.business.quickline.config;
 
 import java.util.Properties;
 

@@ -3,10 +3,10 @@ package ch.business.quickline.test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import ch.business.quickline.config.JpaConfig;
 import ch.business.quickline.domain.Abteilung;
 import ch.business.quickline.repository.AbteilungRepository;
 import ch.business.quickline.service.AbteilungService;
-import ch.quickline.business.config.JpaConfig;
 
 public class App {
 
@@ -18,8 +18,8 @@ public class App {
 		Abteilung abteilung = new Abteilung();
 		abteilung.setAbteilungName("Service Center");
 		System.out.println("AbteilungID before persisting: " + abteilung.getAbteilungId());
-		abteilungRepository.delete(2);
-		//service.save(abteilung);
+		//abteilungRepository.delete(2);
+		service.save(abteilung);
 		System.out.println("AbteilungID after persisting: " + abteilung.getAbteilungId());
 		
 
