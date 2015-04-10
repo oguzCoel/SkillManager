@@ -9,17 +9,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 </h:head>
+	<h:body>
 
-<body>
     	<h:form>
-   			<h:panelGrid columns="2">
-   			<h:outputLabel for="abteilungName" value="Abteilungsname:"/>
-   			<h:inputText id="abteilung" value="#{abteilungController.abteilung.abteilungName}"/>
-   			<h:commandButton id="saveButton" value="Save" action="#{abteilungController.save}"/>
-   			</h:panelGrid>
+    		<h:panelGrid>
+   			<h:outputLabel for="name" value="Name:" style="font-weight:bold"/>                   
+            <p:inputText id="name" value="#{abteilungController.abteilung.abteilungName}" required="true" label="Name"/>
+            <p:message for="name" />
+            <h:outputText value="#{abteilungController.abteilung.abteilungName}"/>
+            
+            <p:commandButton value="save" validateClient="true" style="margin-right:10px" async="true" update="@form" ajax="true" action="#{abteilungController.save}"/>
+ 			</h:panelGrid>
  
-</h:form>
+		</h:form>
 		
-    </body>
+		
+	
+		
+		
+		
+	
+	
+    </h:body>
    
 </html>

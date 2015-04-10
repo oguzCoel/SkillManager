@@ -22,6 +22,11 @@ public class App {
 		service.save(abteilung);
 		System.out.println("AbteilungID after persisting: " + abteilung.getAbteilungId());
 		
+		for (Abteilung abt: service.findALL()){
+			System.out.println(abt.getAbteilungName());
+		}
+		
+		
 
 	}
 

@@ -22,6 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("ch.business.quickline.repository")
 @EnableTransactionManagement
 public class JpaConfig {
+	
   @Bean
   public DataSource dataSource() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -59,6 +60,8 @@ public class JpaConfig {
 
     return transactionManager;
   }
+  
+  
 
 
 }
