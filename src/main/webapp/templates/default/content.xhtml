@@ -1,6 +1,7 @@
  
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
  
     <ui:composition>
         <div class="container-fluid">
@@ -9,8 +10,8 @@
                     <ui:include src="leftMenu.xhtml" />
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">                    
-                    <ui:insert name="content" />
-                    <ui:include src="datatable.xhtml"/>                    
+                    <ui:insert name="content" /> 
+                    <p:chart type="metergauge" model="#{mitarbeiterSkillController.meterGaugeModel1}" style="width:400px;height:250px" />                   
                 </div>
             </div>
         </div>

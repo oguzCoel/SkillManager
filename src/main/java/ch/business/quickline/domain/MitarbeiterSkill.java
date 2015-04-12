@@ -52,7 +52,7 @@ public class MitarbeiterSkill implements java.io.Serializable {
 		this.mitarbeiterSkillId = mitarbeiterSkillId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Mitarbeiter", nullable = false)
 	public Mitarbeiter getMitarbeiter() {
 		return this.mitarbeiter;
@@ -62,7 +62,7 @@ public class MitarbeiterSkill implements java.io.Serializable {
 		this.mitarbeiter = mitarbeiter;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Skill", nullable = false)
 	public Skill getSkill() {
 		return this.skill;
