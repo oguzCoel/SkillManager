@@ -22,7 +22,8 @@ public class MitarbeiterSkillController  {
 	@Autowired
 	private MitarbeiterSkillService mitarbeiterSkillService;
  
-    private MeterGaugeChartModel meterGaugeModel1;
+    private MeterGaugeChartModel masterBewertungen;
+    private MeterGaugeChartModel selbstBewertungen;
    
  
     @PostConstruct
@@ -30,8 +31,12 @@ public class MitarbeiterSkillController  {
         createMeterGaugeModels();
     }
  
-    public MeterGaugeChartModel getMeterGaugeModel1() {
-        return meterGaugeModel1;
+    public MeterGaugeChartModel getMasterBewertungen() {
+        return masterBewertungen;
+    }
+    
+    public MeterGaugeChartModel getSelbstBewertungen(){
+    	return selbstBewertungen;
     }
      
   
@@ -49,7 +54,7 @@ public class MitarbeiterSkillController  {
     }
     
     @PostConstruct
-    private Double getSkillBewertungAverage(){
+    private Double getMasterBewertungAverage(){
     	Double sum = 0.0;
     	for (MitarbeiterSkill skill: mitarbeiterSkillService.findAll()){
     		sum = sum + skill.getMasterBewertung();
@@ -57,12 +62,27 @@ public class MitarbeiterSkillController  {
     	
     	return sum / mitarbeiterSkillService.findAll().size();
     }
+    
+    @PostConstruct
+    private Double getSelbstBewertungAverage(){
+    	Double sum =0.0;
+    	for(MitarbeiterSkill interest: mitarbeiterSkillService.findAll()){
+    		sum = sum + interest.getSelbstBewertung();
+    	}
+    	
+    	return sum / mitarbeiterSkillService.findAll().size();
+    }
  
     private void createMeterGaugeModels() {
-        meterGaugeModel1 = initMeterGaugeModel();
-        meterGaugeModel1.setTitle("Masterbewertungen");
-        meterGaugeModel1.setGaugeLabel("Skill");
-        meterGaugeModel1.setValue(getSkillBewertungAverage());
+        masterBewertungen = initMeterGaugeModel();
+        masterBewertungen.setTitle("Masterbewertungen");
+        masterBewertungen.setGaugeLabel("Skill");
+        masterBewertungen.setValue(getMasterBewertungAverage());
+        
+        selbstBewertungen = initMeterGaugeModel();
+        selbstBewertungen.setTitle("Selbstbewertungen");
+        selbstBewertungen.setGaugeLabel("Interesse");
+        selbstBewertungen.setValue(getSelbstBewertungAverage());
          
      
     }

@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:b="http://bootsfaces.net/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Dashboard Template for BootsFaces</title>
         <meta name="author" content="Riccardo Massera"></meta>
@@ -122,7 +123,7 @@
                         <b:column col-xs="6" col-sm="3" styleClass="placeholder">
                             <img data-src="holder.js/200x200/sky" class="img-responsive" alt="Generic placeholder thumbnail"/>
                             <h4>Label</h4>
-                            <span class="text-muted">Something else</span>
+                            <p:chart type="metergauge" model="#{mitarbeiterSkillController.meterGaugeModel1}" style="width:200px;height:250px" /> 
                         </b:column>
                         <b:column col-xs="6" col-sm="3" styleClass="placeholder">
                             <img data-src="holder.js/200x200/vine" class="img-responsive" alt="Generic placeholder thumbnail"/>

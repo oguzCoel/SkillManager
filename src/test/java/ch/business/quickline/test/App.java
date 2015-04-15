@@ -25,6 +25,8 @@ public class App {
 		service.save(abteilung);
 		System.out.println("AbteilungID after persisting: " + abteilung.getAbteilungId());
 		*/
+		
+		
 		Double sum = 0.0;
 		for (MitarbeiterSkill skill: mitarbeiterSkillService.findAll()){
 			
