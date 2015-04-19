@@ -1,6 +1,6 @@
 package ch.business.quickline.domain;
 // default package
-// Generated 10.04.2015 18:41:44 by Hibernate Tools 3.4.0.CR1
+// Generated 15.04.2015 23:50:36 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;

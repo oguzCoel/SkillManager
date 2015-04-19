@@ -1,0 +1,34 @@
+
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<h:form>
+	 <p:growl id="messages" showDetail="false"/>
+
+		<p:outputPanel id="menuPanel" layout="block">
+		  <h3>Menu</h3>
+    		<p:menu toggleable="true">
+       			 <p:submenu label="Ajax">
+            		<p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="ui-icon-disk" />
+            		<p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+       			 </p:submenu>
+       			 <p:submenu label="Non-Ajax">
+           			 <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
+       			 </p:submenu>
+       			 <p:submenu label="Navigations">
+           			 <p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/>
+        
+       			 </p:submenu>
+   			 </p:menu>
+
+		
+	    </p:outputPanel>
+	</h:form>
+</ui:composition>
+
+

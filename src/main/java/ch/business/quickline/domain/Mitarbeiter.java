@@ -1,7 +1,8 @@
 package ch.business.quickline.domain;
 // default package
-// Generated 10.04.2015 18:41:44 by Hibernate Tools 3.4.0.CR1
+// Generated 15.04.2015 23:50:36 by Hibernate Tools 3.4.0.CR1
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -38,6 +39,8 @@ public class Mitarbeiter implements java.io.Serializable {
 	private int mitarbeiterHausNummer;
 	private int mitarbeiterPlz;
 	private String mitarbeiterWohnort;
+	private BigDecimal mitarbeiterMasterBewertungDurchschnitt;
+	private BigDecimal mitarbeiterSelbstBewertungDurchschnitt;
 	private Set<Benutzer> benutzers = new HashSet<Benutzer>(0);
 	private Set<MitarbeiterSkill> mitarbeiterSkills = new HashSet<MitarbeiterSkill>(
 			0);
@@ -70,6 +73,8 @@ public class Mitarbeiter implements java.io.Serializable {
 			Date mitarbeiterGeburtsDatum, Date mitarbeiterAnstellungsDatum,
 			String mitarbeiterAdresse, int mitarbeiterHausNummer,
 			int mitarbeiterPlz, String mitarbeiterWohnort,
+			BigDecimal mitarbeiterMasterBewertungDurchschnitt,
+			BigDecimal mitarbeiterSelbstBewertungDurchschnitt,
 			Set<Benutzer> benutzers, Set<MitarbeiterSkill> mitarbeiterSkills,
 			Set<Skill> skills, Set<Task> tasks,
 			Set<Qualifikation> qualifikations) {
@@ -83,6 +88,8 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterHausNummer = mitarbeiterHausNummer;
 		this.mitarbeiterPlz = mitarbeiterPlz;
 		this.mitarbeiterWohnort = mitarbeiterWohnort;
+		this.mitarbeiterMasterBewertungDurchschnitt = mitarbeiterMasterBewertungDurchschnitt;
+		this.mitarbeiterSelbstBewertungDurchschnitt = mitarbeiterSelbstBewertungDurchschnitt;
 		this.benutzers = benutzers;
 		this.mitarbeiterSkills = mitarbeiterSkills;
 		this.skills = skills;
@@ -194,6 +201,26 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterWohnort = mitarbeiterWohnort;
 	}
 
+	@Column(name = "MitarbeiterMasterBewertungDurchschnitt", precision = 10)
+	public BigDecimal getMitarbeiterMasterBewertungDurchschnitt() {
+		return this.mitarbeiterMasterBewertungDurchschnitt;
+	}
+
+	public void setMitarbeiterMasterBewertungDurchschnitt(
+			BigDecimal mitarbeiterMasterBewertungDurchschnitt) {
+		this.mitarbeiterMasterBewertungDurchschnitt = mitarbeiterMasterBewertungDurchschnitt;
+	}
+
+	@Column(name = "MitarbeiterSelbstBewertungDurchschnitt", precision = 10)
+	public BigDecimal getMitarbeiterSelbstBewertungDurchschnitt() {
+		return this.mitarbeiterSelbstBewertungDurchschnitt;
+	}
+
+	public void setMitarbeiterSelbstBewertungDurchschnitt(
+			BigDecimal mitarbeiterSelbstBewertungDurchschnitt) {
+		this.mitarbeiterSelbstBewertungDurchschnitt = mitarbeiterSelbstBewertungDurchschnitt;
+	}
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mitarbeiter")
 	public Set<Benutzer> getBenutzers() {
 		return this.benutzers;
@@ -203,7 +230,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.benutzers = benutzers;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mitarbeiter")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "mitarbeiter")
 	public Set<MitarbeiterSkill> getMitarbeiterSkills() {
 		return this.mitarbeiterSkills;
 	}
@@ -212,7 +239,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterSkills = mitarbeiterSkills;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "SkillMaster", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Mitarbeiter", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Skill", nullable = false, updatable = false) })
 	public Set<Skill> getSkills() {
 		return this.skills;

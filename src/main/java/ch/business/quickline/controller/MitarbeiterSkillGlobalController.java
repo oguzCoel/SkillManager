@@ -17,19 +17,24 @@ import ch.business.quickline.service.MitarbeiterSkillService;
 @ManagedBean
 @Component
 @ViewScoped
-public class MitarbeiterSkillController  {
+public class MitarbeiterSkillGlobalController  {
 	
 	@Autowired
 	private MitarbeiterSkillService mitarbeiterSkillService;
  
     private MeterGaugeChartModel masterBewertungen;
     private MeterGaugeChartModel selbstBewertungen;
+    private List<MitarbeiterSkill> mitarbeiterSkills;
    
  
     @PostConstruct
     public void init() {
         createMeterGaugeModels();
+        
+        mitarbeiterSkills = mitarbeiterSkillService.findAll();
     }
+    
+    
  
     public MeterGaugeChartModel getMasterBewertungen() {
         return masterBewertungen;
@@ -38,10 +43,17 @@ public class MitarbeiterSkillController  {
     public MeterGaugeChartModel getSelbstBewertungen(){
     	return selbstBewertungen;
     }
-     
-  
+    
  
-    private MeterGaugeChartModel initMeterGaugeModel() {
+    public List<MitarbeiterSkill> getMitarbeiterSkills() {
+		return mitarbeiterSkills;
+	}
+
+	public void setMitarbeiterSkills(List<MitarbeiterSkill> mitarbeiterSkills) {
+		this.mitarbeiterSkills = mitarbeiterSkills;
+	}
+
+	private MeterGaugeChartModel initMeterGaugeModel() {
         List<Number> intervals = new ArrayList<Number>(){{
             add(1);
             add(2);

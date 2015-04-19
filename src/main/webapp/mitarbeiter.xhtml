@@ -11,13 +11,20 @@
         		<div class="ui-grid">
     				<div class="ui-grid-row">
         				<div class="ui-grid-col-6">
-        					<p:chart type="metergauge" model="#{mitarbeiterSkillGlobalController.masterBewertungen}" style="width:400px;height:250px" />
+        					<p:chart type="metergauge" model="#{mitarbeiterIndividualController.masterBewertungen}" style="width:400px;height:250px" />
         				</div>
         				<div class="ui-grid-col-6">
-        					<p:chart type="metergauge" model="#{mitarbeiterSkillGlobalController.selbstBewertungen}" style="width:400px;height:250px" />
+        					<p:chart type="metergauge" model="#{mitarbeiterIndividualController.selbstBewertungen}" style="width:400px;height:250px" />
         				</div>
     				</div>
-				</div> 
+				</div>
+					<div class="ui-grid">
+    				<div class="ui-grid-row">
+        				<div class="ui-grid-col-12">
+							<p:chart type="bar" model="#{mitarbeiterSkillIndividualController.barModel}" style="height:300px"/>
+        				</div>
+    				</div>
+				</div>  
 				<div class="ui-grid ui-grid-responsive">
 				    <div class="ui-grid-row">
 				        <div class="ui-grid-col-6">
