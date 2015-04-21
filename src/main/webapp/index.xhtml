@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 
+ 
+    <ui:composition template="/templates/default/template.xhtml">
+        <ui:define name="content">
+        	<ui:insert>
+        		<div class="ui-grid">
+    				<div class="ui-grid-row">
+        				<div class="ui-grid-col-6">
+        					<p:chart type="metergauge" model="#{meterGaugeChartView.masterBewertungenGlobal}" style="width:400px;height:250px" />
+        				</div>
+        				<div class="ui-grid-col-6">
+        					<p:chart type="metergauge" model="#{meterGaugeChartView.selbstBewertungenGlobal}" style="width:400px;height:250px" />
+        				</div>
+    				</div>
+				</div> 
+				<div class="ui-grid ui-grid-responsive">
+				    <div class="ui-grid-row">
+				        <div class="ui-grid-col-6">
+				        	<p:dataList value="#{rankingDataList.mitarbeiterMasterBewertungRangliste}" var="mitarbeiter" type="ordered">
+       					 		<f:facet name="header">
+            						Top Mitarbeiter nach Masterbewertung
+        				 		</f:facet>
+        							#{mitarbeiter.mitarbeiterVorname},
+        							#{mitarbeiter.mitarbeiterNachname},
+        							#{mitarbeiter.mitarbeiterMasterBewertungDurchschnitt}
+    						</p:dataList>
+				        </div>
+				          <div class="ui-grid-col-6">
+				        	<p:dataList value="#{rankingDataList.mitarbeiterSelbstBewertungRangliste}" var="mitarbeiter" type="ordered">
+       					 		<f:facet name="header">
+            						Top Mitarbeiter nach Selbstbewertung
+        				 		</f:facet>
+        							#{mitarbeiter.mitarbeiterVorname},
+        							#{mitarbeiter.mitarbeiterNachname},
+        							#{mitarbeiter.mitarbeiterSelbstBewertungDurchschnitt}
+    						</p:dataList>
+				        </div>
+				    </div>    
+				</div>
+        	</ui:insert>            
+ 
+        </ui:define>
+    </ui:composition>        
+ 
+</html> 

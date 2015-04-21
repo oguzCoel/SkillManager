@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 
+ 
+    <ui:composition template="/templates/default/template.xhtml">
+        <ui:define name="content">
+        	<ui:insert>
+        		<h:form>
+    				<p:growl id="msgs" showDetail="true" />
+    				
+    				
+ 				<p:panelGrid columns="2" layout="grid">	
+    				<p:panel id="basic" header="Durchschnittswerte"  style="margin-bottom:5px">
+        				<p:panelGrid columns="2" cellpadding="10">
+            				<p:chart type="metergauge" model="#{meterGaugeChartView.masterBewertungenIndividual}" style="width:250px;height:150px"/>
+            				<p:chart type="metergauge" model="#{meterGaugeChartView.selbstBewertungenIndividual}" style="width:250px;height:150px"/>
+        				</p:panelGrid>
+        				
+    				</p:panel>
+    				<p:panel id="basi" header="Über"  style="margin-bottom:5px">
+        				<p:panelGrid columns="2" cellpadding="10">
+        					
+							    <h:outputText value="Abteilung:" />
+							    <h:outputText value="#{mitarbeiterIndividual.getMitarbeiter().getAbteilung().getAbteilungName()}" />
+							 
+							    <h:outputText value="Team:" />
+							    <h:outputText value="Los Angeles Lakers" />
+							 
+							    <h:outputText value="Position:" />
+							    <h:outputText value="Shooting Guard" />
+							 
+							    <h:outputText value="Number:" />
+							    <h:outputText value="24" />
+							    
+									<h:form>							    
+							        <p:commandLink id="nonAjax"  ajax="false">
+        								<h:outputText value="Non-Ajax Submit" />
+    								</p:commandLink>
+									</h:form>
+            				
+        				</p:panelGrid>
+        				
+    				</p:panel>		
+    			</p:panelGrid>	
+    		
+    				
+    				
+    			</h:form>	
+        	</ui:insert>            
+ 
+        </ui:define>
+    </ui:composition>        
+ 
+</html> 
