@@ -40,17 +40,31 @@ public class MitarbeiterSkillIndividualController {
 	    }
 	    
 	    @PostConstruct
-	    private ChartSeries getChartSeries(){
-	    	ChartSeries skills = new ChartSeries();
-	    	skills.setLabel("Skill");
+	    private ChartSeries getMasterBewertungChartSeries(){
+	    	ChartSeries masterBewertungen = new ChartSeries();
+	    	masterBewertungen.setLabel("Masterbewertung");
 	    	Mitarbeiter mitarbeiter = mitarbeiterService.findByMitarbeiterId(1);
 	    	  
 		        
 		        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiter(mitarbeiter)){
-		        	skills.set(mitarbeiterSkill.getSkill().getSkillName().toString(), mitarbeiterSkill.getMasterBewertung());
+		        	masterBewertungen.set(mitarbeiterSkill.getSkill().getSkillName().toString(), mitarbeiterSkill.getMasterBewertung());
 		        }
 		        
-		        return skills;
+		        return masterBewertungen;
+	    }
+	    
+	    @PostConstruct
+	    private ChartSeries getSelbstBewertungChartSeries(){
+	    	ChartSeries selbstBewertungen = new ChartSeries();
+	    	selbstBewertungen.setLabel("SelbstBewertungen");
+	    	Mitarbeiter mitarbeiter = mitarbeiterService.findByMitarbeiterId(1);
+	    	  
+		        
+		        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiter(mitarbeiter)){
+		        	selbstBewertungen.set(mitarbeiterSkill.getSkill().getSkillName().toString(), mitarbeiterSkill.getSelbstBewertung());
+		        }
+		        
+		        return selbstBewertungen;
 	    }
 	     
 	  
@@ -58,7 +72,8 @@ public class MitarbeiterSkillIndividualController {
 	    private BarChartModel initBarModel() {
 	        BarChartModel model = new BarChartModel();
 	        
-	        model.addSeries(getChartSeries());
+	        model.addSeries(getMasterBewertungChartSeries());
+	        model.addSeries(getSelbstBewertungChartSeries());
 	    
 	        return model;
 	    }
@@ -78,8 +93,10 @@ public class MitarbeiterSkillIndividualController {
 	         
 	        Axis yAxis = barModel.getAxis(AxisType.Y);
 	        yAxis.setLabel("Skilllevel");
+	        yAxis.setTickCount(5);
 	        yAxis.setMin(0);
 	        yAxis.setMax(5);
+	      
 	    }
 
 }

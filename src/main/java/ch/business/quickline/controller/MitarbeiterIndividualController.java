@@ -26,11 +26,14 @@ public class MitarbeiterIndividualController {
 	
 	private MeterGaugeChartModel masterBewertungen;
     private MeterGaugeChartModel selbstBewertungen;
+
  
     @PostConstruct
     public void init() {
         createMeterGaugeModels();
     }
+    
+    
  
     public MeterGaugeChartModel getMasterBewertungen() {
         return masterBewertungen;
