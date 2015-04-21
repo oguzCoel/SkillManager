@@ -8,47 +8,47 @@
     <ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
         	<ui:insert>
-        		<div class="ui-grid">
-    				<div class="ui-grid-row">
-        				<div class="ui-grid-col-6">
-        					<p:chart type="metergauge" model="#{mitarbeiterIndividualController.masterBewertungen}" style="width:400px;height:250px" />
-        				</div>
-        				<div class="ui-grid-col-6">
-        					<p:chart type="metergauge" model="#{mitarbeiterIndividualController.selbstBewertungen}" style="width:400px;height:250px" />
-        				</div>
-    				</div>
-				</div>
-					<div class="ui-grid">
-    				<div class="ui-grid-row">
-        				<div class="ui-grid-col-12">
-							<p:chart type="bar" model="#{mitarbeiterSkillIndividualController.barModel}" style="height:300px"/>
-        				</div>
-    				</div>
-				</div>  
-				<div class="ui-grid ui-grid-responsive">
-				    <div class="ui-grid-row">
-				        <div class="ui-grid-col-6">
-				        	<p:dataList value="#{mitarbeiterGlobalController.mitarbeiterMasterBewertungRangliste}" var="mitarbeiter" type="ordered">
-       					 		<f:facet name="header">
-            						Top Mitarbeiter nach Masterbewertung
-        				 		</f:facet>
-        							#{mitarbeiter.mitarbeiterVorname},
-        							#{mitarbeiter.mitarbeiterNachname},
-        							#{mitarbeiter.mitarbeiterMasterBewertungDurchschnitt}
-    						</p:dataList>
-				        </div>
-				          <div class="ui-grid-col-6">
-				        	<p:dataList value="#{mitarbeiterGlobalController.mitarbeiterSelbstBewertungRangliste}" var="mitarbeiter" type="ordered">
-       					 		<f:facet name="header">
-            						Top Mitarbeiter nach Selbstbewertung
-        				 		</f:facet>
-        							#{mitarbeiter.mitarbeiterVorname},
-        							#{mitarbeiter.mitarbeiterNachname},
-        							#{mitarbeiter.mitarbeiterSelbstBewertungDurchschnitt}
-    						</p:dataList>
-				        </div>
-				    </div>    
-				</div>
+        		<h:form>
+    				<p:growl id="msgs" showDetail="true" />
+    				
+    				
+ 				<p:panelGrid columns="2" layout="grid">	
+    				<p:panel id="basic" header="Durchschnittswerte"  style="margin-bottom:5px">
+        				<p:panelGrid columns="2" cellpadding="10">
+            				<p:chart type="metergauge" model="#{meterGaugeChartView.masterBewertungenIndividual}" style="width:250px;height:150px"/>
+            				<p:chart type="metergauge" model="#{meterGaugeChartView.selbstBewertungenIndividual}" style="width:250px;height:150px"/>
+        				</p:panelGrid>
+        				
+    				</p:panel>
+    				<p:panel id="basi" header="Über"  style="margin-bottom:5px">
+        				<p:panelGrid columns="2" cellpadding="10">
+        					
+							    <h:outputText value="Abteilung:" />
+							    <h:outputText value="#{mitarbeiterIndividual.getMitarbeiter().getAbteilung().getAbteilungName()}" />
+							 
+							    <h:outputText value="Team:" />
+							    <h:outputText value="Los Angeles Lakers" />
+							 
+							    <h:outputText value="Position:" />
+							    <h:outputText value="Shooting Guard" />
+							 
+							    <h:outputText value="Number:" />
+							    <h:outputText value="24" />
+							    
+									<h:form>							    
+							        <p:commandLink id="nonAjax"  ajax="false">
+        								<h:outputText value="Non-Ajax Submit" />
+    								</p:commandLink>
+									</h:form>
+            				
+        				</p:panelGrid>
+        				
+    				</p:panel>		
+    			</p:panelGrid>	
+    		
+    				
+    				
+    			</h:form>	
         	</ui:insert>            
  
         </ui:define>

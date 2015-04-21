@@ -108,7 +108,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterId = mitarbeiterId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "MitarbeiterAbteilung", nullable = false)
 	public Abteilung getAbteilung() {
 		return this.abteilung;
