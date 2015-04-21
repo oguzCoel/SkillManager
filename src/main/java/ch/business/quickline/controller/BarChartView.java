@@ -19,7 +19,7 @@ import ch.business.quickline.service.MitarbeiterSkillService;
 @ManagedBean
 @Component
 @RequestScoped
-public class MitarbeiterSkillIndividualController {
+public class BarChartView {
 	
 	@Autowired
 	private MitarbeiterSkillService mitarbeiterSkillService;
@@ -40,31 +40,17 @@ public class MitarbeiterSkillIndividualController {
 	    }
 	    
 	    @PostConstruct
-	    private ChartSeries getMasterBewertungChartSeries(){
-	    	ChartSeries masterBewertungen = new ChartSeries();
-	    	masterBewertungen.setLabel("Masterbewertung");
+	    private ChartSeries getChartSeries(){
+	    	ChartSeries skills = new ChartSeries();
+	    	skills.setLabel("Skill");
 	    	Mitarbeiter mitarbeiter = mitarbeiterService.findByMitarbeiterId(1);
 	    	  
 		        
-		        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiter(mitarbeiter)){
-		        	masterBewertungen.set(mitarbeiterSkill.getSkill().getSkillName().toString(), mitarbeiterSkill.getMasterBewertung());
+		        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiterOrderByMasterBewertungDesc(mitarbeiter)){
+		        	skills.set(mitarbeiterSkill.getSkill().getSkillName().toString(), mitarbeiterSkill.getMasterBewertung());
 		        }
 		        
-		        return masterBewertungen;
-	    }
-	    
-	    @PostConstruct
-	    private ChartSeries getSelbstBewertungChartSeries(){
-	    	ChartSeries selbstBewertungen = new ChartSeries();
-	    	selbstBewertungen.setLabel("SelbstBewertungen");
-	    	Mitarbeiter mitarbeiter = mitarbeiterService.findByMitarbeiterId(1);
-	    	  
-		        
-		        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiter(mitarbeiter)){
-		        	selbstBewertungen.set(mitarbeiterSkill.getSkill().getSkillName().toString(), mitarbeiterSkill.getSelbstBewertung());
-		        }
-		        
-		        return selbstBewertungen;
+		        return skills;
 	    }
 	     
 	  
@@ -72,8 +58,7 @@ public class MitarbeiterSkillIndividualController {
 	    private BarChartModel initBarModel() {
 	        BarChartModel model = new BarChartModel();
 	        
-	        model.addSeries(getMasterBewertungChartSeries());
-	        model.addSeries(getSelbstBewertungChartSeries());
+	        model.addSeries(getChartSeries());
 	    
 	        return model;
 	    }
@@ -93,10 +78,8 @@ public class MitarbeiterSkillIndividualController {
 	         
 	        Axis yAxis = barModel.getAxis(AxisType.Y);
 	        yAxis.setLabel("Skilllevel");
-	        yAxis.setTickCount(5);
 	        yAxis.setMin(0);
 	        yAxis.setMax(5);
-	      
 	    }
 
 }

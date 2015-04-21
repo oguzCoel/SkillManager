@@ -108,7 +108,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterId = mitarbeiterId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "MitarbeiterAbteilung", nullable = false)
 	public Abteilung getAbteilung() {
 		return this.abteilung;
@@ -259,7 +259,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.tasks = tasks;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "MitarbeiterQualifikation", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Mitarbeiter", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Qualifikation", nullable = false, updatable = false) })
 	public Set<Qualifikation> getQualifikations() {
 		return this.qualifikations;

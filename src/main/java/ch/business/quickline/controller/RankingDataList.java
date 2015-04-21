@@ -16,7 +16,7 @@ import ch.business.quickline.service.MitarbeiterService;
 @ManagedBean
 @Component
 @ViewScoped
-public class MitarbeiterGlobalController {
+public class RankingDataList {
 	
 	@Autowired
 	private MitarbeiterService mitarbeiterService;

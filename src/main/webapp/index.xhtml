@@ -11,17 +11,17 @@
         		<div class="ui-grid">
     				<div class="ui-grid-row">
         				<div class="ui-grid-col-6">
-        					<p:chart type="metergauge" model="#{mitarbeiterSkillGlobalController.masterBewertungen}" style="width:400px;height:250px" />
+        					<p:chart type="metergauge" model="#{meterGaugeChartView.masterBewertungenGlobal}" style="width:400px;height:250px" />
         				</div>
         				<div class="ui-grid-col-6">
-        					<p:chart type="metergauge" model="#{mitarbeiterSkillGlobalController.selbstBewertungen}" style="width:400px;height:250px" />
+        					<p:chart type="metergauge" model="#{meterGaugeChartView.selbstBewertungenGlobal}" style="width:400px;height:250px" />
         				</div>
     				</div>
 				</div> 
 				<div class="ui-grid ui-grid-responsive">
 				    <div class="ui-grid-row">
 				        <div class="ui-grid-col-6">
-				        	<p:dataList value="#{mitarbeiterGlobalController.mitarbeiterMasterBewertungRangliste}" var="mitarbeiter" type="ordered">
+				        	<p:dataList value="#{rankingDataList.mitarbeiterMasterBewertungRangliste}" var="mitarbeiter" type="ordered">
        					 		<f:facet name="header">
             						Top Mitarbeiter nach Masterbewertung
         				 		</f:facet>
@@ -31,7 +31,7 @@
     						</p:dataList>
 				        </div>
 				          <div class="ui-grid-col-6">
-				        	<p:dataList value="#{mitarbeiterGlobalController.mitarbeiterSelbstBewertungRangliste}" var="mitarbeiter" type="ordered">
+				        	<p:dataList value="#{rankingDataList.mitarbeiterSelbstBewertungRangliste}" var="mitarbeiter" type="ordered">
        					 		<f:facet name="header">
             						Top Mitarbeiter nach Selbstbewertung
         				 		</f:facet>
