@@ -17,25 +17,17 @@
             <p:inputText id="name" value="#{abteilungController.abteilung.abteilungName}" required="true" label="Name"/>
             <p:message for="name" />
             <h:outputText value="#{abteilungController.abteilung.abteilungName}"/>
-            
             <p:commandButton value="save" validateClient="true" style="margin-right:10px" async="true" update="@form" ajax="true" action="#{abteilungController.save}"/>
  			</h:panelGrid>
- 			
- 			
- 				<p:dataList value="#{mitarbeiter.mitarbeiterRangliste}" var="mitarbeiter" type="ordered">
+ 			<p:dataList value="#{mitarbeiter.mitarbeiterRangliste}" var="mitarbeiter" type="ordered">
        					 		<f:facet name="header">
             						Rangliste nach Mitarbeiter
         				 		</f:facet>
         							#{mitarbeiter.mitarbeiterVorname}, #{mitarbeiter.mitarbeiterMasterBewertungDurchschnitt}
-    						</p:dataList>
+    		</p:dataList>
+   		
  
 		</h:form>
-		
-		
-	
-		
-		
-		
 	
 	
     </h:body>

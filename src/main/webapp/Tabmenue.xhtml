@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile">
+    
+    <h:head style="background-color=red"  >
+    		
+    </h:head>
+    
+    <h:body>  
+        <pm:page id="home">
+            <pm:content>
+             	<pm:header title="Skill Home" fixed="false">
+            	</pm:header>           
+            	<p>Skill Home content.</p>
+            	<p:tabMenu activeIndex="0" style="width: 100%;">
+                    <p:menuitem value="Home" icon="ui-icon-home" url="#" iconPos="left" />
+                    <p:menuitem value="Details" icon="ui-icon-gear" url="#" iconPos="left" outcome="pm:details"/>
+                    <p:menuitem value="Suchen" icon="ui-icon-search" url="#" iconPos="left" />
+                    <p:menuitem value="Löschen" icon="ui-icon-trash" url="#" iconPos="left" />
+                    <p:menuitem value="Person" icon="ui-icon-person" url="#" iconPos="left" />
+                    <p:menuitem value="Schliessen" icon="ui-icon-close" url="#" iconPos="left" />
+                </p:tabMenu>
+                <p>So Könnte unsere Test Seite aussehen.</p>
+            </pm:content>
+        </pm:page>
+ 
+ 
+         <pm:page id="details">    
+            <pm:content>
+            	<pm:header title="Skill Details" fixed="false">
+            	</pm:header>    
+            	<p>Skill Details content.</p>
+            	<p:tabMenu activeIndex="0" style="width: 100%;">
+                    <p:menuitem value="Home" icon="ui-icon-home" url="#" iconPos="left" outcome="pm:home" />
+                    <p:menuitem value="Details" icon="ui-icon-gear" url="#" iconPos="left" />
+                    <p:menuitem value="Suchen" icon="ui-icon-search" url="#" iconPos="left" />
+                    <p:menuitem value="Löschen" icon="ui-icon-trash" url="#" iconPos="left" />
+                    <p:menuitem value="Person" icon="ui-icon-person" url="#" iconPos="left" />
+                    <p:menuitem value="Schliessen" icon="ui-icon-close" url="#" iconPos="left" />
+                </p:tabMenu>
+                <p>detail seite.</p>
+            </pm:content>
+        </pm:page>       
+    </h:body>
+    
+</html>

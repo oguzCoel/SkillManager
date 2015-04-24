@@ -17,17 +17,16 @@
         				<p:panelGrid columns="2" cellpadding="10">
             				<p:chart type="metergauge" model="#{meterGaugeChartView.masterBewertungenIndividual}" style="width:250px;height:150px"/>
             				<p:chart type="metergauge" model="#{meterGaugeChartView.selbstBewertungenIndividual}" style="width:250px;height:150px"/>
-        				</p:panelGrid>
-        				
+ 
+        				</p:panelGrid>	
     				</p:panel>
+    				
     				<p:panel id="basi" header="Über"  style="margin-bottom:5px">
-        				<p:panelGrid columns="2" cellpadding="10">
-        					
+        				<p:panelGrid columns="2" cellpadding="10">     					
 							    <h:outputText value="Abteilung:" />
-							    <h:outputText value="#{mitarbeiterIndividual.getMitarbeiter().getAbteilung().getAbteilungName()}" />
-							 
-							    <h:outputText value="Team:" />
-							    <h:outputText value="Los Angeles Lakers" />
+							    <h:outputText value="#{mitarbeiterIndividual.getMitarbeiter().getAbteilung().getAbteilungName()}" />							 
+							    <h:outputText value="Rolle:" />
+							    <h:outputText value="Irgendwas" />
 							 
 							    <h:outputText value="Position:" />
 							    <h:outputText value="Shooting Guard" />
@@ -40,18 +39,14 @@
         								<h:outputText value="Non-Ajax Submit" />
     								</p:commandLink>
 									</h:form>
-            				
-        				</p:panelGrid>
-        				
+								
+            			</p:panelGrid>           			
     				</p:panel>		
     			</p:panelGrid>	
-    		
-    				
-    				
     			</h:form>	
         	</ui:insert>            
- 
         </ui:define>
     </ui:composition>        
- 
 </html> 
+<!-- 	 -->
+						
