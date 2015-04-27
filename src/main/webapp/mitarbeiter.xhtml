@@ -3,50 +3,70 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui"> 
- 
+	xmlns:p="http://primefaces.org/ui">
+	
     <ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
         	<ui:insert>
+
         		<h:form>
     				<p:growl id="msgs" showDetail="true" />
-    				
-    				
- 				<p:panelGrid columns="2" layout="grid">	
-    				<p:panel id="basic" header="Durchschnittswerte"  style="margin-bottom:5px">
+ 				<p:panelGrid columns="3" layout="grid">	
+    				<p:panel id="durchschnittwerteindividual" header="Durchschnittswerte"  style="margin-bottom:5px">
         				<p:panelGrid columns="2" cellpadding="10">
-            				<p:chart type="metergauge" model="#{meterGaugeChartView.masterBewertungenIndividual}" style="width:250px;height:150px"/>
-            				<p:chart type="metergauge" model="#{meterGaugeChartView.selbstBewertungenIndividual}" style="width:250px;height:150px"/>
- 
-        				</p:panelGrid>	
+        						
+            				<p:chart type="metergauge" model="#{meterGaugeChartView.masterBewertungenIndividual}" style="width:200px;height:140px" />
+            				<p:chart type="metergauge" model="#{meterGaugeChartView.selbstBewertungenIndividual}" style="width:200px;height:140px"/>
+        				</p:panelGrid>
     				</p:panel>
     				
-    				<p:panel id="basi" header="Über"  style="margin-bottom:5px">
-        				<p:panelGrid columns="2" cellpadding="10">     					
+    				<p:panel id="mitarbeiterindividual" header="Über"  style="margin-bottom:5px">
+        				<p:panelGrid columns="2" cellpadding="10">		
 							    <h:outputText value="Abteilung:" />
-							    <h:outputText value="#{mitarbeiterIndividual.getMitarbeiter().getAbteilung().getAbteilungName()}" />							 
+							    <h:outputText value="#{mitarbeiterIndividual.getMitarbeiter().getAbteilung().getAbteilungName()}" />
 							    <h:outputText value="Rolle:" />
-							    <h:outputText value="Irgendwas" />
-							 
-							    <h:outputText value="Position:" />
-							    <h:outputText value="Shooting Guard" />
-							 
-							    <h:outputText value="Number:" />
-							    <h:outputText value="24" />
-							    
-									<h:form>							    
+							    <h:outputText value="#{mitarbeiterIndividual.getMitarbeiter().getMitarbeiterRolle()}"/>
+				  
+									<h:form>
+									<br/> <br/> 							    
 							        <p:commandLink id="nonAjax"  ajax="false">
-        								<h:outputText value="Non-Ajax Submit" />
+        								<h:outputText value="mehr..." />
     								</p:commandLink>
-									</h:form>
-								
-            			</p:panelGrid>           			
+									</h:form>			
+        				</p:panelGrid>
+    				</p:panel>
+    				
+    				<p:panel id="qualifikationsindividual" header="Qualifikation" style="margin-bottom:5px">
+    					<p:dataList value="#{mitarbeiterIndividual.qualifikations}" var="qualifikation" type="ordered">
+        							#{qualifikation.getQualifikationName()}
+    					</p:dataList>
     				</p:panel>		
     			</p:panelGrid>	
-    			</h:form>	
+    			</h:form>
+    			
+    			<br/><br/>
+    			
+    			<p:chart type="bar" model="#{barChartView.barModel}" style="height:300px"/>
+    			
+    			<h:form>
+    				<p:growl id="msgs" showDetail="true" />
+ 				<p:panelGrid columns="3" layout="grid">
+ 					<p:panel id="skillranking" header="Top Skills" style="margin-bottom:5px">
+    					<p:dataList value="#{mitarbeiterIndividual.mitarbeiterSkills}" var="skills" type="ordered">
+    								#{skills.getSkill().getSkillName()}: #{skills.getMasterBewertung()}
+    					</p:dataList>
+    				</p:panel>
+    				<p:panel id="interestranking" header="Top Interessen" style="margin-bottom:5px">
+    					<p:dataList value="#{mitarbeiterIndividual.mitarbeiterInterests}" var="interests" type="ordered">
+    								#{interests.getSkill().getSkillName()} : #{interests.getSelbstBewertung()}
+    					</p:dataList>
+    				</p:panel>
+ 				</p:panelGrid>
+ 				</h:form>
+    				
         	</ui:insert>            
+ 
         </ui:define>
     </ui:composition>        
+ 
 </html> 
-<!-- 	 -->
-						

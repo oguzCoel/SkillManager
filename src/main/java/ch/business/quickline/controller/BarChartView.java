@@ -46,7 +46,7 @@ public class BarChartView {
 	    	Mitarbeiter mitarbeiter = mitarbeiterService.findByMitarbeiterId(1);
 	    	  
 		        
-		        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiter(mitarbeiter)){
+		        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiterOrderByMasterBewertungDesc(mitarbeiter)){
 		        	skills.set(mitarbeiterSkill.getSkill().getSkillName().toString(), mitarbeiterSkill.getMasterBewertung());
 		        }
 		        

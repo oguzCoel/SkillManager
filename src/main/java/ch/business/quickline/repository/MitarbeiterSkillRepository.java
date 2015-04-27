@@ -9,6 +9,7 @@ import ch.business.quickline.domain.MitarbeiterSkill;
 
 public interface MitarbeiterSkillRepository extends JpaRepository<MitarbeiterSkill, Integer> {
 	
-	public List<MitarbeiterSkill> findByMitarbeiter(Mitarbeiter mitarbeiter);
+	public List<MitarbeiterSkill> findByMitarbeiterOrderByMasterBewertungDesc(Mitarbeiter mitarbeiter);
+	public List<MitarbeiterSkill> findByMitarbeiterOrderBySelbstBewertungDesc(Mitarbeiter mitarbeiter);
 
 }
