@@ -53,7 +53,7 @@ public class App {
 */
 		 Mitarbeiter mitarbeiter = mitarbeiterService.findByMitarbeiterId(1);
 	        
-	        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiter(mitarbeiter)){
+	        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiterOrderByMasterBewertungDesc(mitarbeiter)){
 	        	System.out.println(mitarbeiterSkill.getSkill().getSkillName() + " " + mitarbeiterSkill.getMasterBewertung());
 	        }
 	}

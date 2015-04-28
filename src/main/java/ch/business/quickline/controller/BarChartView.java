@@ -2,7 +2,8 @@ package ch.business.quickline.controller;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
@@ -18,7 +19,7 @@ import ch.business.quickline.service.MitarbeiterSkillService;
 
 @ManagedBean
 @Component
-@RequestScoped
+@ViewScoped
 public class BarChartView {
 	
 	@Autowired
@@ -29,8 +30,20 @@ public class BarChartView {
 
 	
 	 private BarChartModel barModel;
+	 
+	 @ManagedProperty("#{param.id}")
+	 private Integer id;
+	 
 	
-	  @PostConstruct
+	  public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	@PostConstruct
 	    public void init() {
 	        createBarModels();
 	    }
@@ -39,11 +52,11 @@ public class BarChartView {
 	        return barModel;
 	    }
 	    
-	    @PostConstruct
-	    private ChartSeries getChartSeries(){
+	    
+	    public ChartSeries getChartSeries(){
 	    	ChartSeries skills = new ChartSeries();
 	    	skills.setLabel("Skill");
-	    	Mitarbeiter mitarbeiter = mitarbeiterService.findByMitarbeiterId(1);
+	    	Mitarbeiter mitarbeiter = mitarbeiterService.findByMitarbeiterId(id);
 	    	  
 		        
 		        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiterOrderByMasterBewertungDesc(mitarbeiter)){

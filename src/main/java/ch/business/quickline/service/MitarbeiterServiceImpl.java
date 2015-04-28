@@ -1,5 +1,6 @@
 package ch.business.quickline.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,18 +33,33 @@ public class MitarbeiterServiceImpl implements MitarbeiterService {
 		return mitarbeiterRepository.findAll(sortBymitarbeiterSelbstBewertungDurchschnittDesc());
 	}
 	
-	private Sort sortBymitarbeiterMasterBewertungDurchschnittDesc() {
+	public Sort sortBymitarbeiterMasterBewertungDurchschnittDesc() {
         return new Sort(Sort.Direction.DESC, "mitarbeiterMasterBewertungDurchschnitt");
     }
 	
-	private Sort sortBymitarbeiterSelbstBewertungDurchschnittDesc() {
+	public Sort sortBymitarbeiterSelbstBewertungDurchschnittDesc() {
         return new Sort(Sort.Direction.DESC, "mitarbeiterSelbstBewertungDurchschnitt");
     }
 	
 
 	public Mitarbeiter findByMitarbeiterId(Integer id){
-		return mitarbeiterRepository.findByMitarbeiterId(1);
+		return mitarbeiterRepository.findByMitarbeiterId(id);
 	}
+	
+	public BigDecimal retrieveMasterBewertungDurchschnitt(Integer id){
+	    	BigDecimal average = findByMitarbeiterId(id).getMitarbeiterMasterBewertungDurchschnitt();
+	    	
+	    	return average;
+	}
+	
+	public BigDecimal retrieveSelbstBewertungDurchschnitt(Integer id){
+	    	BigDecimal average = findByMitarbeiterId(id).getMitarbeiterSelbstBewertungDurchschnitt();
+	    	
+	    	return average;
+	}
+	
+	
+	
 	
 	
 	

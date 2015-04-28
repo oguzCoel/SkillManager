@@ -11,5 +11,7 @@ public interface MitarbeiterSkillService {
 	public List<MitarbeiterSkill>findAll();
 	public List<MitarbeiterSkill> findByMitarbeiterOrderByMasterBewertungDesc (Mitarbeiter mitarbeiter);
 	public List<MitarbeiterSkill> findByMitarbeiterOrderBySelbstBewertungDesc (Mitarbeiter mitarbeiter);
+	public Double retrieveMasterBewertungGlobalAverage();
+	public Double retrieveSelbstBewertungGlobalAverage();
  
 }

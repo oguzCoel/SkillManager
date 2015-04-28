@@ -6,11 +6,15 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -108,7 +112,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterId = mitarbeiterId;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
 	@JoinColumn(name = "MitarbeiterAbteilung", nullable = false)
 	public Abteilung getAbteilung() {
 		return this.abteilung;
@@ -221,7 +225,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterSelbstBewertungDurchschnitt = mitarbeiterSelbstBewertungDurchschnitt;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mitarbeiter")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mitarbeiter", cascade = {CascadeType.ALL})
 	public Set<Benutzer> getBenutzers() {
 		return this.benutzers;
 	}
@@ -230,7 +234,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.benutzers = benutzers;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "mitarbeiter")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "mitarbeiter", cascade = {CascadeType.ALL})
 	public Set<MitarbeiterSkill> getMitarbeiterSkills() {
 		return this.mitarbeiterSkills;
 	}
@@ -239,7 +243,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterSkills = mitarbeiterSkills;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
 	@JoinTable(name = "SkillMaster", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Mitarbeiter", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Skill", nullable = false, updatable = false) })
 	public Set<Skill> getSkills() {
 		return this.skills;
@@ -249,7 +253,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.skills = skills;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JoinTable(name = "MitarbeiterTask", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Mitarbeiter", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Task", nullable = false, updatable = false) })
 	public Set<Task> getTasks() {
 		return this.tasks;
@@ -259,7 +263,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.tasks = tasks;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
 	@JoinTable(name = "MitarbeiterQualifikation", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Mitarbeiter", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Qualifikation", nullable = false, updatable = false) })
 	public Set<Qualifikation> getQualifikations() {
 		return this.qualifikations;

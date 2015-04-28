@@ -1,11 +1,10 @@
-package ch.business.quickline.controller;
+package ch.business.quickline.viewservice;
 
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.PostConstruct;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,10 +16,10 @@ import ch.business.quickline.service.MitarbeiterService;
 import ch.business.quickline.service.MitarbeiterSkillService;
 
 
-@ManagedBean
+@ManagedBean(name="mitarbeiterIndividualService")
 @Component
-@ViewScoped
-public class MitarbeiterIndividual {
+@ApplicationScoped
+public class MitarbeiterIndividualService {
 	
 	@Autowired 
 	private MitarbeiterService mitarbeiterService;
@@ -32,29 +31,14 @@ public class MitarbeiterIndividual {
 	private List<MitarbeiterSkill> mitarbeiterSkills;
 	private List<MitarbeiterSkill> mitarbeiterInterests;
 	
-	private Integer id;
-	
 	
 	public void init (){
-		mitarbeiter = mitarbeiterService.findByMitarbeiterId(id);
-		qualifikations = mitarbeiter.getQualifikations();
+		mitarbeiter = mitarbeiterService.findByMitarbeiterId(1);
+		qualifikations = mitarbeiterService.findByMitarbeiterId(1).getQualifikations();
 		mitarbeiterSkills = mitarbeiterSkillService.findByMitarbeiterOrderByMasterBewertungDesc(mitarbeiter);
 		mitarbeiterInterests = mitarbeiterSkillService.findByMitarbeiterOrderBySelbstBewertungDesc(mitarbeiter);
 	}
 	
-		
-
-	public Integer getId() {
-		return id;
-	}
-
-
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
 
 	public List<MitarbeiterSkill> getMitarbeiterSkills() {
 		return mitarbeiterSkills;
@@ -96,3 +80,6 @@ public class MitarbeiterIndividual {
 	
 
 }
+
+
+

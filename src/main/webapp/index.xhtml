@@ -25,8 +25,14 @@
        					 		<f:facet name="header">
             						Top Mitarbeiter nach Masterbewertung
         				 		</f:facet>
-        							#{mitarbeiter.mitarbeiterVorname},
-        							#{mitarbeiter.mitarbeiterNachname},
+        							<h:link outcome="mitarbeiter" value="#{mitarbeiter.mitarbeiterVorname}">
+        								<f:param name="id2" value="#{mitarbeiter.mitarbeiterId}"/>
+        								<f:param name="id" value="#{mitarbeiter.mitarbeiterId}"/>
+        							</h:link>
+        							:
+        							#{mitarbeiter.mitarbeiterNachname}
+        								
+        							
         							#{mitarbeiter.mitarbeiterMasterBewertungDurchschnitt}
     						</p:dataList>
 				        </div>

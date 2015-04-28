@@ -35,5 +35,24 @@ public class MitarbeiterSkillServiceImpl implements MitarbeiterSkillService {
 		return mitarbeiterSkillRepository.findByMitarbeiterOrderBySelbstBewertungDesc(mitarbeiter);
 	}
 	
+	public Double retrieveMasterBewertungGlobalAverage(){
+	    	Double sum = 0.0;
+	    	for (MitarbeiterSkill skill: findAll()){
+	    		sum = sum + skill.getMasterBewertung();
+	    	}
+	    	
+	    	return sum / findAll().size();
+	}
+	
+	
+	 public Double retrieveSelbstBewertungGlobalAverage(){
+	    	Double sum =0.0;
+	    	for(MitarbeiterSkill interest: findAll()){
+	    		sum = sum + interest.getSelbstBewertung();
+	    	}
+	    	
+	    	return sum / findAll().size();
+	}
+	
 
 }
