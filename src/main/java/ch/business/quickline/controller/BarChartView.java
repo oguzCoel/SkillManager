@@ -75,6 +75,8 @@ public class BarChartView {
 	         
 	        Axis xAxis = barModel.getAxis(AxisType.X);
 	        xAxis.setLabel("Skills");
+	        xAxis.setTickAngle(-30);
+
 	         
 	        Axis yAxis = barModel.getAxis(AxisType.Y);
 	        yAxis.setLabel("Skilllevel");

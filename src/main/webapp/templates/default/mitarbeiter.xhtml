@@ -62,17 +62,59 @@
 				<h1>Mitarbeiter</h1>	
 					<p:messages autoUpdate="true" id="msgs" showDetail="true" showSummary="true" />
 					<ui:insert name="content" />
-				</h:form>
+				<p:panelGrid columns="3" layout="grid">	
+				    <p:panel id="durchschnittwerteindividual" header="Durchschnittswerte" >
+        				<p:panelGrid  columns="2">		
+              				<p:chart type="metergauge" model="#{meterGaugeChartView.masterBewertungenIndividual}" style="width:185px;height:150px" />
+            				<p:chart type="metergauge" model="#{meterGaugeChartView.selbstBewertungenIndividual}" style="width:185px;height:150px"/>
+        				</p:panelGrid>
+    				</p:panel>
+    				
+    				<p:panel id="mitarbeiterindividual" header="Über"  >
+        				<p:panelGrid columns="2">		
+							    <h:outputText value="Abteilung:" />
+							    <h:outputText value="#{mitarbeiterIndividual.getMitarbeiter().getAbteilung().getAbteilungName()}" />
+							    <h:outputText value="Rolle:" />
+							    <h:outputText value="#{mitarbeiterIndividual.getMitarbeiter().getMitarbeiterRolle()}"/>
+				  
+									<h:form>
+									<br/> <br/> 							    
+							        <p:commandLink id="nonAjax"  ajax="false">
+        								<h:outputText value="mehr..." />
+    								</p:commandLink>
+									</h:form>			
+        				</p:panelGrid>
+    				</p:panel> 
+    				
+    				<p:panel id="qualifikationsindividual" header="Qualifikation" >
+    					<p:dataList value="#{mitarbeiterIndividual.qualifikations}" var="qualifikation" type="ordered">
+        							#{qualifikation.getQualifikationName()}
+    					</p:dataList>
+    				</p:panel>	    				    				   				
+    			</p:panelGrid> 
+    			
+    			<br/><br/>
+    			<h:form>
+    	    		<p:chart type="bar" model="#{barChartView.barModel}" style="height:400px"/>
+    	    		
+    				<p:growl id="msgs" showDetail="true" />	
+    			</h:form>
+ 				 <br/><br/>   			
+      			 <p:panelGrid columns="3" layout="grid">
+ 					<p:panel id="skillranking" header="Top Skills" >
+    					<p:dataList value="#{mitarbeiterIndividual.mitarbeiterSkills}" var="skills" type="ordered">
+    								#{skills.getSkill().getSkillName()}: #{skills.getMasterBewertung()}
+    					</p:dataList>
+    				</p:panel>
+    				<p:panel id="interestranking" header="Top Interessen" >
+    					<p:dataList value="#{mitarbeiterIndividual.mitarbeiterInterests}" var="interests" type="ordered">
+    								#{interests.getSkill().getSkillName()} : #{interests.getSelbstBewertung()}
+    					</p:dataList>
+    				</p:panel>
+ 				</p:panelGrid>     				
+ 				</h:form>			
 			</p:layoutUnit>
-				
-
 		</p:layout>
-			
-			<p:dialog modal="true" widgetVar="statusDialog" showHeader="false" 
-				draggable="false" closable="false" resizable="false" 
-				visible="false" position="center" maximizable="false" minimizable="false" >
-				<p:graphicImage value="#{resources['images/ajax-loader.gif']}" />
-			</p:dialog>
 	</h:body>
 
 	</f:view>
