@@ -18,7 +18,7 @@
             <p:message for="name" />
             <h:outputText value="#{abteilungController.abteilung.abteilungName}"/>
             
-            <p:commandButton value="save" validateClient="true" style="margin-right:10px" async="true" update="@form" ajax="true" action="#{abteilungController.save}"/>
+            <p:commandButton value="save" validateClient="true" style="margin-right:10px" async="false" update="@form" ajax="false" action="#{abteilungController.save}"/>
  			</h:panelGrid>
  			
  			

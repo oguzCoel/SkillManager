@@ -23,6 +23,11 @@ public class MitarbeiterServiceImpl implements MitarbeiterService {
 		return mitarbeiterRepository.save(mitarbeiter);
 	}
 	
+	public List<Mitarbeiter> findAll(){
+		
+		return mitarbeiterRepository.findAll();
+	}
+	
 	public List<Mitarbeiter> mitarbeiterMasterBewertungRangliste(){
 		
 		return mitarbeiterRepository.findAll(sortBymitarbeiterMasterBewertungDurchschnittDesc());

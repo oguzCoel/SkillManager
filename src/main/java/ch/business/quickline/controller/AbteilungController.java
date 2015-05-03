@@ -54,9 +54,11 @@ public String save(){
 	return "Abteilung saved";
 }
 
-@PostConstruct
-public void loadAbteilungen(){
+
+public List<Abteilung> loadAbteilungen(){
 	abteilungen = abteilungService.findALL();
+	
+	return abteilungen;
 }
 
 }

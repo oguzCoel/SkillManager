@@ -4,11 +4,14 @@ package ch.business.quickline.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -118,6 +121,11 @@ public class Skill implements java.io.Serializable {
 
 	public void setMitarbeiterSkills(Set<MitarbeiterSkill> mitarbeiterSkills) {
 		this.mitarbeiterSkills = mitarbeiterSkills;
+	}
+	
+	public String toString (){
+		return String.format("%s ", getSkillName());
+
 	}
 
 }

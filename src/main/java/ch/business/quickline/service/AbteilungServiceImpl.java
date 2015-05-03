@@ -26,5 +26,11 @@ public class AbteilungServiceImpl implements AbteilungService {
 		// TODO Auto-generated method stub
 		return abteilungRepository.findAll();
 	}
+	
+	
+	public Abteilung findByAbteilungId(Integer id){
+		
+		return abteilungRepository.findByAbteilungId(id);
+	}
 
 }

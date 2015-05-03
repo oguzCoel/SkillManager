@@ -7,6 +7,7 @@ import ch.business.quickline.domain.Mitarbeiter;
 
 public interface MitarbeiterService {
 	public Mitarbeiter save (Mitarbeiter mitarbeiter);
+	public List<Mitarbeiter> findAll();
 	public List<Mitarbeiter> mitarbeiterMasterBewertungRangliste();
 	public List<Mitarbeiter> mitarbeiterSelbstBewertungRangliste();
 	public Mitarbeiter findByMitarbeiterId(Integer id);

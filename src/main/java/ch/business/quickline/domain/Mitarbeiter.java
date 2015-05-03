@@ -112,7 +112,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterId = mitarbeiterId;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "MitarbeiterAbteilung", nullable = false)
 	public Abteilung getAbteilung() {
 		return this.abteilung;
@@ -271,6 +271,10 @@ public class Mitarbeiter implements java.io.Serializable {
 
 	public void setQualifikations(Set<Qualifikation> qualifikations) {
 		this.qualifikations = qualifikations;
+	}
+	
+	public String toString(){
+		return String.format("%s " + "%s", getMitarbeiterVorname(), getMitarbeiterNachname() );
 	}
 
 }

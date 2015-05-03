@@ -1,13 +1,18 @@
 package ch.business.quickline.test;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import ch.business.quickline.config.JpaConfig;
+import ch.business.quickline.domain.Abteilung;
 import ch.business.quickline.domain.Mitarbeiter;
 import ch.business.quickline.domain.MitarbeiterSkill;
 import ch.business.quickline.repository.MitarbeiterRepository;
 import ch.business.quickline.repository.MitarbeiterSkillRepository;
+import ch.business.quickline.service.AbteilungService;
 import ch.business.quickline.service.MitarbeiterService;
 import ch.business.quickline.service.MitarbeiterSkillService;
 
@@ -19,6 +24,7 @@ public class App {
 		MitarbeiterSkillService mitarbeiterSkillService = (MitarbeiterSkillService) context.getBean("mitarbeiterSkillService");
 		MitarbeiterRepository mitarbeiterRepository = (MitarbeiterRepository) context.getBean("mitarbeiterRepository");
 		MitarbeiterService mitarbeiterService = (MitarbeiterService) context.getBean("mitarbeiterService");
+		AbteilungService abteilungService = (AbteilungService) context.getBean("abteilungService");
 		
 		/*Abteilung abteilung = new Abteilung();
 		abteilung.setAbteilungName("Service Center");
@@ -56,6 +62,24 @@ public class App {
 	        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiterOrderByMasterBewertungDesc(mitarbeiter)){
 	        	System.out.println(mitarbeiterSkill.getSkill().getSkillName() + " " + mitarbeiterSkill.getMasterBewertung());
 	        }
-	}
+	        
+	        List<Abteilung> abteilungen = abteilungService.findALL();
+	        
+	        
+	        Mitarbeiter mitarbeiterNeu = new Mitarbeiter();
+	        mitarbeiterNeu.setAbteilung(abteilungen.get(2));
+	        mitarbeiterNeu.setMitarbeiterVorname("Toni");
+	        mitarbeiterNeu.setMitarbeiterNachname("Mueller");
+	        mitarbeiterNeu.setMitarbeiterRolle("Supporter");
+	        Date date = new Date();
+	        mitarbeiterNeu.setMitarbeiterGeburtsDatum(date);
+	        mitarbeiterNeu.setMitarbeiterAnstellungsDatum(date);
+	        mitarbeiterNeu.setMitarbeiterAdresse("Sonnenbergstrasse");
+	        mitarbeiterNeu.setMitarbeiterHausNummer(9);
+	        mitarbeiterNeu.setMitarbeiterPlz(4127);
+	        mitarbeiterNeu.setMitarbeiterWohnort("Birsfelden");
+	        
+	        mitarbeiterService.save(mitarbeiterNeu);
+	        }
 
 }

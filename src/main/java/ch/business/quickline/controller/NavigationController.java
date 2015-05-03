@@ -1,14 +1,13 @@
 package ch.business.quickline.controller;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.event.ActionEvent;
+import javax.faces.bean.RequestScoped;
 
 @ManagedBean(eager = true)
-@SessionScoped
+@RequestScoped
 public class NavigationController {
 	
-	public String outcome(){
+	public String toMitarbeiterFormular(){
 		return "mitarbeiter";
 	}
 

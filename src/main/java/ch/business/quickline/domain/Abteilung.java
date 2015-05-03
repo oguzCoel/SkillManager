@@ -4,11 +4,14 @@ package ch.business.quickline.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -92,5 +95,44 @@ public class Abteilung implements java.io.Serializable {
 	public void setMitarbeiters(Set<Mitarbeiter> mitarbeiters) {
 		this.mitarbeiters = mitarbeiters;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((abteilungId == null) ? 0 : abteilungId.hashCode());
+		result = prime * result
+				+ ((abteilungName == null) ? 0 : abteilungName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Abteilung other = (Abteilung) obj;
+		if (abteilungId == null) {
+			if (other.abteilungId != null)
+				return false;
+		} else if (!abteilungId.equals(other.abteilungId))
+			return false;
+		if (abteilungName == null) {
+			if (other.abteilungName != null)
+				return false;
+		} else if (!abteilungName.equals(other.abteilungName))
+			return false;
+		return true;
+	}
+	
+	public String toString(){
+		return String.format("%s", getAbteilungName());
+	}
+	
+	
 
 }

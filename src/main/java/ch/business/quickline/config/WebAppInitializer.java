@@ -20,10 +20,13 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		      rootContext.register(JpaConfig.class);
 		      rootContext.register(WebConfig.class);
 		      
+		      
 		      // Manage the lifecycle of the root application context
 		      servletContext.addListener(new ContextLoaderListener(rootContext));
 			      
 
 
 	    }
-}
+	    
+	  
+	    }
