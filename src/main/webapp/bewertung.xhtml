@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 
+ 
+    <ui:composition template="/templates/default/template.xhtml">
+        <ui:define name="content">
+        	<ui:insert>
+        		<h:form>
+        			 <p:outputLabel for="mitarbeiter" value="Mitarbeiter:"  />
+						        <h:selectOneMenu id="mitarbeiter" value="#{mitarbeiterSkillFormular.mitarbeiterSkill.mitarbeiter}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
+						                      
+						            <f:selectItems value="#{mitarbeiterSkillFormular.mitarbeiter}" />
+						 
+						        </h:selectOneMenu>
+						        
+					 <p:outputLabel for="skills" value="Skills:"  />
+						        <h:selectOneMenu id="skills" value="#{mitarbeiterSkillFormular.mitarbeiterSkill.skill}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
+						                      
+						            <f:selectItems value="#{mitarbeiterSkillFormular.skills}" />
+						 
+						        </h:selectOneMenu>
+						        
+						           <h:panelGrid columns="2" cellpadding="5">
+								        <h:outputText value="Masterbewertung:" />
+								        <p:rating value="#{mitarbeiterSkillFormular.mitarbeiterSkill.masterBewertung}" />
+								   </h:panelGrid>    
+								   
+								   	<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="false" update="@form" ajax="false" action="#{mitarbeiterSkillFormular.save}"/>
+								    	        
+				</h:form>
+        	</ui:insert>            
+ 
+        </ui:define>
+    </ui:composition>        
+ 
+</html> 

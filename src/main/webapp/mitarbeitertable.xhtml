@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 
+ 
+    <ui:composition template="/templates/default/template.xhtml">
+        <ui:define name="content">
+        	<ui:insert>
+        	<h:form>
+				<p:growl id="messages" showDetail="true" />        	
+        		<p:toolbar>
+        			<f:facet name="right">
+        				<p:commandButton value="Neu" icon="ui-icon-plus" ajax="false" action="mitarbeiterformular" />
+        			</f:facet>
+        		</p:toolbar>
+        	</h:form>
+        	<h:form>
+			  <p:dataTable var="mitarbeiters" value="#{mitarbeiterTable.mitarbeiters}">
+			    <p:column headerText="Id">
+			        <h:outputText value="#{mitarbeiters.mitarbeiterId}" />
+			    </p:column>
+			 
+			    <p:column headerText="Name">
+			        <h:outputText value="#{mitarbeiters.mitarbeiterVorname} " />
+			        <h:outputText value="#{mitarbeiters.mitarbeiterNachname} " />
+			    </p:column>
+			 
+			    <p:column headerText="Abteilung">
+			        <h:outputText value="#{mitarbeiters.getAbteilung().getAbteilungName()}" />
+			    </p:column>
+			 
+			    <p:column headerText="Rolle">
+			        <h:outputText value="#{mitarbeiters.mitarbeiterRolle}" />
+			    </p:column>
+			</p:dataTable>
+			</h:form>
+        	</ui:insert>            
+ 
+        </ui:define>
+    </ui:composition>        
+ 
+</html> 
