@@ -1,0 +1,292 @@
+@charset "utf-8"; 
+/**
+ * Skill manager.
+ *
+ * @version 1.0
+ */
+
+/**
+ * Globale Einstellungen 
+ * 
+ * @section Browser-Reset
+ */
+
+/* Zurücksetzen der Innen- und Außenabstände */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Schriftgröße kontrollieren
+ */
+body, td, th { font: normal 75%/167% Georgia, Palatino, "Times New Roman", serif; }
+td, th { f\ont-size: 100.01%; }
+
+/* Farben und Hintergründe setzen */
+html, body {
+  color: #e6e6fa;
+  
+}
+body {
+background-color: #ffffff;   
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+ 
+#menu {
+ width: 100%;
+ padding: 0 20px;
+ background: ;
+ font-family:  "Times New Roman";
+ font-size: 1em;
+ line-height: 2.5;
+ float: left;
+ }
+   /*  Der erste Wert für den Abstand oben, der Zweite rechts, 
+der Dritte unten und der Vierte links margin: 10px  0 0 10px2*/
+#menu ul {
+	position: relative;
+	top: 30px;
+	left: 250px;
+	float: left ;/*bewirkt das das menu Horizontal ist*/
+	width: 140px;
+	list-style-type: none;
+ }
+ 
+/*--definiert die Blocküberschriften  #ff8000--*/
+ #menu h3 {
+ font-size: 1em;
+ text-align: center;
+ color: #000;
+ border: 1px solid #003366;
+ background: #CDC8B1;
+ }
+ 
+/*--definiert die "Drop-Down-Links" im Normalzustand--*/
+ #menu a {
+ text-decoration: none;
+ display: block;
+ border: 1px solid #ccc;
+ text-align: center;
+ background: #8B8878;
+ color: #003366;
+ }
+ 
+/*--definiert die "Drop-Down-Links" im Hoverzustand --*/
+ #menu a:hover {
+ color: #8B8878 ;
+ background:#003366;
+ }
+ 
+/*verhindert im Zusammenhang mit position absolute bei ul ul
+ *eine Höhenvergrößerung von #menu beim Hovern--
+ */
+ 
+#menu li {
+ position: relative;
+
+ }
+ 
+/*--position der  "Drop-Down-Links", --*/
+ #menu ul ul {
+ position: absolute;
+ top: 32px;
+ left: -0px;
+ z-index: 2;
+ display: none;
+ }
+ 
+/*--lässt die Dropdown-Links beim Hovern erscheinen--*/
+ #menu ul li:hover ul {
+ display: block;
+ }
+
+ 
+/*--definiert einen Einzellink im Normalzustand, wenn kein Drop-Down erforderlich --*/
+ 
+#menu a.direkt:link {
+ font-size: 1em;
+ font-weight: bold;
+ text-align: center;
+ color: #000;
+ border: 1px solid #003366;
+ background: #CDC8B1;
+ }
+ 
+/*--definiert einen Einzellink im Hoverzustand, wenn kein Drop-Down erforderlich--*/
+ 
+#menu a.direkt:hover {
+ color: #8B8878;
+ background: #003366;
+ border: 1px solid #ccc;
+ }
+/*------------------------------------------------------------------------------------------------------*/
+
+/**
+ * Regeln für allgemeine Elemente
+ *
+ * @section Überschriften
+ */
+h1 {
+  text-align: left;
+  background-color: #e6e6fa;
+  font-size: 2.5em;
+  margin: -.1em; 
+  height: 30px;
+  padding: .4em;
+}
+h2 {
+  text-align: left;
+  background-color: #e6e6fa;
+  font-size: 1.5em;
+  margin: -.1em; 
+  height: 20px;
+  padding: .4em;
+}
+
+/**
+ * @section Absätze
+ */
+p { margin: .8em 0; }
+
+
+/**
+ * @section Links und Anker 
+ */
+a:link {
+  color: #980c02;
+  background-color: transparent;
+}
+a:visited {
+  color: #999;
+  background-color: transparent;
+}
+a:hover, a:focus {
+  color: #FF7700;
+  background-color: transparent;
+}
+a:active {
+  color: white;
+  background-color: #980c02;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+
+/**
+ * Regeln für besondere Bereiche
+ * 
+ * @section Kopfbereich
+ */
+
+
+
+/**
+ * @section Sidebar
+ */
+   /*  Der erste Wert für den Abstand oben, der Zweite rechts, 
+der Dritte unten und der Vierte links*/
+div#sidebar {
+  background: #FBFBFB url(images/sidebar_rahmen.gif) top left repeat-y;
+  float: left;
+  border-bottom: 6px solid #CBB8BA;
+  width: 145px;
+  padding: 0 30px;
+  margin: 0px 0px 0px 0px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+div#sidebar-inner {
+  color: inherit;
+  background: #FBFBFB url(images/sidebar_bg.gif) bottom left repeat-x;
+  padding: 0 0 24px 0; 
+}
+
+/* Kontaktfeld */
+div#contact {
+  color: black;
+  background-color: #FBFBFB;
+  /*  Der erste Wert für den Abstand oben, der Zweite rechts, 
+der Dritte unten und der Vierte links*/
+  margin:  40px 40px 40px 0px; 
+  padding: 10px 10px 10px 0px;
+}
+#contact h2 {
+  color: inherit;
+  background-color: transparent;
+  margin: 0; 
+}
+#contact p.tel {
+  color: #9F0F00;
+  background-color: transparent;
+  font-size: 2.2em;
+  font-weight: bold;
+  margin: .3em 0;
+}
+#contact p.address {
+  font-weight: bold;
+  font-size: .9em;
+}
+/**
+ * @section Content
+ */
+div#content {
+/*  Der erste Wert für den Abstand oben, der Zweite rechts, 
+der Dritte unten und der Vierte links*/
+  margin:  250px 750px 80px 250px; 
+  padding: 0 12px 0 20px;
+}
+#content h1 {
+  margin-top: 0; 
+}
+#content img {
+  float: left;
+  margin: .5em .5em .5em 0;
+  padding: 0 0px 0 0px
+}
+
+/**
+ * @section Formular
+ */
+div#formular {
+/*  Der erste Wert für den Abstand oben, der Zweite rechts, 
+der Dritte unten und der Vierte links*/
+  margin:  180px 30px 80px 10px; 
+  padding: 0 12px 0 36px;
+}
+#content h1 {
+  margin-top: 0; 
+}
+#content img {
+  float: left;
+  margin: .5em .5em .5em 0;
+  padding: 0 0px 0 0px
+}
+
+
+/**
+ * @section Footer
+ */
+div#footerimg {
+	/* absolute positioniert */
+	position: absolute;
+    bottom: 100px;
+    left: 379px;
+}
+div#footer {
+  color: #7F6063;
+  background-color: #F3F2FA;
+  font-family: Tahoma, Arial, sans-serif;
+  position: relative;
+  top:20px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+
+}
+#footer p {
+  width: 600px;
+  margin: 0 auto; 
+ 
+}

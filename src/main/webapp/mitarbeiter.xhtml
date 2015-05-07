@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
-	
-	
-	
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html   xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core">
+		
 	<f:metadata>
 		<f:viewParam name="id2" value="#{meterGaugeChartView2.id}"/>
 		<f:event type="preRenderView" listener="#{meterGaugeChartView2.initValues}"/>
@@ -14,32 +13,29 @@
 		<f:viewParam name="id" value="#{barChartView.id}"/>
 		<f:event type="preRenderView" listener="#{barChartView.init}"/>
 		<f:event type="preRenderView" listener="#{barChartView.getChartSeries}"/>
-		
-		
 	</f:metadata>
+
+	<f:view contentType="text/html" id="fview">
+	
+
 	
 	
-	
-    <ui:composition template="/templates/default/template.xhtml">
+
+	<ui:composition template="/templates/default/template2.xhtml">
         <ui:define name="content">
         	<ui:insert>
-        	
-        <h3>#{meterGaugeChartView2.getMitarbeiter().getMitarbeiterVorname()} #{meterGaugeChartView2.getMitarbeiter().getMitarbeiterNachname()} </h3>
-  
-
         		<h:form>
-    				<p:growl id="msgs" showDetail="true" />
- 				<p:panelGrid columns="3" layout="grid">	
-    				<p:panel id="durchschnittwerteindividual" header="Durchschnittswerte"  style="margin-bottom:5px">
-        				<p:panelGrid columns="2" cellpadding="10">
-        						
-            				<p:chart type="metergauge" model="#{meterGaugeChartView2.masterBewertungenIndividual}" style="width:250px;height:140px" />
-            				<p:chart type="metergauge" model="#{meterGaugeChartView2.selbstBewertungenIndividual}" style="width:250px;height:140px"/>
+        		 <h3>#{meterGaugeChartView2.getMitarbeiter().getMitarbeiterVorname()} #{meterGaugeChartView2.getMitarbeiter().getMitarbeiterNachname()} </h3>
+				<p:panelGrid columns="3" layout="grid">	
+				    <p:panel id="durchschnittwerteindividual" header="Durchschnittswerte" >
+        				<p:panelGrid  columns="2">		
+              				<p:chart type="metergauge" model="#{meterGaugeChartView2.masterBewertungenIndividual}" style="width:185px;height:150px" />
+            				<p:chart type="metergauge" model="#{meterGaugeChartView2.selbstBewertungenIndividual}" style="width:185px;height:150px"/>
         				</p:panelGrid>
     				</p:panel>
     				
-    				<p:panel id="mitarbeiterindividual" header="Über"  style="margin-bottom:5px">
-        				<p:panelGrid columns="2" cellpadding="10">		
+    				<p:panel id="mitarbeiterindividual" header="Über"  >
+        				<p:panelGrid columns="2">		
 							    <h:outputText value="Abteilung:" />
 							    <h:outputText value="#{meterGaugeChartView2.getMitarbeiter().getAbteilung().getAbteilungName()}" />
 							    <h:outputText value="Rolle:" />
@@ -52,39 +48,40 @@
     								</p:commandLink>
 									</h:form>			
         				</p:panelGrid>
-    				</p:panel>
+    				</p:panel> 
     				
-    				<p:panel id="qualifikationsindividual" header="Qualifikation" style="margin-bottom:5px">
+    				<p:panel id="qualifikationsindividual" header="Qualifikation" >
     					<p:dataList value="#{meterGaugeChartView2.qualifikations}" var="qualifikation" type="ordered">
         							#{qualifikation.getQualifikationName()}
     					</p:dataList>
-    				</p:panel>		
-    			</p:panelGrid>	
-    			</h:form>
+    				</p:panel>	    				    				   				
+    			</p:panelGrid> 
     			
     			<br/><br/>
-    			
-    			<p:chart type="bar" model="#{barChartView.barModel}" style="height:300px"/>
-    			
     			<h:form>
-    				<p:growl id="msgs" showDetail="true" />
- 				<p:panelGrid columns="3" layout="grid">
- 					<p:panel id="skillranking" header="Top Skills" style="margin-bottom:5px">
-    					<p:dataList value="#{meterGaugeChartView2.mitarbeiterSkills}" var="skills" type="ordered">
+    	    		<p:chart type="bar" model="#{barChartView.barModel}" style="height:400px"/>
+    	    		
+    				<p:growl id="msgs" showDetail="true" />	
+    			</h:form>
+ 				 <br/><br/>   			
+      			 <p:panelGrid columns="3" layout="grid">
+ 					<p:panel id="skillranking" header="Top Skills" >
+    					<p:dataList value="#{meterGaugeChartView2.mitarbeiterSkills}"  var="skills" type="ordered">
     								#{skills.getSkill().getSkillName()}: #{skills.getMasterBewertung()}
     					</p:dataList>
     				</p:panel>
-    				<p:panel id="interestranking" header="Top Interessen" style="margin-bottom:5px">
+    				<p:panel id="interestranking" header="Top Interessen" >
     					<p:dataList value="#{meterGaugeChartView2.mitarbeiterInterests}" var="interests" type="ordered">
     								#{interests.getSkill().getSkillName()} : #{interests.getSelbstBewertung()}
     					</p:dataList>
     				</p:panel>
  				</p:panelGrid>
  				</h:form>
-    				
-        	</ui:insert>            
- 
-        </ui:define>
-    </ui:composition>        
- 
-</html> 
+ 				    				
+ 							
+	</ui:insert>
+	</ui:define>
+	</ui:composition>
+
+	</f:view>
+</html>		
