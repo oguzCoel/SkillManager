@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import ch.business.quickline.domain.Abteilung;
@@ -48,7 +49,7 @@ public void setAbteilung(Abteilung abteilung) {
 	this.abteilung = abteilung;
 }
 
-
+@PreAuthorize("hasRole ('ADMIN')")
 public String save(){
 	abteilungService.save(abteilung);
 	return "Abteilung saved";
