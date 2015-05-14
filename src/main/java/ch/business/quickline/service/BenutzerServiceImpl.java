@@ -17,5 +17,10 @@ public class BenutzerServiceImpl implements BenutzerService {
 		
 		return benutzerRepository.save(benutzer);
 	}
+	
+	public Benutzer findByBenutzerName(String benutzerName){
+		
+		return benutzerRepository.findByBenutzerName(benutzerName);
+	}
 
 }

@@ -98,7 +98,7 @@ public class Benutzer implements java.io.Serializable {
 		this.benutzerEmail = benutzerEmail;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "BenutzerRole", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Benutzer", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Role", nullable = false, updatable = false) })
 	public Set<Role> getRoles() {
 		return this.roles;
