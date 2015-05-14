@@ -1,6 +1,7 @@
 package ch.business.quickline.config;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -8,21 +9,23 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity( prePostEnabled = true )
+@ComponentScan(basePackages={"ch.business.quickline.service"})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
-   
-    
+	@Autowired
+	UserDetailsService userDetailsService;
+	
+    @Autowired
     public void configureGlobal( AuthenticationManagerBuilder auth ) throws Exception
     {
         // The authentication provider below is the simplest provider you can use
         // The users, their passwords and roles are all added as clear text
-      auth
+      /*auth
           .inMemoryAuthentication()
           .withUser( "admin" )
               .password( "admin" )
@@ -31,8 +34,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
           .withUser( "user" )
               .password( "user" )
               .roles( "USER" );
-      
+      */
     	
+    	auth.userDetailsService(userDetailsService);
+    		
     	
       
     } 
@@ -43,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // is accessible from the login page without authentication
     	web
             .ignoring()
-                .antMatchers("/faces/javax.faces.resource/**");
+                .antMatchers("/javax.faces.resource/**");
                 
          
     }
@@ -58,6 +63,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	.and()
     	.formLogin();
     	
+    	//.loginPage("/faces/login.xhtml").permitAll();
+    	
     	
     	
     	
@@ -66,5 +73,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	
                 	
     }
+    
+  
  
 }

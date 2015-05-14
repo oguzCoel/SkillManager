@@ -49,7 +49,7 @@ public void setAbteilung(Abteilung abteilung) {
 	this.abteilung = abteilung;
 }
 
-@PreAuthorize("hasRole ('ADMIN')")
+@PreAuthorize("hasRole ('ROLE_ADMIN')")
 public String save(){
 	abteilungService.save(abteilung);
 	return "Abteilung saved";
