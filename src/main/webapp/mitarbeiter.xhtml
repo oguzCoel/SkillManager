@@ -7,12 +7,12 @@
 		xmlns:f="http://java.sun.com/jsf/core">
 		
 	<f:metadata>
-		<f:viewParam name="id2" value="#{meterGaugeChartView2.id}"/>
-		<f:event type="preRenderView" listener="#{meterGaugeChartView2.initValues}"/>
-		<f:event type="preRenderView" listener="#{meterGaugeChartView2.init}"/>
-		<f:viewParam name="id" value="#{barChartView.id}"/>
-		<f:event type="preRenderView" listener="#{barChartView.init}"/>
-		<f:event type="preRenderView" listener="#{barChartView.getChartSeries}"/>
+		<f:viewParam name="mid" value="#{mitarbeiterViewController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.initValues}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.init}"/>
+		<f:viewParam name="mbid" value="#{mitarbeiterBarchartController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.init}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.getChartSeries}"/>
 	</f:metadata>
 
 	<f:view contentType="text/html" id="fview">
@@ -25,21 +25,22 @@
         <ui:define name="content">
         	<ui:insert>
         		<h:form>
-        		 <h3>#{meterGaugeChartView2.getMitarbeiter().getMitarbeiterVorname()} #{meterGaugeChartView2.getMitarbeiter().getMitarbeiterNachname()} </h3>
+        		 <h3>#{mitarbeiterViewController.getMitarbeiter().getMitarbeiterVorname()}
+        		  #{mitarbeiterViewController.getMitarbeiter().getMitarbeiterNachname()} </h3>
 				<p:panelGrid columns="3" layout="grid">	
 				    <p:panel id="durchschnittwerteindividual" header="Durchschnittswerte" >
         				<p:panelGrid  columns="2">		
-              				<p:chart type="metergauge" model="#{meterGaugeChartView2.masterBewertungenIndividual}" style="width:185px;height:150px" />
-            				<p:chart type="metergauge" model="#{meterGaugeChartView2.selbstBewertungenIndividual}" style="width:185px;height:150px"/>
+              				<p:chart type="metergauge" model="#{mitarbeiterViewController.masterBewertungenIndividual}" style="width:185px;height:150px" />
+            				<p:chart type="metergauge" model="#{mitarbeiterViewController.selbstBewertungenIndividual}" style="width:185px;height:150px"/>
         				</p:panelGrid>
     				</p:panel>
     				
     				<p:panel id="mitarbeiterindividual" header="Über"  >
         				<p:panelGrid columns="2">		
 							    <h:outputText value="Abteilung:" />
-							    <h:outputText value="#{meterGaugeChartView2.getMitarbeiter().getAbteilung().getAbteilungName()}" />
+							    <h:outputText value="#{mitarbeiterViewController.getMitarbeiter().getAbteilung().getAbteilungName()}" />
 							    <h:outputText value="Rolle:" />
-							    <h:outputText value="#{meterGaugeChartView2.getMitarbeiter().getMitarbeiterRolle()}"/>
+							    <h:outputText value="#{mitarbeiterViewController.getMitarbeiter().getMitarbeiterRolle()}"/>
 				  
 									<h:form>
 									<br/> <br/> 							    
@@ -51,7 +52,7 @@
     				</p:panel> 
     				
     				<p:panel id="qualifikationsindividual" header="Qualifikation" >
-    					<p:dataList value="#{meterGaugeChartView2.qualifikations}" var="qualifikation" type="ordered">
+    					<p:dataList value="#{mitarbeiterViewController.qualifikations}" var="qualifikation" type="ordered">
         							#{qualifikation.getQualifikationName()}
     					</p:dataList>
     				</p:panel>	    				    				   				
@@ -59,19 +60,19 @@
     			
     			<br/><br/>
     			<h:form>
-    	    		<p:chart type="bar" model="#{barChartView.barModel}" style="height:400px"/>
+    	    		<p:chart type="bar" model="#{mitarbeiterBarchartController.barModel}" style="height:400px"/>
     	    		
     				<p:growl id="msgs" showDetail="true" />	
     			</h:form>
  				 <br/><br/>   			
       			 <p:panelGrid columns="3" layout="grid">
  					<p:panel id="skillranking" header="Top Skills" >
-    					<p:dataList value="#{meterGaugeChartView2.mitarbeiterSkills}"  var="skills" type="ordered">
+    					<p:dataList value="#{mitarbeiterViewController.mitarbeiterSkills}"  var="skills" type="ordered">
     								#{skills.getSkill().getSkillName()}: #{skills.getMasterBewertung()}
     					</p:dataList>
     				</p:panel>
     				<p:panel id="interestranking" header="Top Interessen" >
-    					<p:dataList value="#{meterGaugeChartView2.mitarbeiterInterests}" var="interests" type="ordered">
+    					<p:dataList value="#{mitarbeiterViewController.mitarbeiterInterests}" var="interests" type="ordered">
     								#{interests.getSkill().getSkillName()} : #{interests.getSelbstBewertung()}
     					</p:dataList>
     				</p:panel>

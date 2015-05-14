@@ -24,7 +24,7 @@ import ch.business.quickline.service.MitarbeiterSkillService;
 @ManagedBean
 @Component
 @ViewScoped
-public class MeterGaugeChartView2 implements Serializable {
+public class MitarbeiterViewController implements Serializable {
 	
 	@Autowired
 	MitarbeiterService mitarbeiterService;
@@ -50,7 +50,7 @@ public class MeterGaugeChartView2 implements Serializable {
     @PostConstruct
     public void init(){
 		
-		createMeterGaugeModels2();
+		createMeterGaugeModels();
     	
     }
     
@@ -69,9 +69,6 @@ public class MeterGaugeChartView2 implements Serializable {
     
     
  
-
-    
- 
  
     private MeterGaugeChartModel initMeterGaugeModel() {
         List<Number> intervals = new ArrayList<Number>(){{
@@ -88,7 +85,7 @@ public class MeterGaugeChartView2 implements Serializable {
 
     
     @PostConstruct
-    private void createMeterGaugeModels2(){
+    private void createMeterGaugeModels(){
         masterBewertungenIndividual = initMeterGaugeModel();
         //masterBewertungenIndividual.setTitle("Masterbewertungen");
         masterBewertungenIndividual.setGaugeLabel("Skill");

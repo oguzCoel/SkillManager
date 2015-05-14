@@ -11,23 +11,26 @@
         		<div class="ui-grid">
     				<div class="ui-grid-row">
         				<div class="ui-grid-col-6">
-        					<p:chart type="metergauge" model="#{meterGaugeChartView.masterBewertungenGlobal}" style="width:400px;height:250px" />
+        					<p:chart type="metergauge" model="#{unternehmenViewController.masterBewertungenGlobal}"
+        					 style="width:400px;height:250px" />
         				</div>
         				<div class="ui-grid-col-6">
-        					<p:chart type="metergauge" model="#{meterGaugeChartView.selbstBewertungenGlobal}" style="width:400px;height:250px" />
+        					<p:chart type="metergauge" model="#{unternehmenViewController.selbstBewertungenGlobal}"
+        					 style="width:400px;height:250px" />
         				</div>
     				</div>
 				</div> 
 				<div class="ui-grid ui-grid-responsive">
 				    <div class="ui-grid-row">
 				        <div class="ui-grid-col-6">
-				        	<p:dataList value="#{rankingDataList.mitarbeiterMasterBewertungRangliste}" var="mitarbeiter" type="ordered">
+				        	<p:dataList value="#{unternehmenViewController.mitarbeiterMasterBewertungRangliste}"
+				        	 var="mitarbeiter" type="ordered">
        					 		<f:facet name="header">
             						Top Mitarbeiter nach Masterbewertung
         				 		</f:facet>
         							<h:link outcome="mitarbeiter" value="#{mitarbeiter.mitarbeiterVorname}">
-        								<f:param name="id2" value="#{mitarbeiter.mitarbeiterId}"/>
-        								<f:param name="id" value="#{mitarbeiter.mitarbeiterId}"/>
+        								<f:param name="mid" value="#{mitarbeiter.mitarbeiterId}"/>
+        								<f:param name="mbid" value="#{mitarbeiter.mitarbeiterId}"/>
         							</h:link>
         							:
         							#{mitarbeiter.mitarbeiterNachname}
@@ -37,7 +40,8 @@
     						</p:dataList>
 				        </div>
 				          <div class="ui-grid-col-6">
-				        	<p:dataList value="#{rankingDataList.mitarbeiterSelbstBewertungRangliste}" var="mitarbeiter" type="ordered">
+				        	<p:dataList value="#{unternehmenViewController.mitarbeiterSelbstBewertungRangliste}"
+				        	 var="mitarbeiter" type="ordered">
        					 		<f:facet name="header">
             						Top Mitarbeiter nach Selbstbewertung
         				 		</f:facet>

@@ -11,13 +11,14 @@ import org.primefaces.model.chart.MeterGaugeChartModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import ch.business.quickline.domain.Mitarbeiter;
 import ch.business.quickline.service.MitarbeiterService;
 import ch.business.quickline.service.MitarbeiterSkillService;
 
 @ManagedBean
 @Component
 @ViewScoped
-public class MeterGaugeChartView {
+public class UnternehmenViewController {
 	
 	@Autowired
 	MitarbeiterService mitarbeiterService;
@@ -26,12 +27,16 @@ public class MeterGaugeChartView {
 	
     private MeterGaugeChartModel masterBewertungenGlobal;
     private MeterGaugeChartModel selbstBewertungenGlobal;
+	private List<Mitarbeiter>mitarbeiterMasterBewertungRangliste;
+	private List<Mitarbeiter> mitarbeiterSelbstBewertungRangliste;
    
     
  
     @PostConstruct
     public void init() {
         createMeterGaugeModels();
+        mitarbeiterMasterBewertungRangliste = mitarbeiterService.mitarbeiterMasterBewertungRangliste();
+		mitarbeiterSelbstBewertungRangliste = mitarbeiterService.mitarbeiterSelbstBewertungRangliste();
         
     }
     
@@ -69,6 +74,35 @@ public class MeterGaugeChartView {
         selbstBewertungenGlobal.setGaugeLabel("Interesse");
         selbstBewertungenGlobal.setValue(mitarbeiterSkillService.retrieveSelbstBewertungGlobalAverage());
     }
+
+
+
+	public List<Mitarbeiter> getMitarbeiterMasterBewertungRangliste() {
+		return mitarbeiterMasterBewertungRangliste;
+	}
+
+
+
+	public void setMitarbeiterMasterBewertungRangliste(
+			List<Mitarbeiter> mitarbeiterMasterBewertungRangliste) {
+		this.mitarbeiterMasterBewertungRangliste = mitarbeiterMasterBewertungRangliste;
+	}
+
+
+
+	public List<Mitarbeiter> getMitarbeiterSelbstBewertungRangliste() {
+		return mitarbeiterSelbstBewertungRangliste;
+	}
+
+
+
+	public void setMitarbeiterSelbstBewertungRangliste(
+			List<Mitarbeiter> mitarbeiterSelbstBewertungRangliste) {
+		this.mitarbeiterSelbstBewertungRangliste = mitarbeiterSelbstBewertungRangliste;
+	}
+    
+    
+    
     
   
   

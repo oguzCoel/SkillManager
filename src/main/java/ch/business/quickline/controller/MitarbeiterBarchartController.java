@@ -20,7 +20,7 @@ import ch.business.quickline.service.MitarbeiterSkillService;
 @ManagedBean
 @Component
 @ViewScoped
-public class BarChartView {
+public class MitarbeiterBarchartController {
 	
 	@Autowired
 	private MitarbeiterSkillService mitarbeiterSkillService;
