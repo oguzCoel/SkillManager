@@ -17,7 +17,7 @@
         		</p:toolbar>
         	</h:form>
         	<h:form>
-			  <p:dataTable var="mitarbeiters" value="#{mitarbeiterTable.mitarbeiters}">
+			  <p:dataTable id="mitarbeitertable" var="mitarbeiters" value="#{mitarbeiterTable.mitarbeiters}">
 			    <p:column headerText="Id">
 			        <h:outputText value="#{mitarbeiters.mitarbeiterId}" />
 			    </p:column>

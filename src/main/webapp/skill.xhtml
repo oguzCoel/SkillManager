@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html   xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core">
+		
+	 <f:metadata>
+		<f:viewParam name="sid" value="#{skillViewController.id}"/>
+		<f:event type="preRenderView" listener="#{skillViewController.init}"/>
+	</f:metadata>
+		
+
+	<f:view contentType="text/html" id="fview">
+	
+
+	
+	
+
+	<ui:composition template="/templates/default/template2.xhtml">
+        <ui:define name="content">
+        	<ui:insert>
+        		<h:form>
+        		 <h3>#{skillViewController.getSkill().getSkillName()}</h3>
+        		  
+				<p:panelGrid columns="2" layout="grid">	
+				    <p:panel id="durchschnittwerteindividual" header="Durchschnittswerte" >
+        				<p:panelGrid  columns="2">		
+              				<p:chart type="metergauge" model="#{skillViewController.masterBewertungenSkill}" style="width:185px;height:150px" />
+            				<p:chart type="metergauge" model="#{skillViewController.selbstBewertungenSkill}" style="width:185px;height:150px"/>
+        				</p:panelGrid>
+    				</p:panel>
+    				
+    				<p:panel id="mitarbeiterindividual" header="Statistiken"  >
+        				<p:panelGrid columns="2">		
+							<h:outputText value = "Mitarbeiter mit diesem Skill"/>
+							<h:outputText value = "#{skillViewController.countOfSkilledMitarbeiter}"/>				
+        				</p:panelGrid>
+    				</p:panel> 
+    				
+    					    				    				   				
+    			</p:panelGrid> 
+    			
+    			<br/><br/>
+    				
+      			 <p:panelGrid columns="3" layout="grid">
+ 					<p:panel id="skillranking" header="Top Mitarbeiter" >
+    					 <p:dataList value="#{skillViewController.masterBewertungRanking}"  var="mitarbeiter" type="ordered">
+    								#{mitarbeiter.getMitarbeiter().getMitarbeiterVorname()} #{mitarbeiter.getMitarbeiter().getMitarbeiterNachname()}: #{mitarbeiter.getMasterBewertung()}
+    					</p:dataList>
+    				</p:panel>
+    				<p:panel id="interestranking" header="Top Interessen" >
+    					<p:dataList value="#{skillViewController.selbstBewertungRanking}"  var="mitarbeiter" type="ordered">
+    								#{mitarbeiter.getMitarbeiter().getMitarbeiterVorname()} #{mitarbeiter.getMitarbeiter().getMitarbeiterNachname()}: #{mitarbeiter.getSelbstBewertung()}
+    					</p:dataList>
+    				</p:panel>
+ 				</p:panelGrid>
+ 				</h:form>
+ 				    				
+ 							
+	</ui:insert>
+	</ui:define>
+	</ui:composition>
+
+	</f:view>
+</html>		

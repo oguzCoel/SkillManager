@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 
+ 
+    <ui:composition template="/templates/default/template2.xhtml">
+        <ui:define name="content">
+        	<ui:insert>
+        		<h3>#{benutzerProfileController.benutzer.benutzerName}</h3>
+
+        		<h:form>
+				    <p:panel id="panel" header="Registration">
+				            
+				 
+				        <p:focus context="panel"/>
+				 
+				        <p:messages />
+				 
+				        <h:panelGrid columns="2">
+				         
+				           
+				 
+				            
+							<h:outputLabel for="pwd1" value="Password 1: *" />
+		        			<p:password id="pwd1" value="#{benutzerProfileController.benutzer.benutzerPasswort}" match="pwd2" label="Password 1" required="true" />
+		 
+		        			<h:outputLabel for="pwd2" value="Password 2: *" />
+		        			<p:password id="pwd2" value="#{benutzerProfileController.benutzer.benutzerPasswort}" label="Password 2" required="true" />
+				            
+				           
+									            
+				          
+				        </h:panelGrid>
+				            
+				            
+				            
+							
+							<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="true" update="@form" prependId="false" action="#{benutzerProfileController.save}"/>
+				 	
+				    </p:panel>
+				</h:form>
+				
+				
+        		
+        	</ui:insert>            
+ 
+        </ui:define>
+    </ui:composition>        
+ 
+</html> 

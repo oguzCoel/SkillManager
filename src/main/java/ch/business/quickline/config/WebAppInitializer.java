@@ -1,9 +1,11 @@
 package ch.business.quickline.config;
 
+import javax.faces.webapp.FacesServlet;
 import javax.servlet.Filter;
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -28,6 +30,12 @@ public class WebAppInitializer implements WebApplicationInitializer {
 	    	servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
 	    	// Causes Facelets to refresh templates during development
 	    	servletContext.setInitParameter("javax.faces.FACELETS_REFRESH_PERIOD", "1");
+	    	
+	    	 /** Faces Servlet */
+	        ServletRegistration.Dynamic facesServlet = servletContext.addServlet(
+	        		"Faces Servlet", FacesServlet.class);
+	        facesServlet.setLoadOnStartup(1);
+	        facesServlet.addMapping("*.faces");
 	    	servletContext.addListener(ConfigureListener.class);
 
 

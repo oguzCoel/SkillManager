@@ -18,9 +18,9 @@ public class MitarbeiterServiceImpl implements MitarbeiterService {
 	@Autowired
 	MitarbeiterRepository mitarbeiterRepository;
 
-	public Mitarbeiter save(Mitarbeiter mitarbeiter) {
+	public void save(Mitarbeiter mitarbeiter) {
 		
-		return mitarbeiterRepository.save(mitarbeiter);
+		mitarbeiterRepository.save(mitarbeiter);
 	}
 	
 	public List<Mitarbeiter> findAll(){

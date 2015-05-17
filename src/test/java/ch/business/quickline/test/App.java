@@ -3,11 +3,19 @@ package ch.business.quickline.test;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import ch.business.quickline.config.JpaConfig;
+import ch.business.quickline.config.SecurityConfig;
 import ch.business.quickline.domain.Abteilung;
+import ch.business.quickline.domain.Benutzer;
 import ch.business.quickline.domain.Mitarbeiter;
 import ch.business.quickline.domain.MitarbeiterSkill;
 import ch.business.quickline.repository.MitarbeiterRepository;
@@ -15,6 +23,8 @@ import ch.business.quickline.repository.MitarbeiterSkillRepository;
 import ch.business.quickline.service.AbteilungService;
 import ch.business.quickline.service.MitarbeiterService;
 import ch.business.quickline.service.MitarbeiterSkillService;
+import ch.business.quickline.service.SkillService;
+import ch.business.quickline.service.UserDetailService;
 
 public class App {
 
@@ -25,6 +35,8 @@ public class App {
 		MitarbeiterRepository mitarbeiterRepository = (MitarbeiterRepository) context.getBean("mitarbeiterRepository");
 		MitarbeiterService mitarbeiterService = (MitarbeiterService) context.getBean("mitarbeiterService");
 		AbteilungService abteilungService = (AbteilungService) context.getBean("abteilungService");
+		SkillService skillService = (SkillService) context.getBean("skillService");
+		
 		
 		/*Abteilung abteilung = new Abteilung();
 		abteilung.setAbteilungName("Service Center");
@@ -57,6 +69,8 @@ public class App {
 			System.out.println(i.getMitarbeiter().getMitarbeiterNachname() + " " + i.getMasterBewertung() + " " + i.getSkill().getSkillName());
 		}
 */
+		
+		/*
 		 Mitarbeiter mitarbeiter = mitarbeiterService.findByMitarbeiterId(1);
 	        
 	        for(MitarbeiterSkill mitarbeiterSkill : mitarbeiterSkillService.findByMitarbeiterOrderByMasterBewertungDesc(mitarbeiter)){
@@ -80,6 +94,15 @@ public class App {
 	        mitarbeiterNeu.setMitarbeiterWohnort("Birsfelden");
 	        
 	        mitarbeiterService.save(mitarbeiterNeu);
+	        
+	        */
+		System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
+		
+
+
+
 	        }
+	
+	
 
 }

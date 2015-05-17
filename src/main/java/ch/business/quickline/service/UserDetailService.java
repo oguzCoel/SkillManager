@@ -25,6 +25,9 @@ public class UserDetailService implements UserDetailsService {
 	
 	@Autowired
 	BenutzerRepository benutzerRepository;
+	
+	
+	private User user;
 
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
@@ -38,7 +41,9 @@ public class UserDetailService implements UserDetailsService {
 	
 	private User buildUserForAuthentication (Benutzer benutzer, List<GrantedAuthority> authorities){
 		
-		return new User (benutzer.getBenutzerName(), benutzer.getBenutzerPasswort(), true, true, true, true, authorities );
+		user = new User (benutzer.getBenutzerName(), benutzer.getBenutzerPasswort(), true, true, true, true, authorities );
+		
+		return user;
 		
 	}
 	
@@ -55,6 +60,10 @@ public class UserDetailService implements UserDetailsService {
 		List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
  
 		return Result;
+	}
+	
+	public String getUsername(){
+		return user.getUsername();
 	}
 
 }

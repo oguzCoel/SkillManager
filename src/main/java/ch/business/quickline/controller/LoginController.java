@@ -5,23 +5,26 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 
 
 
 @ManagedBean
+@Component
 @RequestScoped
 public class LoginController {
   
     private String username = null; 
     private String password = null;
 
-    @ManagedProperty(value="#{authenticationManager}")
-    private AuthenticationManager authenticationManager = null;
+    
+    private AuthenticationManager authenticationManager;
 
 
     public String login() {

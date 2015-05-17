@@ -4,19 +4,27 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
 import ch.business.quickline.domain.Abteilung;
 import ch.business.quickline.domain.Mitarbeiter;
 import ch.business.quickline.service.AbteilungService;
 import ch.business.quickline.service.MitarbeiterService;
+import ch.business.quickline.service.UserDetailService;
+import ch.business.quickline.domain.*;
 
-
+@ManagedBean
 @Component
-@Scope("request")
+@Scope ("session")
 public class MitarbeiterFormularController implements Serializable {
 	
 	@Autowired
@@ -25,24 +33,41 @@ public class MitarbeiterFormularController implements Serializable {
 	@Autowired
 	private AbteilungService abteilungService;
 	
+	@Autowired 
+	private UserDetailService userDetailService;
+	
+	
+	
 	private Mitarbeiter mitarbeiter = new Mitarbeiter();
 	
 	private List <Abteilung> abteilungen;
 	private Abteilung abteilung;
+	private Benutzer benutzer;
+	
 	
 	
 	
 	@PostConstruct
 	public void init () {
 		abteilungen = abteilungService.findALL();
+		   
 		
 		for (Abteilung abt:abteilungen){
 			System.out.println(abt);
 		}
 		
+		System.out.println(benutzer.getBenutzerName());
+		
+		
+		
+		
+
+	    
+		
 	}
 	
 	public void initValues(){
+		
 		
 	}
 	
@@ -82,7 +107,7 @@ public class MitarbeiterFormularController implements Serializable {
 	
 	public void save()throws Exception{
 		mitarbeiterService.save(mitarbeiter);
-		
+			
 		
 	}
 	

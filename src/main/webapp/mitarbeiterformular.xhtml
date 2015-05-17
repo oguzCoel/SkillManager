@@ -17,53 +17,53 @@
 				 
 				        <h:panelGrid columns="3">
 				            <p:outputLabel for="vorname" value="Vorname" />
-				            <p:inputText id="vorname" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterVorname}" required="true" label="Vorname">
+				            <p:inputText id="vorname" value="#{mitarbeiterTable.mitarbeiter.mitarbeiterVorname}" required="true" label="Vorname">
 				                <f:validateLength minimum="2" />
 				            </p:inputText>
 				            <p:message for="vorname" />
 				 
 				            <p:outputLabel for="nachname" value="Nachname" />
-				            <p:inputText id="nachname" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterNachname}" required="true" label="Nachname"/>
+				            <p:inputText id="nachname" value="#{mitarbeiterTable.mitarbeiter.mitarbeiterNachname}" required="true" label="Nachname"/>
 				            <p:message for="nachname" />
 				            
 				           
 									            
 				            <p:outputLabel for="rolle" value="Rolle" />
-				            <p:inputText id="rolle" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterRolle}" required="true" label="Rolle"/>
+				            <p:inputText id="rolle" value="#{mitarbeiterTable.mitarbeiter.mitarbeiterRolle}" required="true" label="Rolle"/>
 				            <p:message for="rolle" />
 				            
 				            <p:outputLabel for="geburtsdatum" value="Geburtsdatum" />
-				            <p:inputText id="geburtsdatum" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterGeburtsDatum}" required="true" label="Geburtsdatum">
+				            <p:inputText id="geburtsdatum" value="#{mitarbeiterTable.mitarbeiter.mitarbeiterGeburtsDatum}" required="true" label="Geburtsdatum">
 				            <f:convertDateTime pattern="d-M-yyyy" />
 				            </p:inputText>
 				            <p:message for="geburtsdatum" />
 				            
 				            <p:outputLabel for="anstellungsdatum" value="Anstellungsdatum" />
-				            <p:inputText id="anstellungsdatum" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterAnstellungsDatum}" required="true" label="Anstellungsdatum">
+				            <p:inputText id="anstellungsdatum" value="#{mitarbeiterTable.mitarbeiter.mitarbeiterAnstellungsDatum}" required="true" label="Anstellungsdatum">
 				            <f:convertDateTime pattern="d-M-yyyy" />
 				            </p:inputText>
 				            <p:message for="anstellungsdatum" />
 				            
 				            <p:outputLabel for="adresse" value="Adresse" />
-				            <p:inputText id="adresse" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterAdresse}" required="true" label="Adresse"/>
+				            <p:inputText id="adresse" value="#{mitarbeiterTable.mitarbeiter.mitarbeiterAdresse}" required="true" label="Adresse"/>
 				            <p:message for="adresse" />
 				            
 				            <p:outputLabel for="hausnummer" value="Hausnummer" />
-				            <p:inputText id="hausnummer" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterHausNummer}" required="true" label="Hausnummer"/>
+				            <p:inputText id="hausnummer" value="#{mitarbeiterTable.mitarbeiter.mitarbeiterHausNummer}" required="true" label="Hausnummer"/>
 				            <p:message for="hausnummer" />
 				            
 				            <p:outputLabel for="postleitzahl" value="Postleitzahl" />
-				            <p:inputText id="postleitzahl" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterPlz}" required="true" label="Postleitzahl"/>
+				            <p:inputText id="postleitzahl" value="#{mitarbeiterTable.mitarbeiter.mitarbeiterPlz}" required="true" label="Postleitzahl"/>
 				            <p:message for="postleitzahl" />
 				            
 				            <p:outputLabel for="wohnort" value="Wohnort" />
-				            <p:inputText id="wohnort" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterWohnort}" required="true" label="Wohnort"/>
+				            <p:inputText id="wohnort" value="#{mitarbeiterTable.mitarbeiter.mitarbeiterWohnort}" required="true" label="Wohnort"/>
 				            <p:message for="wohnort" />
 				            
 				              <p:outputLabel for="abteilungen" value="Abteilung:"  />
-						        <h:selectOneMenu id="abteilungen" value="#{mitarbeiterFormularController.mitarbeiter.abteilung}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
+						        <h:selectOneMenu id="abteilungen" value="#{mitarbeiterTable.mitarbeiter.abteilung}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
 						                      
-						            <f:selectItems value="#{mitarbeiterFormularController.abteilungen}" />
+						            <f:selectItems value="#{mitarbeiterTable.abteilungen}" />
 						 
 						        </h:selectOneMenu>
 				        </h:panelGrid>
@@ -71,7 +71,7 @@
 				            
 				            
 							
-							<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="false" update="@form" ajax="false" action="#{mitarbeiterFormularController.save}"/>
+							<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="true" update="@form" prependId="false" action="#{mitarbeiterTable.save}"/>
 				 	
 				    </p:panel>
 				</h:form>

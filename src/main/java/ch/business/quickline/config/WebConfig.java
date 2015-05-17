@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan(basePackages = "ch.business.quickline.controller")
+
 public class WebConfig {
 
 }

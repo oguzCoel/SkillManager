@@ -67,9 +67,15 @@
  				 <br/><br/>   			
       			 <p:panelGrid columns="3" layout="grid">
  					<p:panel id="skillranking" header="Top Skills" >
-    					<p:dataList value="#{mitarbeiterViewController.mitarbeiterSkills}"  var="skills" type="ordered">
-    								#{skills.getSkill().getSkillName()}: #{skills.getMasterBewertung()}
-    					</p:dataList>
+    					
+    					<p:dataList value="#{mitarbeiterViewController.mitarbeiterSkills}" var="skills" type="ordered">
+        							<h:link outcome="skill" value="#{skills.getSkill().getSkillName()}">
+        								<f:param name="sid" value="#{skills.getSkill().getSkillId()}"/>
+        							</h:link>
+        							#{skills.getMasterBewertung()}
+        					
+        								
+    						</p:dataList>
     				</p:panel>
     				<p:panel id="interestranking" header="Top Interessen" >
     					<p:dataList value="#{mitarbeiterViewController.mitarbeiterInterests}" var="interests" type="ordered">

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ch.business.quickline.domain.Mitarbeiter;
 import ch.business.quickline.domain.MitarbeiterSkill;
+import ch.business.quickline.domain.Skill;
 import ch.business.quickline.repository.MitarbeiterSkillRepository;
 
 @Service("mitarbeiterSkillService")
@@ -35,6 +36,16 @@ public class MitarbeiterSkillServiceImpl implements MitarbeiterSkillService {
 		return mitarbeiterSkillRepository.findByMitarbeiterOrderBySelbstBewertungDesc(mitarbeiter);
 	}
 	
+	
+	public List<MitarbeiterSkill> findBySkillOrderByMasterBewertungDesc (Skill skill){
+		return mitarbeiterSkillRepository.findBySkillOrderByMasterBewertungDesc(skill);
+	}
+	
+	
+	public List<MitarbeiterSkill> findBySkillOrderBySelbstBewertungDesc (Skill skill){
+		return mitarbeiterSkillRepository.findBySkillOrderBySelbstBewertungDesc(skill);
+	}
+	
 	public Double retrieveMasterBewertungGlobalAverage(){
 	    	Double sum = 0.0;
 	    	for (MitarbeiterSkill skill: findAll()){
@@ -53,6 +64,13 @@ public class MitarbeiterSkillServiceImpl implements MitarbeiterSkillService {
 	    	
 	    	return sum / findAll().size();
 	}
+	 
+	 
+	public Long countBySkill (Skill skill){
+		
+		return mitarbeiterSkillRepository.countBySkill(skill);
+	}
+	
 	
 
 }
