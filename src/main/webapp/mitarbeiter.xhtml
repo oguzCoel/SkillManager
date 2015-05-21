@@ -52,8 +52,8 @@
     				</p:panel> 
     				
     				<p:panel id="qualifikationsindividual" header="Qualifikation" >
-    					<p:dataList value="#{mitarbeiterViewController.qualifikations}" var="qualifikation" type="ordered">
-        							#{qualifikation.getQualifikationName()}
+    					<p:dataList value="#{mitarbeiterViewController.mitarbeiterQualifikations}" var="qualifikation" type="ordered">
+        							#{qualifikation.getQualifikation().getQualifikationName()}
     					</p:dataList>
     				</p:panel>	    				    				   				
     			</p:panelGrid> 

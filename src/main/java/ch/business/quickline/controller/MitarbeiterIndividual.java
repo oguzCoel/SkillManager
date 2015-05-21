@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import ch.business.quickline.domain.Mitarbeiter;
+import ch.business.quickline.domain.MitarbeiterQualifikation;
 import ch.business.quickline.domain.MitarbeiterSkill;
 import ch.business.quickline.domain.Qualifikation;
 import ch.business.quickline.service.MitarbeiterService;
@@ -28,7 +29,7 @@ public class MitarbeiterIndividual {
 	private MitarbeiterSkillService mitarbeiterSkillService;
 	
 	private Mitarbeiter mitarbeiter;
-	private Set<Qualifikation> qualifikations;
+	private Set<MitarbeiterQualifikation> qualifikations;
 	private List<MitarbeiterSkill> mitarbeiterSkills;
 	private List<MitarbeiterSkill> mitarbeiterInterests;
 	
@@ -37,7 +38,7 @@ public class MitarbeiterIndividual {
 	
 	public void init (){
 		mitarbeiter = mitarbeiterService.findByMitarbeiterId(id);
-		qualifikations = mitarbeiter.getQualifikations();
+		qualifikations = mitarbeiter.getMitarbeiterQualifikations();
 		mitarbeiterSkills = mitarbeiterSkillService.findByMitarbeiterOrderByMasterBewertungDesc(mitarbeiter);
 		mitarbeiterInterests = mitarbeiterSkillService.findByMitarbeiterOrderBySelbstBewertungDesc(mitarbeiter);
 	}
@@ -84,11 +85,11 @@ public class MitarbeiterIndividual {
 		this.mitarbeiter = mitarbeiter;
 	}
 
-	public Set<Qualifikation> getQualifikations() {
+	public Set<MitarbeiterQualifikation> getQualifikations() {
 		return qualifikations;
 	}
 
-	public void setQualifikations(Set<Qualifikation> qualifikations) {
+	public void setQualifikations(Set<MitarbeiterQualifikation> qualifikations) {
 		this.qualifikations = qualifikations;
 	}
 	

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import ch.business.quickline.domain.Mitarbeiter;
+import ch.business.quickline.domain.MitarbeiterQualifikation;
 import ch.business.quickline.domain.MitarbeiterSkill;
 import ch.business.quickline.domain.Qualifikation;
 import ch.business.quickline.service.MitarbeiterService;
@@ -37,6 +38,7 @@ public class MitarbeiterViewController implements Serializable {
     private BigDecimal selbstBewertungDurchschnitt;
 	private Mitarbeiter mitarbeiter;
 	private Set<Qualifikation> qualifikations;
+	private Set<MitarbeiterQualifikation> mitarbeiterQualifikations;
 	private List<MitarbeiterSkill> mitarbeiterSkills;
 	private List<MitarbeiterSkill> mitarbeiterInterests;
 
@@ -57,7 +59,11 @@ public class MitarbeiterViewController implements Serializable {
     
     public void initValues(){
     	mitarbeiter = mitarbeiterService.findByMitarbeiterId(id);
-		qualifikations = mitarbeiterService.findByMitarbeiterId(id).getQualifikations();
+		mitarbeiterQualifikations = mitarbeiterService.findByMitarbeiterId(id).getMitarbeiterQualifikations();
+		
+	
+		
+		
 		mitarbeiterSkills = mitarbeiterSkillService.findByMitarbeiterOrderByMasterBewertungDesc(mitarbeiter);
 		mitarbeiterInterests = mitarbeiterSkillService.findByMitarbeiterOrderBySelbstBewertungDesc(mitarbeiter);
     	masterBewertungDurchschnitt = mitarbeiterService.retrieveMasterBewertungDurchschnitt(mitarbeiter.getMitarbeiterId());
@@ -152,6 +158,18 @@ public class MitarbeiterViewController implements Serializable {
 	public void setMitarbeiter(Mitarbeiter mitarbeiter) {
 		this.mitarbeiter = mitarbeiter;
 	}
+
+
+	public Set<MitarbeiterQualifikation> getMitarbeiterQualifikations() {
+		return mitarbeiterQualifikations;
+	}
+
+
+	public void setMitarbeiterQualifikations(Set<MitarbeiterQualifikation> mitarbeiterQualifikations) {
+		this.mitarbeiterQualifikations = mitarbeiterQualifikations;
+	}
+	
+	
 
 
 	public Set<Qualifikation> getQualifikations() {

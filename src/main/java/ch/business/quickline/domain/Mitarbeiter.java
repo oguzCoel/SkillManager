@@ -1,6 +1,6 @@
 package ch.business.quickline.domain;
 // default package
-// Generated 15.04.2015 23:50:36 by Hibernate Tools 3.4.0.CR1
+// Generated 21.05.2015 20:36:25 by Hibernate Tools 3.4.0.CR1
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -14,11 +14,8 @@ import javax.persistence.GeneratedValue;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -48,9 +45,11 @@ public class Mitarbeiter implements java.io.Serializable {
 	private Set<Benutzer> benutzers = new HashSet<Benutzer>(0);
 	private Set<MitarbeiterSkill> mitarbeiterSkills = new HashSet<MitarbeiterSkill>(
 			0);
-	private Set<Skill> skills = new HashSet<Skill>(0);
-	private Set<Task> tasks = new HashSet<Task>(0);
-	private Set<Qualifikation> qualifikations = new HashSet<Qualifikation>(0);
+	private Set<SkillMaster> skillMasters = new HashSet<SkillMaster>(0);
+	private Set<MitarbeiterTask> mitarbeiterTasks = new HashSet<MitarbeiterTask>(
+			0);
+	private Set<MitarbeiterQualifikation> mitarbeiterQualifikations = new HashSet<MitarbeiterQualifikation>(
+			0);
 
 	public Mitarbeiter() {
 	}
@@ -80,8 +79,9 @@ public class Mitarbeiter implements java.io.Serializable {
 			BigDecimal mitarbeiterMasterBewertungDurchschnitt,
 			BigDecimal mitarbeiterSelbstBewertungDurchschnitt,
 			Set<Benutzer> benutzers, Set<MitarbeiterSkill> mitarbeiterSkills,
-			Set<Skill> skills, Set<Task> tasks,
-			Set<Qualifikation> qualifikations) {
+			Set<SkillMaster> skillMasters,
+			Set<MitarbeiterTask> mitarbeiterTasks,
+			Set<MitarbeiterQualifikation> mitarbeiterQualifikations) {
 		this.abteilung = abteilung;
 		this.mitarbeiterVorname = mitarbeiterVorname;
 		this.mitarbeiterNachname = mitarbeiterNachname;
@@ -96,9 +96,9 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterSelbstBewertungDurchschnitt = mitarbeiterSelbstBewertungDurchschnitt;
 		this.benutzers = benutzers;
 		this.mitarbeiterSkills = mitarbeiterSkills;
-		this.skills = skills;
-		this.tasks = tasks;
-		this.qualifikations = qualifikations;
+		this.skillMasters = skillMasters;
+		this.mitarbeiterTasks = mitarbeiterTasks;
+		this.mitarbeiterQualifikations = mitarbeiterQualifikations;
 	}
 
 	@Id
@@ -225,7 +225,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterSelbstBewertungDurchschnitt = mitarbeiterSelbstBewertungDurchschnitt;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mitarbeiter", cascade = {CascadeType.ALL})
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mitarbeiter")
 	public Set<Benutzer> getBenutzers() {
 		return this.benutzers;
 	}
@@ -234,7 +234,7 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.benutzers = benutzers;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "mitarbeiter", cascade = {CascadeType.ALL})
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mitarbeiter")
 	public Set<MitarbeiterSkill> getMitarbeiterSkills() {
 		return this.mitarbeiterSkills;
 	}
@@ -243,34 +243,32 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterSkills = mitarbeiterSkills;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-	@JoinTable(name = "SkillMaster", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Mitarbeiter", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Skill", nullable = false, updatable = false) })
-	public Set<Skill> getSkills() {
-		return this.skills;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mitarbeiter")
+	public Set<SkillMaster> getSkillMasters() {
+		return this.skillMasters;
 	}
 
-	public void setSkills(Set<Skill> skills) {
-		this.skills = skills;
+	public void setSkillMasters(Set<SkillMaster> skillMasters) {
+		this.skillMasters = skillMasters;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-	@JoinTable(name = "MitarbeiterTask", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Mitarbeiter", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Task", nullable = false, updatable = false) })
-	public Set<Task> getTasks() {
-		return this.tasks;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mitarbeiter")
+	public Set<MitarbeiterTask> getMitarbeiterTasks() {
+		return this.mitarbeiterTasks;
 	}
 
-	public void setTasks(Set<Task> tasks) {
-		this.tasks = tasks;
+	public void setMitarbeiterTasks(Set<MitarbeiterTask> mitarbeiterTasks) {
+		this.mitarbeiterTasks = mitarbeiterTasks;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-	@JoinTable(name = "MitarbeiterQualifikation", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Mitarbeiter", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Qualifikation", nullable = false, updatable = false) })
-	public Set<Qualifikation> getQualifikations() {
-		return this.qualifikations;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "mitarbeiter")
+	public Set<MitarbeiterQualifikation> getMitarbeiterQualifikations() {
+		return this.mitarbeiterQualifikations;
 	}
 
-	public void setQualifikations(Set<Qualifikation> qualifikations) {
-		this.qualifikations = qualifikations;
+	public void setMitarbeiterQualifikations(
+			Set<MitarbeiterQualifikation> mitarbeiterQualifikations) {
+		this.mitarbeiterQualifikations = mitarbeiterQualifikations;
 	}
 	
 	public String toString(){

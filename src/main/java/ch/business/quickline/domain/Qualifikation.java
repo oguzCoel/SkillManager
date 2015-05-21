@@ -1,6 +1,6 @@
 package ch.business.quickline.domain;
 // default package
-// Generated 15.04.2015 23:50:36 by Hibernate Tools 3.4.0.CR1
+// Generated 21.05.2015 20:36:25 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,9 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -25,7 +23,8 @@ public class Qualifikation implements java.io.Serializable {
 	private Integer qualifikationId;
 	private String qualifikationName;
 	private String qualifikationTyp;
-	private Set<Mitarbeiter> mitarbeiters = new HashSet<Mitarbeiter>(0);
+	private Set<MitarbeiterQualifikation> mitarbeiterQualifikations = new HashSet<MitarbeiterQualifikation>(
+			0);
 
 	public Qualifikation() {
 	}
@@ -36,10 +35,10 @@ public class Qualifikation implements java.io.Serializable {
 	}
 
 	public Qualifikation(String qualifikationName, String qualifikationTyp,
-			Set<Mitarbeiter> mitarbeiters) {
+			Set<MitarbeiterQualifikation> mitarbeiterQualifikations) {
 		this.qualifikationName = qualifikationName;
 		this.qualifikationTyp = qualifikationTyp;
-		this.mitarbeiters = mitarbeiters;
+		this.mitarbeiterQualifikations = mitarbeiterQualifikations;
 	}
 
 	@Id
@@ -53,7 +52,7 @@ public class Qualifikation implements java.io.Serializable {
 		this.qualifikationId = qualifikationId;
 	}
 
-	@Column(name = "QualifikationName", nullable = false, length = 30)
+	@Column(name = "QualifikationName", nullable = false, length = 60)
 	public String getQualifikationName() {
 		return this.qualifikationName;
 	}
@@ -71,14 +70,14 @@ public class Qualifikation implements java.io.Serializable {
 		this.qualifikationTyp = qualifikationTyp;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "MitarbeiterQualifikation", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Qualifikation", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Mitarbeiter", nullable = false, updatable = false) })
-	public Set<Mitarbeiter> getMitarbeiters() {
-		return this.mitarbeiters;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "qualifikation")
+	public Set<MitarbeiterQualifikation> getMitarbeiterQualifikations() {
+		return this.mitarbeiterQualifikations;
 	}
 
-	public void setMitarbeiters(Set<Mitarbeiter> mitarbeiters) {
-		this.mitarbeiters = mitarbeiters;
+	public void setMitarbeiterQualifikations(
+			Set<MitarbeiterQualifikation> mitarbeiterQualifikations) {
+		this.mitarbeiterQualifikations = mitarbeiterQualifikations;
 	}
 
 }

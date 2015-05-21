@@ -1,6 +1,6 @@
 package ch.business.quickline.domain;
 // default package
-// Generated 15.04.2015 23:50:36 by Hibernate Tools 3.4.0.CR1
+// Generated 21.05.2015 20:36:25 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,9 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,8 +28,9 @@ public class Projekt implements java.io.Serializable {
 	private String projektBeschreibung;
 	private Date projektBeginn;
 	private Date projektEnde;
-	private Set<Task> tasks = new HashSet<Task>(0);
-	private Set<Abteilung> abteilungs = new HashSet<Abteilung>(0);
+	private Set<ProjektTask> projektTasks = new HashSet<ProjektTask>(0);
+	private Set<AbteilungProjekt> abteilungProjekts = new HashSet<AbteilungProjekt>(
+			0);
 
 	public Projekt() {
 	}
@@ -42,14 +41,15 @@ public class Projekt implements java.io.Serializable {
 	}
 
 	public Projekt(String projektName, String projektBeschreibung,
-			Date projektBeginn, Date projektEnde, Set<Task> tasks,
-			Set<Abteilung> abteilungs) {
+			Date projektBeginn, Date projektEnde,
+			Set<ProjektTask> projektTasks,
+			Set<AbteilungProjekt> abteilungProjekts) {
 		this.projektName = projektName;
 		this.projektBeschreibung = projektBeschreibung;
 		this.projektBeginn = projektBeginn;
 		this.projektEnde = projektEnde;
-		this.tasks = tasks;
-		this.abteilungs = abteilungs;
+		this.projektTasks = projektTasks;
+		this.abteilungProjekts = abteilungProjekts;
 	}
 
 	@Id
@@ -101,24 +101,22 @@ public class Projekt implements java.io.Serializable {
 		this.projektEnde = projektEnde;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "ProjektTask", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Projekt", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Task", nullable = false, updatable = false) })
-	public Set<Task> getTasks() {
-		return this.tasks;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "projekt")
+	public Set<ProjektTask> getProjektTasks() {
+		return this.projektTasks;
 	}
 
-	public void setTasks(Set<Task> tasks) {
-		this.tasks = tasks;
+	public void setProjektTasks(Set<ProjektTask> projektTasks) {
+		this.projektTasks = projektTasks;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "AbteilungProjekt", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Projekt", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Abteilung", nullable = false, updatable = false) })
-	public Set<Abteilung> getAbteilungs() {
-		return this.abteilungs;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "projekt")
+	public Set<AbteilungProjekt> getAbteilungProjekts() {
+		return this.abteilungProjekts;
 	}
 
-	public void setAbteilungs(Set<Abteilung> abteilungs) {
-		this.abteilungs = abteilungs;
+	public void setAbteilungProjekts(Set<AbteilungProjekt> abteilungProjekts) {
+		this.abteilungProjekts = abteilungProjekts;
 	}
 
 }

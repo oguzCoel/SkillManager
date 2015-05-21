@@ -28,6 +28,11 @@ public class MitarbeiterSkillFormular {
 	@Autowired
 	private MitarbeiterSkillService mitarbeiterSkillService;
 	
+	@Autowired
+	private UnternehmenViewController unternehmenViewController;
+	
+	
+	
 	private List<Mitarbeiter> mitarbeiter;
 	private List<Skill> skills;
 	private MitarbeiterSkill mitarbeiterSkill = new MitarbeiterSkill();
@@ -71,5 +76,10 @@ public class MitarbeiterSkillFormular {
 	
 	public void save(){
 		mitarbeiterSkillService.save(mitarbeiterSkill);
+		unternehmenViewController.init();
+		//mitarbeiterViewController.initValues();
+		//mitarbeiterViewController.init();
+		
+		
 	}
 }

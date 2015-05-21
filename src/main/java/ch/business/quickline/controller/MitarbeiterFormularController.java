@@ -36,6 +36,9 @@ public class MitarbeiterFormularController implements Serializable {
 	@Autowired 
 	private UserDetailService userDetailService;
 	
+	@Autowired
+	private UnternehmenViewController unternehmenViewController;
+	
 	
 	
 	private Mitarbeiter mitarbeiter = new Mitarbeiter();
@@ -107,6 +110,7 @@ public class MitarbeiterFormularController implements Serializable {
 	
 	public void save()throws Exception{
 		mitarbeiterService.save(mitarbeiter);
+		unternehmenViewController.init();
 			
 		
 	}

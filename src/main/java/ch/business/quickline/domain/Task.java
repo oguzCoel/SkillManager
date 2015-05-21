@@ -1,6 +1,6 @@
 package ch.business.quickline.domain;
 // default package
-// Generated 15.04.2015 23:50:36 by Hibernate Tools 3.4.0.CR1
+// Generated 21.05.2015 20:36:25 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,9 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -25,10 +23,11 @@ public class Task implements java.io.Serializable {
 	private Integer taskId;
 	private String taskName;
 	private String taskBeschreibung;
-	private Set<Abteilung> abteilungs = new HashSet<Abteilung>(0);
-	private Set<Skill> skills = new HashSet<Skill>(0);
-	private Set<Projekt> projekts = new HashSet<Projekt>(0);
-	private Set<Mitarbeiter> mitarbeiters = new HashSet<Mitarbeiter>(0);
+	private Set<AbteilungTask> abteilungTasks = new HashSet<AbteilungTask>(0);
+	private Set<SkillTask> skillTasks = new HashSet<SkillTask>(0);
+	private Set<ProjektTask> projektTasks = new HashSet<ProjektTask>(0);
+	private Set<MitarbeiterTask> mitarbeiterTasks = new HashSet<MitarbeiterTask>(
+			0);
 
 	public Task() {
 	}
@@ -39,14 +38,14 @@ public class Task implements java.io.Serializable {
 	}
 
 	public Task(String taskName, String taskBeschreibung,
-			Set<Abteilung> abteilungs, Set<Skill> skills,
-			Set<Projekt> projekts, Set<Mitarbeiter> mitarbeiters) {
+			Set<AbteilungTask> abteilungTasks, Set<SkillTask> skillTasks,
+			Set<ProjektTask> projektTasks, Set<MitarbeiterTask> mitarbeiterTasks) {
 		this.taskName = taskName;
 		this.taskBeschreibung = taskBeschreibung;
-		this.abteilungs = abteilungs;
-		this.skills = skills;
-		this.projekts = projekts;
-		this.mitarbeiters = mitarbeiters;
+		this.abteilungTasks = abteilungTasks;
+		this.skillTasks = skillTasks;
+		this.projektTasks = projektTasks;
+		this.mitarbeiterTasks = mitarbeiterTasks;
 	}
 
 	@Id
@@ -78,44 +77,40 @@ public class Task implements java.io.Serializable {
 		this.taskBeschreibung = taskBeschreibung;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "AbteilungTask", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Task", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Abteilung", nullable = false, updatable = false) })
-	public Set<Abteilung> getAbteilungs() {
-		return this.abteilungs;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "task")
+	public Set<AbteilungTask> getAbteilungTasks() {
+		return this.abteilungTasks;
 	}
 
-	public void setAbteilungs(Set<Abteilung> abteilungs) {
-		this.abteilungs = abteilungs;
+	public void setAbteilungTasks(Set<AbteilungTask> abteilungTasks) {
+		this.abteilungTasks = abteilungTasks;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "SkillTask", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Task", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Skill", nullable = false, updatable = false) })
-	public Set<Skill> getSkills() {
-		return this.skills;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "task")
+	public Set<SkillTask> getSkillTasks() {
+		return this.skillTasks;
 	}
 
-	public void setSkills(Set<Skill> skills) {
-		this.skills = skills;
+	public void setSkillTasks(Set<SkillTask> skillTasks) {
+		this.skillTasks = skillTasks;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "ProjektTask", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Task", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Projekt", nullable = false, updatable = false) })
-	public Set<Projekt> getProjekts() {
-		return this.projekts;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "task")
+	public Set<ProjektTask> getProjektTasks() {
+		return this.projektTasks;
 	}
 
-	public void setProjekts(Set<Projekt> projekts) {
-		this.projekts = projekts;
+	public void setProjektTasks(Set<ProjektTask> projektTasks) {
+		this.projektTasks = projektTasks;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "MitarbeiterTask", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Task", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Mitarbeiter", nullable = false, updatable = false) })
-	public Set<Mitarbeiter> getMitarbeiters() {
-		return this.mitarbeiters;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "task")
+	public Set<MitarbeiterTask> getMitarbeiterTasks() {
+		return this.mitarbeiterTasks;
 	}
 
-	public void setMitarbeiters(Set<Mitarbeiter> mitarbeiters) {
-		this.mitarbeiters = mitarbeiters;
+	public void setMitarbeiterTasks(Set<MitarbeiterTask> mitarbeiterTasks) {
+		this.mitarbeiterTasks = mitarbeiterTasks;
 	}
 
 }

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ch.business.quickline.domain.Benutzer;
+import ch.business.quickline.domain.BenutzerRole;
 import ch.business.quickline.domain.Role;
 import ch.business.quickline.repository.BenutzerRepository;
 
@@ -34,7 +35,7 @@ public class UserDetailService implements UserDetailsService {
 		
 		Benutzer benutzer = benutzerRepository.findByBenutzerName(username);
 		
-		List<GrantedAuthority> authorities = buildUserAuthority (benutzer.getRoles());
+		List<GrantedAuthority> authorities = buildUserAuthority (benutzer.getBenutzerRoles());
 		
 		return buildUserForAuthentication (benutzer, authorities);
 	}
@@ -48,13 +49,13 @@ public class UserDetailService implements UserDetailsService {
 	}
 	
 	
-	private List<GrantedAuthority> buildUserAuthority(Set<Role> roles) {
+	private List<GrantedAuthority> buildUserAuthority(Set<BenutzerRole> roles) {
 		 
 		Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
  
 		// Build user's authorities
-		for (Role role : roles) {
-			setAuths.add(new SimpleGrantedAuthority(role.getRoleName()));
+		for (BenutzerRole role : roles) {
+			setAuths.add(new SimpleGrantedAuthority(role.getRole().getRoleName()));
 		}
  
 		List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);

@@ -1,6 +1,6 @@
 package ch.business.quickline.domain;
 // default package
-// Generated 15.04.2015 23:50:36 by Hibernate Tools 3.4.0.CR1
+// Generated 21.05.2015 20:36:25 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,9 +11,8 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -28,7 +27,7 @@ public class Benutzer implements java.io.Serializable {
 	private String benutzerName;
 	private String benutzerPasswort;
 	private String benutzerEmail;
-	private Set<Role> roles = new HashSet<Role>(0);
+	private Set<BenutzerRole> benutzerRoles = new HashSet<BenutzerRole>(0);
 
 	public Benutzer() {
 	}
@@ -42,12 +41,13 @@ public class Benutzer implements java.io.Serializable {
 	}
 
 	public Benutzer(Mitarbeiter mitarbeiter, String benutzerName,
-			String benutzerPasswort, String benutzerEmail, Set<Role> roles) {
+			String benutzerPasswort, String benutzerEmail,
+			Set<BenutzerRole> benutzerRoles) {
 		this.mitarbeiter = mitarbeiter;
 		this.benutzerName = benutzerName;
 		this.benutzerPasswort = benutzerPasswort;
 		this.benutzerEmail = benutzerEmail;
-		this.roles = roles;
+		this.benutzerRoles = benutzerRoles;
 	}
 
 	@Id
@@ -98,14 +98,13 @@ public class Benutzer implements java.io.Serializable {
 		this.benutzerEmail = benutzerEmail;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "BenutzerRole", catalog = "Skillmanager", joinColumns = { @JoinColumn(name = "Benutzer", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "Role", nullable = false, updatable = false) })
-	public Set<Role> getRoles() {
-		return this.roles;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "benutzer")
+	public Set<BenutzerRole> getBenutzerRoles() {
+		return this.benutzerRoles;
 	}
 
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
+	public void setBenutzerRoles(Set<BenutzerRole> benutzerRoles) {
+		this.benutzerRoles = benutzerRoles;
 	}
 
 }
