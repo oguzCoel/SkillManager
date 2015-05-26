@@ -18,6 +18,7 @@ import ch.business.quickline.domain.Abteilung;
 import ch.business.quickline.domain.Benutzer;
 import ch.business.quickline.domain.Mitarbeiter;
 import ch.business.quickline.domain.MitarbeiterSkill;
+import ch.business.quickline.domain.Skill;
 import ch.business.quickline.repository.MitarbeiterRepository;
 import ch.business.quickline.repository.MitarbeiterSkillRepository;
 import ch.business.quickline.service.AbteilungService;
@@ -96,7 +97,14 @@ public class App {
 	        mitarbeiterService.save(mitarbeiterNeu);
 	        
 	        */
-		System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
+		
+		Skill skill = skillService.findBySkillId(1);
+		List<MitarbeiterSkill> liste = mitarbeiterSkillService.findBySkillAndMasterBewertungGreaterThanEqualOrderByMasterBewertung(skill, 1);
+		
+		for (MitarbeiterSkill i:liste){
+			System.out.println(i.getMitarbeiter().getMitarbeiterVorname() + " " + i.getMasterBewertung());
+		}
+		
 		
 
 

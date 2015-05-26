@@ -6,7 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -54,7 +56,7 @@ public class SkillMaster implements java.io.Serializable {
 		this.mitarbeiter = mitarbeiter;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Skill", nullable = false)
 	public Skill getSkill() {
 		return this.skill;
@@ -63,5 +65,7 @@ public class SkillMaster implements java.io.Serializable {
 	public void setSkill(Skill skill) {
 		this.skill = skill;
 	}
+	
+
 
 }

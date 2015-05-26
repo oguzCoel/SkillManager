@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html   xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:f="http://java.sun.com/jsf/core">
+		
+	
+		
+
+	<f:view contentType="text/html" id="fview">
+	
+
+	
+	
+
+	<ui:composition template="/templates/default/template2.xhtml">
+        <ui:define name="content">
+      <ui:insert>
+      	<h:form>
+			 <p:messages autoUpdate="true" />
+ 
+						        <p:selectOneMenu id="skills" value="#{mitarbeiterFinder.skill}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
+						                      
+						            <f:selectItems value="#{mitarbeiterFinder.skills}" >
+						            <f:param name="mskill" value="#{mitarbeiterFinder.skill}"/>
+						            	
+						 			</f:selectItems>
+						        </p:selectOneMenu>
+						        
+						        
+						        
+						         <p:selectOneMenu id="mitarbeiter" value="#{mitarbeiterFinder.masterBewertung}" panelStyle="width:180px">
+						                      
+						            <f:selectItems value="#{mitarbeiterFinder.masterBewertungValues}" >
+						            <f:param name="mmasterbewertung" value="#{mitarbeiterFinder.masterBewertung}"/>
+						            	
+						            </f:selectItems>	
+						 
+						        </p:selectOneMenu>
+						        
+						        
+						        
+						         <p:commandButton value="Submit" action="#{mitarbeiterFinder.save}" />
+						        
+						        <h:link outcome="matchedmitarbeiter"  value="auswerten">
+						        
+						     
+						        	 
+ 										
+     
+										
+								</h:link>
+								
+									
+		</h:form>
+        		
+ 				    				
+ 							
+	</ui:insert>
+	</ui:define>
+	</ui:composition>
+
+	</f:view>
+</html>		
