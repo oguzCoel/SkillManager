@@ -21,7 +21,7 @@
 	
 	
 
-	<ui:composition template="/templates/default/template2.xhtml">
+	<ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
         	<ui:insert>
         		<h:form>
@@ -69,9 +69,9 @@
  					<p:panel id="skillranking" header="Top Skills" >
     					
     					<p:dataList value="#{mitarbeiterViewController.mitarbeiterSkills}" var="skills" type="ordered">
-        							<h:link outcome="skill" value="#{skills.getSkill().getSkillName()}">
+        							<p:link outcome="skill" value="#{skills.getSkill().getSkillName()}">
         								<f:param name="sid" value="#{skills.getSkill().getSkillId()}"/>
-        							</h:link>
+        							</p:link>
         							#{skills.getMasterBewertung()}
         					
         								

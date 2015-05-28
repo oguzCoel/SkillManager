@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"> 
  
-    <ui:composition template="/templates/default/template2.xhtml">
+    <ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
         	<ui:insert>
         		<div class="ui-grid">
@@ -28,10 +28,10 @@
        					 		<f:facet name="header">
             						Top Mitarbeiter nach Masterbewertung
         				 		</f:facet>
-        							<h:link outcome="mitarbeiter" value="#{mitarbeiter.mitarbeiterVorname}">
+        							<p:link outcome="mitarbeiter" value="#{mitarbeiter.mitarbeiterVorname}">
         								<f:param name="mid" value="#{mitarbeiter.mitarbeiterId}"/>
         								<f:param name="mbid" value="#{mitarbeiter.mitarbeiterId}"/>
-        							</h:link>
+        							</p:link>
         							:
         							#{mitarbeiter.mitarbeiterNachname}
         								
@@ -52,6 +52,8 @@
 				        </div>
 				    </div>    
 				</div>
+				 
+        
         	</ui:insert>            
  
         </ui:define>
