@@ -16,5 +16,6 @@ public interface MitarbeiterSkillRepository extends JpaRepository<MitarbeiterSki
 	public List<MitarbeiterSkill> findBySkillOrderBySelbstBewertungDesc(Skill skill);
 	public Long countBySkill(Skill skill);
 	public List<MitarbeiterSkill> findBySkillAndMasterBewertungGreaterThanEqualOrderByMasterBewertungDesc(Skill skill, Integer masterBewertung );
+	public MitarbeiterSkill findByMitarbeiterAndSkill (Mitarbeiter mitarbeiter, Skill skill);
 
 }

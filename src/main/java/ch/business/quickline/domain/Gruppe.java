@@ -4,11 +4,14 @@ package ch.business.quickline.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -63,6 +66,10 @@ public class Gruppe implements java.io.Serializable {
 
 	public void setSkills(Set<Skill> skills) {
 		this.skills = skills;
+	}
+	
+	public String toString(){
+		return String.format("%s", getGruppeName());
 	}
 
 }

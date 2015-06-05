@@ -78,6 +78,11 @@ public class MitarbeiterSkillServiceImpl implements MitarbeiterSkillService {
 			Skill skill, Integer masterBewertung) {
 		return mitarbeiterSkillRepository.findBySkillAndMasterBewertungGreaterThanEqualOrderByMasterBewertungDesc(skill, masterBewertung);
 	}
+	
+	public MitarbeiterSkill findByMitarbeiterAndSkill (Mitarbeiter mitarbeiter, Skill skill){
+		
+		return mitarbeiterSkillRepository.findByMitarbeiterAndSkill(mitarbeiter, skill);
+	}
 
 	
 	

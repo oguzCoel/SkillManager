@@ -1,0 +1,90 @@
+ 
+ <html xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+                
+                
+              <ui:composition  template="/templates/default/template.xhtml">
+ 
+    
+        <ui:define name="content">
+        	<ui:insert>
+        		<h:form>
+				       <p:growl id="growl" sticky="true" showDetail="true"/>
+				  
+				 
+				        <p:messages />
+				        <p:wizard>
+				        	<p:tab id="personal" title="Persönlich">
+					            <p:panel header="Persönliche Daten">
+					                <p:messages />
+					                <h:panelGrid columns="2" columnClasses="label, value">
+					                    <p:outputLabel for="vorname" value="Vorname: " />
+					                    <p:inputText id="vorname" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterVorname}" required="true" label="Vorname"/>
+					 
+					                    <p:outputLabel for="nachname" value="Nachname: " />
+					                    <p:inputText id="nachname" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterNachname}" required="true" label="Nachname"/>
+					 
+					                    <p:outputLabel for="geburtsdatum" value="Geburtsdatum:" />
+        								<p:calendar id="geburtsdatum" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterGeburtsDatum}" required="true"/>
+        								
+        								<p:outputLabel for="adress" value="Adresse: " />
+					                    <p:inputText id="adress" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterAdresse}" required="true" label="Adresse"/>
+					                    
+					                    <p:outputLabel for="hausnummer" value="Nr: " />
+					                    <p:inputText id="hausnummer" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterHausNummer}" required="true" label="Nr"/>
+					                    
+					                    <p:outputLabel for="postleitzahl" value="PLZ: " />
+					                    <p:inputText id="postleitzahl" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterPlz}" required="true" label="PLZ"/>
+					                    
+					                    <p:outputLabel for="wohnort" value="Ort: " />
+					                    <p:inputText id="wohnort" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterWohnort}" required="true" label="Ort"/>
+					                    
+					                    
+					                    
+					                    
+        								
+					                </h:panelGrid>
+					            </p:panel>
+					        </p:tab>
+					        
+					        	<p:tab id="beruflich" title="Beruflich">
+					            <p:panel header="Berufliche Daten">
+					                <p:messages />
+					                <h:panelGrid columns="2" columnClasses="label, value">
+					                 
+        								<p:outputLabel for="rolle" value="Rolle: " />
+					                    <p:inputText id="rolle" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterRolle}" required="true" label="Rolle"/>
+					 
+					                     
+								         
+								         <p:outputLabel for="anstellungsdatum" value="Anstellungsdatum:" />
+        								 <p:calendar id="anstellungsdatum" value="#{mitarbeiterFormularController.mitarbeiter.mitarbeiterAnstellungsDatum}" required="true"/>
+        								 
+        								 <p:outputLabel for="abteilungen" value="Abteilung:"  />
+								         <p:selectOneMenu id="abteilungen" value="#{mitarbeiterFormularController.mitarbeiter.abteilung}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">           
+								            <f:selectItems value="#{mitarbeiterTable.abteilungen}" />
+								         </p:selectOneMenu>
+        								 
+        								
+					 					 
+					 					 
+					 					 	
+					                </h:panelGrid>
+					                	<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="true" update="growl" prependId="false" action="#{mitarbeiterFormularController.save}"/>
+					            </p:panel>
+					        </p:tab>
+					     </p:wizard>  	
+				    
+				</h:form>
+				
+				
+        		
+        	</ui:insert>            
+ 
+        </ui:define>
+      
+    </ui:composition>        
+ </html>

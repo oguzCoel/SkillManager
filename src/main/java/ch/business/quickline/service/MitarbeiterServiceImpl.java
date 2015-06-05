@@ -64,6 +64,10 @@ public class MitarbeiterServiceImpl implements MitarbeiterService {
 	}
 	
 	
+	public long count (){
+		return mitarbeiterRepository.count();
+	}
+	
 	
 	
 	

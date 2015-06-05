@@ -21,5 +21,10 @@ public class SkillMasterServiceImpl implements SkillMasterService {
 	
 		return skillMasterRepository.findByMitarbeiter(mitarbeiter);
 	}
+	
+	public SkillMaster save (SkillMaster skillMaster){
+		
+		return skillMasterRepository.save(skillMaster);
+	}
 
 }

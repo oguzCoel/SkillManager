@@ -44,5 +44,9 @@ public class SkillServiceImpl implements SkillService {
     	
     	return average;
 }
+    
+    public long count(){
+    	return skillRepository.count();
+    }
 
 }

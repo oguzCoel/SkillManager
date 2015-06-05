@@ -18,6 +18,7 @@ public interface MitarbeiterSkillService {
 	public Double retrieveSelbstBewertungGlobalAverage();
 	public Long countBySkill(Skill skill);
 	public List<MitarbeiterSkill> findBySkillAndMasterBewertungGreaterThanEqualOrderByMasterBewertung(Skill skill, Integer masterBewertung );
+	public MitarbeiterSkill findByMitarbeiterAndSkill (Mitarbeiter mitarbeiter, Skill skill);
 
  
 }

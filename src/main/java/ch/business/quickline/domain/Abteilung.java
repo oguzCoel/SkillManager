@@ -25,6 +25,10 @@ import ch.business.quickline.domain.Abteilung;
 @Table(name = "Abteilung", catalog = "Skillmanager")
 public class Abteilung implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer abteilungId;
 	private String abteilungName;
 	private Set<AbteilungProjekt> abteilungProjekts = new HashSet<AbteilungProjekt>(

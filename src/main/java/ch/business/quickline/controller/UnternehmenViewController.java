@@ -1,5 +1,6 @@
 package ch.business.quickline.controller;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 import ch.business.quickline.domain.Mitarbeiter;
 import ch.business.quickline.service.MitarbeiterService;
 import ch.business.quickline.service.MitarbeiterSkillService;
+import ch.business.quickline.service.SkillService;
 
 @ManagedBean
 @Component
@@ -25,11 +27,22 @@ public class UnternehmenViewController {
 	MitarbeiterService mitarbeiterService;
 	@Autowired
 	private MitarbeiterSkillService mitarbeiterSkillService;
+	@Autowired
+	private SkillService skillService;
+	
 	
     private MeterGaugeChartModel masterBewertungenGlobal;
     private MeterGaugeChartModel selbstBewertungenGlobal;
 	private List<Mitarbeiter>mitarbeiterMasterBewertungRangliste;
 	private List<Mitarbeiter> mitarbeiterSelbstBewertungRangliste;
+	private String masterBewertungAverage;
+	private String selbstBewertungAverage;
+	private long mitarbeiterCount;
+	private long skillCount;
+	
+	private DecimalFormat df = new DecimalFormat("#.###");
+
+    
    
     
  
@@ -38,6 +51,10 @@ public class UnternehmenViewController {
         createMeterGaugeModels();
         mitarbeiterMasterBewertungRangliste = mitarbeiterService.mitarbeiterMasterBewertungRangliste();
 		mitarbeiterSelbstBewertungRangliste = mitarbeiterService.mitarbeiterSelbstBewertungRangliste();
+		masterBewertungAverage = df.format(mitarbeiterSkillService.retrieveMasterBewertungGlobalAverage());
+		selbstBewertungAverage = df.format(mitarbeiterSkillService.retrieveSelbstBewertungGlobalAverage());
+		mitarbeiterCount = mitarbeiterService.count();
+		skillCount = skillService.count();
         
     }
     
@@ -66,14 +83,15 @@ public class UnternehmenViewController {
     public void createMeterGaugeModels() {    
         
         masterBewertungenGlobal = initMeterGaugeModel();
-        //masterBewertungenGlobal.setTitle("Masterbewertungen");
+        masterBewertungenGlobal.setTitle("Masterbewertungen");
         masterBewertungenGlobal.setGaugeLabel("Skill");
         masterBewertungenGlobal.setValue(mitarbeiterSkillService.retrieveMasterBewertungGlobalAverage());
         
         selbstBewertungenGlobal = initMeterGaugeModel();
-        //selbstBewertungenGlobal.setTitle("Selbstbewertungen");
+        selbstBewertungenGlobal.setTitle("Selbstbewertungen");
         selbstBewertungenGlobal.setGaugeLabel("Interesse");
         selbstBewertungenGlobal.setValue(mitarbeiterSkillService.retrieveSelbstBewertungGlobalAverage());
+        
     }
 
 
@@ -101,6 +119,57 @@ public class UnternehmenViewController {
 			List<Mitarbeiter> mitarbeiterSelbstBewertungRangliste) {
 		this.mitarbeiterSelbstBewertungRangliste = mitarbeiterSelbstBewertungRangliste;
 	}
+
+
+
+	public String getMasterBewertungAverage() {
+		return masterBewertungAverage;
+	}
+
+
+
+	public void setMasterBewertungAverage(String masterBewertungAverage) {
+		this.masterBewertungAverage = masterBewertungAverage;
+	}
+
+
+
+	public String getSelbstBewertungAverage() {
+		return selbstBewertungAverage;
+	}
+
+
+
+	public void setSelbstBewertungAverage(String selbstBewertungAverage) {
+		this.selbstBewertungAverage = selbstBewertungAverage;
+	}
+
+
+
+	public long getMitarbeiterCount() {
+		return mitarbeiterCount;
+	}
+
+
+
+	public void setMitarbeiterCount(long mitarbeiterCount) {
+		this.mitarbeiterCount = mitarbeiterCount;
+	}
+
+
+
+	public long getSkillCount() {
+		return skillCount;
+	}
+
+
+
+	public void setSkillCount(long skillCount) {
+		this.skillCount = skillCount;
+	}
+	
+	
+	
     
     
     

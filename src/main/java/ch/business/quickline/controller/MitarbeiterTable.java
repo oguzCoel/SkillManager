@@ -24,6 +24,8 @@ import ch.business.quickline.service.MitarbeiterService;
 @ViewScoped
 public class MitarbeiterTable implements Serializable {
 	
+
+
 	@Autowired
 	private MitarbeiterService mitarbeiterService;
 	

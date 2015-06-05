@@ -13,6 +13,7 @@ public interface MitarbeiterService {
 	public Mitarbeiter findByMitarbeiterId(Integer id);
 	public BigDecimal retrieveMasterBewertungDurchschnitt(Integer id);
 	public BigDecimal retrieveSelbstBewertungDurchschnitt(Integer id);
+	public long count ();
 	
 
 

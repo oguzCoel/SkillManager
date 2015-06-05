@@ -47,7 +47,8 @@ public class MitarbeiterSkillFormular {
 	private List<Mitarbeiter> mitarbeiters;
 	private List<Skill> skills = new ArrayList<Skill>();
 	private List<SkillMaster> authorities;
-	private MitarbeiterSkill mitarbeiterSkill = new MitarbeiterSkill();
+	private MitarbeiterSkill mitarbeiterSkillToInsert = new MitarbeiterSkill();
+	private MitarbeiterSkill mitarbeiterSkillToUpdate;
 	private Mitarbeiter mitarbeiter;
 	private String benutzerName = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
 	
@@ -87,17 +88,29 @@ public class MitarbeiterSkillFormular {
 	}
 
 
-	public MitarbeiterSkill getMitarbeiterSkill() {
-		return mitarbeiterSkill;
+	public MitarbeiterSkill getMitarbeiterSkillToInsert() {
+		return mitarbeiterSkillToInsert;
 	}
 
 
-	public void setMitarbeiterSkill(MitarbeiterSkill mitarbeiterSkill) {
-		this.mitarbeiterSkill = mitarbeiterSkill;
+	public void setMitarbeiterSkillToInsert(MitarbeiterSkill mitarbeiterSkill) {
+		this.mitarbeiterSkillToInsert = mitarbeiterSkill;
 	}
 	
-	public void save(){
-		mitarbeiterSkillService.save(mitarbeiterSkill);
+	public void save() throws Exception{
+		mitarbeiterSkillToUpdate = mitarbeiterSkillService.findByMitarbeiterAndSkill(getMitarbeiterSkillToInsert().getMitarbeiter(), getMitarbeiterSkillToInsert().getSkill());
+		
+		if(mitarbeiterSkillToUpdate == null){
+			mitarbeiterSkillService.save(mitarbeiterSkillToInsert);
+		}
+		
+		
+		
+		else { mitarbeiterSkillToUpdate.setMasterBewertung(getMitarbeiterSkillToInsert().getMasterBewertung());
+				mitarbeiterSkillToUpdate.setSelbstBewertung(getMitarbeiterSkillToInsert().getSelbstBewertung());
+				mitarbeiterSkillService.save(mitarbeiterSkillToUpdate);
+		}
+		
 		unternehmenViewController.init();
 		//mitarbeiterViewController.initValues();
 		//mitarbeiterViewController.init();

@@ -34,7 +34,8 @@ public class SelbstBewertungsFormular {
 	
 	
 	
-	private MitarbeiterSkill mitarbeiterSkill = new MitarbeiterSkill();
+	private MitarbeiterSkill mitarbeiterSkillToInsert = new MitarbeiterSkill();
+	private MitarbeiterSkill mitarbeiterSkillToUpdate;
 	private List<Skill> skills;
 	private Mitarbeiter mitarbeiter;
 	private String benutzerName = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
@@ -48,13 +49,13 @@ public class SelbstBewertungsFormular {
 	}
 
 
-	public MitarbeiterSkill getMitarbeiterSkill() {
-		return mitarbeiterSkill;
+	public MitarbeiterSkill getMitarbeiterSkillToInsert() {
+		return mitarbeiterSkillToInsert;
 	}
 
 
-	public void setMitarbeiterSkill(MitarbeiterSkill mitarbeiterSkill) {
-		this.mitarbeiterSkill = mitarbeiterSkill;
+	public void setMitarbeiterSkillToInsert(MitarbeiterSkill mitarbeiterSkill) {
+		this.mitarbeiterSkillToInsert = mitarbeiterSkill;
 	}
 
 
@@ -69,8 +70,21 @@ public class SelbstBewertungsFormular {
 	
 	
 	public void save(){
-		mitarbeiterSkill.setMitarbeiter(mitarbeiter);
-		mitarbeiterSkillService.save(mitarbeiterSkill);
+		mitarbeiterSkillToInsert.setMitarbeiter(mitarbeiter);
+		
+		mitarbeiterSkillToUpdate = mitarbeiterSkillService.findByMitarbeiterAndSkill(getMitarbeiterSkillToInsert().getMitarbeiter(), getMitarbeiterSkillToInsert().getSkill());
+		
+		if(mitarbeiterSkillToUpdate == null){
+			mitarbeiterSkillService.save(mitarbeiterSkillToInsert);
+		}
+		
+		else { mitarbeiterSkillToUpdate.setMasterBewertung(getMitarbeiterSkillToInsert().getMasterBewertung());
+		mitarbeiterSkillToUpdate.setSelbstBewertung(getMitarbeiterSkillToInsert().getSelbstBewertung());
+		mitarbeiterSkillService.save(mitarbeiterSkillToUpdate);
+		
+		}
+		
+		
 		unternehmenViewController.init();
 		//mitarbeiterViewController.initValues();
 		//mitarbeiterViewController.init();

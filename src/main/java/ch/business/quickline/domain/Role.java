@@ -4,11 +4,14 @@ package ch.business.quickline.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -65,4 +68,8 @@ public class Role implements java.io.Serializable {
 		this.benutzerRoles = benutzerRoles;
 	}
 
+	
+	public String toString(){
+		return String.format("%s", getRoleName());
+	}
 }

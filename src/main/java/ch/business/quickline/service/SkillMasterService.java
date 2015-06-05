@@ -8,5 +8,6 @@ import ch.business.quickline.domain.SkillMaster;
 public interface SkillMasterService {
 	
 	public List<SkillMaster> findByMitarbeiter (Mitarbeiter mitarbeiter);
+	public SkillMaster save(SkillMaster skillMaster);
 
 }

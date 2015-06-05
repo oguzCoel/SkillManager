@@ -27,7 +27,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
 	    	servletContext.setInitParameter("javax.faces.DEFAULT_SUFFIX", "*.jsf");
 	    	servletContext.setInitParameter("javax.faces.DEFAULT_POSTFIX", "/faces*");
 	    	// Enable special Facelets debug output during development
-	    	servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
+	    	//servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
 	    	// Causes Facelets to refresh templates during development
 	    	servletContext.setInitParameter("javax.faces.FACELETS_REFRESH_PERIOD", "1");
 	    	
