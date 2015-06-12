@@ -5,14 +5,14 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"> 
  
-    <ui:composition template="/templates/default/template2.xhtml">
+    <ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
         	<ui:insert>
         	<h:form>
 				<p:growl id="messages" showDetail="true" />        	
         		<p:toolbar>
         			<f:facet name="right">
-        				<p:commandButton value="Neu" icon="ui-icon-plus" ajax="false" action="NewFile" />
+        				<p:commandButton value="Neu" icon="ui-icon-plus" ajax="false" action="mitarbeiterformular" />
         			</f:facet>
         		</p:toolbar>
         	</h:form>

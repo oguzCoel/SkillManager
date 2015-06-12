@@ -15,13 +15,13 @@ import org.springframework.stereotype.Component;
 
 
 
-@ManagedBean
+
 @Component
 @RequestScoped
 public class LoginController {
   
-    private String username = null; 
-    private String password = null;
+    private String username; 
+    private String password;
 
     
     private AuthenticationManager authenticationManager;
@@ -38,7 +38,7 @@ public class LoginController {
             return null;
         }
         
-        return "index.xhtml";
+        return "/faces/index.xhtml";
     }
 
     public String cancel() {

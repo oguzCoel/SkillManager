@@ -14,17 +14,17 @@
             	<p:menuitem id="m_unternehmen" value="Unternehmen" icon="fa  fa-building " outcome="/index" />
             </p:submenu>	
             <p:submenu id="sm_assesment" label="Assesment" icon="fa fa-trophy">
-                <p:menuitem id="m_masterbewertung" value="Masterbewertung" icon="fa  fa-pencil-square-o" outcome="/index" />
-                <p:menuitem id="m_selbstbewertung" value="Selbstbewertung" icon="fa  fa-pencil-square-o" outcome="/index" />
+                <p:menuitem id="m_masterbewertung" value="Masterbewertung" icon="fa  fa-pencil-square-o" outcome="/masterbewertung" />
+                <p:menuitem id="m_selbstbewertung" value="Selbstbewertung" icon="fa  fa-pencil-square-o" outcome="/selbstbewertung" />
             </p:submenu>
             <p:submenu id="sm_tabellen" label="Tabellen" icon="fa  fa-table ">
-                <p:menuitem id="m_mitarbeiter" value="Mitarbeiter" icon="fa fa-users " outcome="/index" />
+                <p:menuitem id="m_mitarbeiter" value="Mitarbeiter" icon="fa fa-users " outcome="/mitarbeitertable" />
                 <p:menuitem id="m_qualifikationen" value="Qualifikationen" icon="fa fa-graduation-cap" outcome="/index" />
                 <p:menuitem id="m_rollen" value="Rollen" icon="fa  fa-laptop " outcome="/index" />
                 <p:menuitem id="m_skills" value="Skills" icon="fa  fa-star " outcome="/index" />
             </p:submenu>
             <p:submenu id="sm_suchen" label="Suchen" icon="fa  fa-search ">
-                 <p:menuitem id="m_mitarbeiterfinden" value="Mitarbeiter finden" styleClass="fa fa-eye " url="#" />
+                 <p:menuitem id="m_mitarbeiterfinden" value="Mitarbeiter finden" styleClass="fa fa-eye " outcome="/mitarbeiterfinder" />
             </p:submenu>
         </pr:menu>
 

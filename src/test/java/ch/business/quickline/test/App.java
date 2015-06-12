@@ -10,6 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import ch.business.quickline.config.JpaConfig;
@@ -97,16 +98,20 @@ public class App {
 	        mitarbeiterService.save(mitarbeiterNeu);
 	        
 	        */
-		
+		/*
 		Skill skill = skillService.findBySkillId(1);
 		List<MitarbeiterSkill> liste = mitarbeiterSkillService.findBySkillAndMasterBewertungGreaterThanEqualOrderByMasterBewertung(skill, 1);
 		
 		for (MitarbeiterSkill i:liste){
 			System.out.println(i.getMitarbeiter().getMitarbeiterVorname() + " " + i.getMasterBewertung());
 		}
+		*/
 		
 		
-
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		//User user;
+		String name =authentication.getName();
+		System.out.println(name);
 
 
 	        }
