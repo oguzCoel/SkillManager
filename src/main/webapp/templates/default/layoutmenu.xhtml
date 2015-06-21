@@ -12,6 +12,10 @@
         <pr:menu>
             <p:submenu id="sm_auswertung" label="Auswertung" icon="fa fa-tachometer">
             	<p:menuitem id="m_unternehmen" value="Unternehmen" icon="fa  fa-building " outcome="/index" />
+            	<p:menuitem id="m_mybewertung" value="Meine Auswertung" icon="fa  fa-building " outcome="/mitarbeiter">
+            		 <f:param name="m_myauswertung" value="#{benutzerProfileController.benutzer.mitarbeiter.mitarbeiterId}"/>
+            		 <f:param name="m_myauswertung2" value="#{benutzerProfileController.benutzer.mitarbeiter.mitarbeiterId}"/>
+				</p:menuitem>	 
             </p:submenu>	
             <p:submenu id="sm_assesment" label="Assesment" icon="fa fa-trophy">
                 <p:menuitem id="m_masterbewertung" value="Masterbewertung" icon="fa  fa-pencil-square-o" outcome="/masterbewertung" />
@@ -19,9 +23,9 @@
             </p:submenu>
             <p:submenu id="sm_tabellen" label="Tabellen" icon="fa  fa-table ">
                 <p:menuitem id="m_mitarbeiter" value="Mitarbeiter" icon="fa fa-users " outcome="/mitarbeitertable" />
-                <p:menuitem id="m_qualifikationen" value="Qualifikationen" icon="fa fa-graduation-cap" outcome="/index" />
-                <p:menuitem id="m_rollen" value="Rollen" icon="fa  fa-laptop " outcome="/index" />
-                <p:menuitem id="m_skills" value="Skills" icon="fa  fa-star " outcome="/index" />
+                <p:menuitem id="m_qualifikationen" value="Qualifikationen" icon="fa fa-graduation-cap" outcome="/qualifikationtable" />
+                <p:menuitem id="m_rollen" value="Rollen" icon="fa  fa-laptop " outcome="/rollentable" />
+                <p:menuitem id="m_skills" value="Skills" icon="fa  fa-star " outcome="/skillstable" />
             </p:submenu>
             <p:submenu id="sm_suchen" label="Suchen" icon="fa  fa-search ">
                  <p:menuitem id="m_mitarbeiterfinden" value="Mitarbeiter finden" styleClass="fa fa-eye " outcome="/mitarbeiterfinder" />

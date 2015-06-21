@@ -13,6 +13,12 @@
 		<f:viewParam name="mbid" value="#{mitarbeiterBarchartController.id}"/>
 		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.init}"/>
 		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.getChartSeries}"/>
+		<f:viewParam name="m_myausertung" value="#{mitarbeiterViewController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.initValues}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.init}"/>
+		<f:viewParam name="m_auswertung2" value="#{mitarbeiterBarchartController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.init}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.getChartSeries}"/>
 	</f:metadata>
 
 	<f:view contentType="text/html" id="fview">
