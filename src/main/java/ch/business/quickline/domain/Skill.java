@@ -73,7 +73,7 @@ public class Skill implements java.io.Serializable {
 		this.skillId = skillId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Gruppe", nullable = false)
 	public Gruppe getGruppe() {
 		return this.gruppe;

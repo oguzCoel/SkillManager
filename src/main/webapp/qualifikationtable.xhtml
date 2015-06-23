@@ -8,6 +8,38 @@
     <ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
         	<ui:insert>
+        	
+        	<h:form>
+				<p:growl id="messages" showDetail="true" />        	
+        		<p:toolbar>
+        			<f:facet name="right">
+        				<p:commandButton value="Neu" icon="ui-icon-plus" ajax="false" action="skillformular" />
+        			</f:facet>
+        		</p:toolbar>
+        	</h:form>
+        	<h:form>
+			  <p:dataTable id="qualifikationtable" var="qualifikation" value="#{qualifikationTable.qualifikations}">
+			    <p:column headerText="Id">
+			        <h:outputText value="#{qualifikation.qualifikationId}" />
+			    </p:column>
+			 
+			    <p:column headerText="Bezeichnung">
+			        <h:outputText value="#{qualifikation.qualifikationName} " />
+			    </p:column>
+			 
+			    <p:column headerText="Typ">
+			        <h:outputText value="#{qualifikation.qualifikationTyp}" />
+			    </p:column>
+			 
+			    <p:column>
+			    	  <p:link outcome="qualifikationedit">
+                          <f:param name="qeid" value="#{qualifikation.qualifikationId}"/>
+                          <i class=" icon-pencil" style="margin-top:5px;"></i>
+                      </p:link>
+			    </p:column>
+			  
+			</p:dataTable>
+			</h:form>
         
         	</ui:insert>            
  

@@ -1,15 +1,15 @@
 package ch.business.quickline.controller;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
@@ -26,8 +26,7 @@ import ch.business.quickline.service.RoleService;
 
 @ManagedBean
 @Component
-@Scope("request")
-public class MitarbeiterFormularController implements Serializable {
+public class MitarbeiterEditController {
 	
 	@Autowired
 	private MitarbeiterService mitarbeiterService;
@@ -55,58 +54,53 @@ public class MitarbeiterFormularController implements Serializable {
 	@Autowired
 	private BenutzerRoleService benutzerRoleService;
 	
+	@ManagedProperty("#{param.id}")
+    private Integer id;
 	
 	
-	private Mitarbeiter mitarbeiter = new Mitarbeiter();
-	private Benutzer benutzer = new Benutzer();
-	private BenutzerRole benutzerRole = new BenutzerRole();
+	private Mitarbeiter mitarbeiter;
+	private Benutzer benutzer;
+	private BenutzerRole benutzerRole;
+	private Abteilung abteilung;
 	private List <Role> roles;
 	private List <Abteilung> abteilungen;
-	private Abteilung abteilung;
 	
 	
 	
-	
-	
-	@PostConstruct
-	public void init () {
+	public void init (){
+		mitarbeiter = mitarbeiterService.findByMitarbeiterId(id);
+		benutzer = benutzerService.findByMitarbeiter(mitarbeiter);
+		benutzerRole = benutzerRoleService.findByBenutzer(benutzer);
 		abteilungen = abteilungService.findALL();
 		roles = roleService.findAll();
-		  
-	}
-	
-	
-	public List<Abteilung> getAbteilungen() {	
-		return abteilungen;
+
 	}
 
 
-	public void setAbteilungen(List<Abteilung> abteilungen) {
-		this.abteilungen = abteilungen;
-	}
 
-	
-
-
-	public List<Role> getRoles() {
-		return roles;
+	public Integer getId() {
+		return id;
 	}
 
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
+
 
 
 	public Mitarbeiter getMitarbeiter() {
 		return mitarbeiter;
 	}
 
+
+
 	public void setMitarbeiter(Mitarbeiter mitarbeiter) {
 		this.mitarbeiter = mitarbeiter;
 	}
-	
-	
+
+
 
 	public Benutzer getBenutzer() {
 		return benutzer;
@@ -118,7 +112,7 @@ public class MitarbeiterFormularController implements Serializable {
 		this.benutzer = benutzer;
 	}
 
-	
+
 
 	public BenutzerRole getBenutzerRole() {
 		return benutzerRole;
@@ -132,17 +126,44 @@ public class MitarbeiterFormularController implements Serializable {
 
 
 
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+
+
+	public List<Abteilung> getAbteilungen() {
+		return abteilungen;
+	}
+
+
+
+	public void setAbteilungen(List<Abteilung> abteilungen) {
+		this.abteilungen = abteilungen;
+	}
+	
+	
+	
+	
 	public Abteilung getAbteilung() {
 		return abteilung;
 	}
+
 
 
 	public void setAbteilung(Abteilung abteilung) {
 		this.abteilung = abteilung;
 	}
 
+
 	@PreAuthorize("hasRole ('ROLE_ADMIN')")
-	public void save()throws Exception{
+	public void save(){
 		mitarbeiterService.save(mitarbeiter);
 		benutzer.setMitarbeiter(mitarbeiter);
 		benutzerService.save(benutzer);
@@ -151,16 +172,12 @@ public class MitarbeiterFormularController implements Serializable {
 		unternehmenViewController.init();
 		mitarbeiterTable.init();
 		
+		
 		FacesMessage msg = new FacesMessage
-				(getMitarbeiter().getMitarbeiterVorname() + " " +
-		getMitarbeiter().getMitarbeiterNachname() + " erfolgreich registriert");
+				("Änderungen wurden erfolgreich gespeichert");
         FacesContext.getCurrentInstance().addMessage(null, msg);
-		
-			
-		
 	}
 	
 	
 	
-
 }

@@ -34,6 +34,13 @@
 			    <p:column headerText="Rolle">
 			        <h:outputText value="#{mitarbeiters.mitarbeiterRolle}" />
 			    </p:column>
+			    
+			    <p:column>
+			    	  <p:link outcome="mitarbeiteredit">
+                          <f:param name="meid" value="#{mitarbeiters.mitarbeiterId}"/>
+                          <i class=" icon-pencil" style="margin-top:5px;"></i>
+                      </p:link>
+			    </p:column>
 			</p:dataTable>
 			</h:form>
         	</ui:insert>            

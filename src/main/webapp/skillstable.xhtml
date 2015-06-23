@@ -8,7 +8,37 @@
     <ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
         	<ui:insert>
-        
+        	<h:form>
+				<p:growl id="messages" showDetail="true" />        	
+        		<p:toolbar>
+        			<f:facet name="right">
+        				<p:commandButton value="Neu" icon="ui-icon-plus" ajax="false" action="skillformular" />
+        			</f:facet>
+        		</p:toolbar>
+        	</h:form>
+        	<h:form>
+			  <p:dataTable id="skillstable" var="skills" value="#{skillTable.skills}">
+			    <p:column headerText="Id">
+			        <h:outputText value="#{skills.skillId}" />
+			    </p:column>
+			 
+			    <p:column headerText="Name">
+			        <h:outputText value="#{skills.skillName} " />
+			    </p:column>
+			 
+			    <p:column headerText="Gruppe">
+			        <h:outputText value="#{skills.gruppe}" />
+			    </p:column>
+			 
+			    <p:column>
+			    	  <p:link outcome="skillsedit">
+                          <f:param name="seid" value="#{skills.skillId}"/>
+                          <i class=" icon-pencil" style="margin-top:5px;"></i>
+                      </p:link>
+			    </p:column>
+			  
+			</p:dataTable>
+			</h:form>
         	</ui:insert>            
  
         </ui:define>

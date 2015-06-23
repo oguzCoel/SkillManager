@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ch.business.quickline.domain.Benutzer;
 import ch.business.quickline.domain.BenutzerRole;
 import ch.business.quickline.repository.BenutzerRoleRepository;
 
@@ -19,4 +20,9 @@ public class BenutzerRoleServiceImpl implements BenutzerRoleService {
 		return benutzerRoleRepository.save(benutzerRole);
 	}
 
+	
+	public BenutzerRole findByBenutzer(Benutzer benutzer){
+		
+		return benutzerRoleRepository.findByBenutzer(benutzer);
+	}
 }

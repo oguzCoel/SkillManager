@@ -102,7 +102,7 @@ public class Mitarbeiter implements java.io.Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = IDENTITY) 
 	@Column(name = "MitarbeiterID", unique = true, nullable = false)
 	public Integer getMitarbeiterId() {
 		return this.mitarbeiterId;
@@ -271,6 +271,9 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterQualifikations = mitarbeiterQualifikations;
 	}
 	
+	
+	
+	@Override
 	public String toString(){
 		return String.format("%s " + "%s", getMitarbeiterVorname(), getMitarbeiterNachname() );
 	}

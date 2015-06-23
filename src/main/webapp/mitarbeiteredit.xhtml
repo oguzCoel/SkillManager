@@ -1,0 +1,133 @@
+
+ <html xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+                
+                
+              <ui:composition  template="/templates/default/template.xhtml">
+
+ 			<ui:define name="content">
+        	<ui:insert>
+        	
+        <f:metadata>
+		<f:viewParam name="meid" value="#{mitarbeiterEditController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterEditController.init}"/>
+		</f:metadata>
+        		<h:form>
+
+
+    <p:panel id="panel2" header="#{mitarbeiterEditController.mitarbeiter.mitarbeiterVorname} #{mitarbeiterEditController.mitarbeiter.mitarbeiterNachname}">
+        <p:focus context="panel2"/>
+        <p:messages />
+
+ 
+
+        <h:panelGrid columns="3">
+            <p:outputLabel for="e_vorname" value="Vorname" />
+            <p:inplace id="e_vorname" >
+            	<p:inputText value="#{mitarbeiterEditController.mitarbeiter.mitarbeiterVorname}" />
+            </p:inplace>
+            <p:message for="e_vorname" />
+
+            <p:outputLabel for="e_nachname" value="Nachname" />
+            <p:inplace id="e_nachname">
+            	<p:inputText value="#{mitarbeiterEditController.mitarbeiter.mitarbeiterNachname}" />
+            </p:inplace>
+            <p:message for="e_nachname" />
+
+            <p:outputLabel for="e_rolle" value="Rolle" />
+            <p:inplace id="e_rolle">
+            	<p:inputText value="#{mitarbeiterEditController.mitarbeiter.mitarbeiterRolle}" />
+            </p:inplace>
+            <p:message for="e_rolle" />
+
+
+           
+
+            <p:outputLabel for="e_adresse" value="Adresse" />
+            <p:inplace id="e_adresse">
+            	<p:inputText value="#{mitarbeiterEditController.mitarbeiter.mitarbeiterAdresse}" />
+            </p:inplace>
+            <p:message for="e_adresse" />
+
+           
+
+            <p:outputLabel for="e_hausnummer" value="Hausnummer" />
+            <p:inplace id="e_hausnummer">
+            	<p:inputText value="#{mitarbeiterEditController.mitarbeiter.mitarbeiterHausNummer}" />
+            </p:inplace>
+            <p:message for="e_hausnummer" />
+
+           
+
+            <p:outputLabel for="e_postleitzahl" value="Postleitzahl" />
+            <p:inplace id="e_postleitzahl">
+            	<p:inputText value="#{mitarbeiterEditController.mitarbeiter.mitarbeiterPlz}" />
+            </p:inplace>
+            <p:message for="e_postleitzahl" />
+
+           
+
+            <p:outputLabel for="e_wohnort" value="Wohnort" />
+            <p:inplace id="e_wohnort">
+            	<p:inputText value="#{mitarbeiterEditController.mitarbeiter.mitarbeiterWohnort}" />
+            </p:inplace>
+            <p:message for="e_wohnort" />
+
+           
+
+              <p:outputLabel for="e_abteilungen" value="Abteilung:"  />
+              <p:inplace id="e_abteilung" label="#{mitarbeiterEditController.mitarbeiter.abteilung}" effectSpeed="fast" event="dblclick">
+              <p:selectOneMenu id="e_abteilungen" value="#{mitarbeiterEditController.mitarbeiter.abteilung}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
+            	<f:selectItems value="#{mitarbeiterEditController.abteilungen}" />
+        	  </p:selectOneMenu>
+        	  </p:inplace>
+        	  
+        	  <div class="EmptyBox20"></div>
+        	<p:outputLabel for="e_benutzername" value="Benutzername:" />
+            <p:inplace id="e_benutzername">
+            	<p:inputText value="#{mitarbeiterEditController.benutzer.benutzerName}" />
+            </p:inplace>
+            <p:message for="e_benutzername" />
+            
+            <p:outputLabel for="e_benutzeremail" value="Email:" />
+            <p:inplace id="e_benutzeremail">
+            	<p:inputText value="#{mitarbeiterEditController.benutzer.benutzerEmail}" />
+            </p:inplace>
+            <p:message for="e_benutzeremail" />
+            
+            <p:outputLabel for="e_benutzerpasswort" value="Passwort:" />
+            	<p:password id="e_benutzerpasswort" value="#{mitarbeiterEditController.benutzer.benutzerPasswort}"/>
+            <p:message for="e_benutzerpasswort" />
+            
+             <p:outputLabel for="e_roles" value="Berechtigung:"  />
+             <p:inplace id="e_role" label="#{mitarbeiterEditController.benutzerRole.role}" effectSpeed="fast" event="dblclick">
+              <p:selectOneMenu id="e_roles" value="#{mitarbeiterEditController.benutzerRole.role}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
+            	<f:selectItems value="#{mitarbeiterEditController.roles}" />
+        	 </p:selectOneMenu>
+        	 </p:inplace>
+            
+           
+            
+             
+
+        </h:panelGrid> 
+        
+             <p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="true" update="@form" ajax="false" styleClass="ui-priority-primary" actionListener="#{mitarbeiterEditController.save}"/>
+        
+
+			
+			
+
+    		</p:panel>
+
+			</h:form>
+
+       	</ui:insert>            
+ 
+        </ui:define>
+      
+    </ui:composition>        
+ </html>

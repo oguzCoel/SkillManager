@@ -1,0 +1,76 @@
+
+ <html xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+                
+                
+              <ui:composition  template="/templates/default/template.xhtml">
+
+ 			<ui:define name="content">
+        	<ui:insert>
+        	
+        <f:metadata>
+		<f:viewParam name="seid" value="#{skillEditController.id}"/>
+		<f:event type="preRenderView" listener="#{skillEditController.init}"/>
+		</f:metadata>
+        		<h:form>
+
+
+    <p:panel id="panel3" header="#{skillEditController.skill.skillName}">
+        <p:focus context="panel3"/>
+        <p:messages />
+
+
+ 
+
+        <h:panelGrid columns="3">
+            <p:outputLabel for="e_skillname" value="Bezeichnung: " />
+            <p:inplace id="e_skillname">
+            	<p:inputText value="#{skillEditController.skill.skillName}"/>
+            </p:inplace>
+            <p:message for="e_skillname" />
+
+            
+            
+            <p:outputLabel for="e_gruppen" value="Gruppe:"  />
+            <p:inplace id="e_gruppe" label="#{skillEditController.skill.gruppe}">
+              <p:selectOneMenu id="e_gruppen" value="#{skillEditController.skill.gruppe}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
+            	<f:selectItems value="#{skillEditController.gruppen}" />
+        	</p:selectOneMenu>
+        	</p:inplace>
+			
+			<div class="EmptyBox20"></div>
+			
+			<p:outputLabel for="e_mitarbeiters" value="Master:"  />
+			<p:inplace id="e_mitarbeiter" label="#{skillEditController.skillMaster.mitarbeiter}" effectSpeed="fast" event="dblclick">
+              <p:selectOneMenu id="e_mitarbeiters" value="#{skillEditController.skillMaster.mitarbeiter}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
+            	<f:selectItems value="#{skillEditController.mitarbeiters}" />
+        	</p:selectOneMenu>
+        	</p:inplace>
+        	
+        	
+			  
+			  	<div class="EmptyBox20"></div>
+			<p:outputLabel for="e_beschreibung" value="Beschreibung:"/>
+			<p:inplace  id="e_beschreibung" >
+				<p:inputTextarea  value="#{skillEditController.skill.skillBeschreibung}" rows="6" cols="33" />
+          	</p:inplace>
+          	<p:message for="e_beschreibung" />
+          
+        </h:panelGrid> 
+
+			<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="false" update="@form" styleClass="ui-priority-primary" actionListener="#{skillEditController.save}"/>
+			
+
+    		</p:panel>
+
+			</h:form>
+
+       	</ui:insert>            
+ 
+        </ui:define>
+      
+    </ui:composition>        
+ </html>

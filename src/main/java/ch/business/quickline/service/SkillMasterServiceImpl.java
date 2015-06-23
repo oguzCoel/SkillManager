@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ch.business.quickline.domain.Mitarbeiter;
+import ch.business.quickline.domain.Skill;
 import ch.business.quickline.domain.SkillMaster;
 import ch.business.quickline.repository.SkillMasterRepository;
 
@@ -25,6 +26,11 @@ public class SkillMasterServiceImpl implements SkillMasterService {
 	public SkillMaster save (SkillMaster skillMaster){
 		
 		return skillMasterRepository.save(skillMaster);
+	}
+	
+	public SkillMaster findBySkill (Skill skill){
+		
+		return skillMasterRepository.findBySkill(skill);
 	}
 
 }

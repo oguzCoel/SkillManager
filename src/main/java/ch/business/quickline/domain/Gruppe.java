@@ -59,7 +59,7 @@ public class Gruppe implements java.io.Serializable {
 		this.gruppeName = gruppeName;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "gruppe")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "gruppe")
 	public Set<Skill> getSkills() {
 		return this.skills;
 	}

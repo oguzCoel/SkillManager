@@ -1,5 +1,7 @@
 package ch.business.quickline.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,5 +19,15 @@ public class QualifikationServiceImpl implements QualifikationService {
 		
 		return qualifikationRepository.save(qualifikation);
 	}
-
+	
+	public List<Qualifikation>findAll(){
+		
+		return qualifikationRepository.findAll();
+	}
+	
+	public Qualifikation findByQualifikationId(Integer id){
+		
+		return qualifikationRepository.findByQualifikationId(id);
+	}
+	
 }

@@ -46,7 +46,7 @@ public class SkillMaster implements java.io.Serializable {
 		this.skillMasterId = skillMasterId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Mitarbeiter", nullable = false)
 	public Mitarbeiter getMitarbeiter() {
 		return this.mitarbeiter;

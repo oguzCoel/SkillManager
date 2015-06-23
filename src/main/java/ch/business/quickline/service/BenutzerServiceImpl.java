@@ -3,7 +3,9 @@ package ch.business.quickline.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import ch.business.quickline.domain.Benutzer;
+import ch.business.quickline.domain.Mitarbeiter;
 import ch.business.quickline.repository.BenutzerRepository;
 
 @Service("benutzerService")
@@ -21,6 +23,11 @@ public class BenutzerServiceImpl implements BenutzerService {
 	public Benutzer findByBenutzerName(String benutzerName){
 		
 		return benutzerRepository.findByBenutzerName(benutzerName);
+	}
+	
+	public Benutzer findByMitarbeiter(Mitarbeiter mitarbeiter){
+		
+		return benutzerRepository.findByMitarbeiter(mitarbeiter);
 	}
 
 }
