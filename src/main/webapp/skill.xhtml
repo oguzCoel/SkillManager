@@ -8,6 +8,7 @@
 		
 	 <f:metadata>
 		<f:viewParam name="sid" value="#{skillViewController.id}"/>
+		<f:event type="preRenderView" listener="#{skillViewController.initValues}"/>
 		<f:event type="preRenderView" listener="#{skillViewController.init}"/>
 	</f:metadata>
 		

@@ -22,8 +22,8 @@ MitarbeiterAdresse VARCHAR(30) NOT NULL,
 MitarbeiterHausNummer INT NOT NULL,
 MitarbeiterPLZ INT NOT NULL,
 MitarbeiterWohnort VARCHAR(30) NOT NULL,
-MitarbeiterMasterBewertungDurchschnitt DECIMAL(10, 2) NULL,
-MitarbeiterSelbstBewertungDurchschnitt DECIMAL(10, 2) NULL,
+MitarbeiterMasterBewertungDurchschnitt DOUBLE NULL,
+MitarbeiterSelbstBewertungDurchschnitt DOUBLE NULL,
 PRIMARY KEY (MitarbeiterID),
 Foreign KEY Fk_Abteilung (MitarbeiterAbteilung) References
 Abteilung (AbteilungID) ON UPDATE CASCADE ON DELETE RESTRICT)
@@ -76,8 +76,8 @@ SkillID INT NOT NULL AUTO_INCREMENT,
 Gruppe INT NOT NULL,
 SkillName VARCHAR (30) NOT NULL,
 SkillBeschreibung VARCHAR (500) NULL,
-SkillMasterBewertungDurchschnitt DECIMAL(10, 2) NULL,
-SkillSelbstBewertungDurchschnitt DECIMAL(10, 2) NULL,
+SkillMasterBewertungDurchschnitt SKILL NULL,
+SkillSelbstBewertungDurchschnitt SKILL NULL,
 PRIMARY KEY (SkillID),
 Foreign KEY Fk_SkillGruppe (Gruppe) References
 Gruppe (GruppeID) ON UPDATE CASCADE ON DELETE RESTRICT)

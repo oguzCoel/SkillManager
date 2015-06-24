@@ -31,22 +31,31 @@ public class SkillViewController {
 	 private MeterGaugeChartModel masterBewertungenSkill;
 	 private MeterGaugeChartModel selbstBewertungenSkill;
 	 private Skill skill;
-	 Long countOfSkilledMitarbeiter;
+	 private Long countOfSkilledMitarbeiter;
 	 private List<MitarbeiterSkill> masterBewertungRanking;
 	 private List<MitarbeiterSkill> selbstBewertungRanking;
+	 private Double masterBewertungDurchschnitt;
+	 private Double selbstBewertungDurchschnitt;
 	 
 	 
 	 @ManagedProperty("#{param.id}")
 	    private Integer id;
 	
 	 
+	 
 	 @PostConstruct
-	 public void init (){
-		    createMeterGaugeModels();
+	 public void init(){
+		 createMeterGaugeModels();
+	 }
+	 
+	 public void initValues (){
+		    
 		    skill = skillService.findBySkillId(id);
 		    countOfSkilledMitarbeiter = mitarbeiterSkillService.countBySkill(skill);
 		    masterBewertungRanking = mitarbeiterSkillService.findBySkillOrderByMasterBewertungDesc(skill);
-		    selbstBewertungRanking = mitarbeiterSkillService.findBySkillOrderBySelbstBewertungDesc(skill); 
+		    selbstBewertungRanking = mitarbeiterSkillService.findBySkillOrderBySelbstBewertungDesc(skill);
+		    masterBewertungDurchschnitt = skillService.retrieveMasterBewertungDurchschnitt(skill.getSkillId());
+		    selbstBewertungDurchschnitt = skillService.retrieveSelbstBewertungDurchschnitt(skill.getSkillId());
 		
 	 }
 	 
@@ -78,12 +87,12 @@ public class SkillViewController {
 	        masterBewertungenSkill = initMeterGaugeModel();
 	        //masterBewertungenGlobal.setTitle("Masterbewertungen");
 	        masterBewertungenSkill.setGaugeLabel("Skill");
-	        masterBewertungenSkill.setValue(skillService.retrieveMasterBewertungDurchschnitt(1));
+	        masterBewertungenSkill.setValue(masterBewertungDurchschnitt);
 	        
 	        selbstBewertungenSkill = initMeterGaugeModel();
 	        //selbstBewertungenGlobal.setTitle("Selbstbewertungen");
 	        selbstBewertungenSkill.setGaugeLabel("Interesse");
-	        selbstBewertungenSkill.setValue(skillService.retrieveSelbstBewertungDurchschnitt(1));
+	        selbstBewertungenSkill.setValue(selbstBewertungDurchschnitt);
 	    }
 
 

@@ -34,8 +34,8 @@ public class MitarbeiterViewController implements Serializable {
 	
 	private MeterGaugeChartModel masterBewertungenIndividual;
     private MeterGaugeChartModel selbstBewertungenIndividual;
-    private BigDecimal masterBewertungDurchschnitt;
-    private BigDecimal selbstBewertungDurchschnitt;
+    private Double masterBewertungDurchschnitt;
+    private Double selbstBewertungDurchschnitt;
 	private Mitarbeiter mitarbeiter;
 	private Set<Qualifikation> qualifikations;
 	private Set<MitarbeiterQualifikation> mitarbeiterQualifikations;
@@ -119,24 +119,24 @@ public class MitarbeiterViewController implements Serializable {
 		
 
 
-	public BigDecimal getMasterBewertungDurchschnitt() {
+	public Double getMasterBewertungDurchschnitt() {
 		return masterBewertungDurchschnitt;
 	}
 
 
 	public void setMasterBewertungDurchschnitt(
-			BigDecimal masterBewertungDurchschnitt) {
+			Double masterBewertungDurchschnitt) {
 		this.masterBewertungDurchschnitt = masterBewertungDurchschnitt;
 	}
 
 
-	public BigDecimal getSelbstBewertungDurchschnitt() {
+	public Double getSelbstBewertungDurchschnitt() {
 		return selbstBewertungDurchschnitt;
 	}
 
 
 	public void setSelbstBewertungDurchschnitt(
-			BigDecimal selbstBewertungDurchschnitt) {
+			Double selbstBewertungDurchschnitt) {
 		this.selbstBewertungDurchschnitt = selbstBewertungDurchschnitt;
 	}
 
