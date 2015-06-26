@@ -3,6 +3,7 @@ package ch.business.quickline.repository;
 import static org.junit.Assert.*;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,15 +36,32 @@ public class AbteilungRepositoryTest {
 	
   @Autowired
   AbteilungRepository abteilungRepository;
-
-
   
+  private Abteilung abteilung;
+  
+  @Before
+  public void setUp(){
+	  abteilung = new Abteilung();
+	  abteilung.setAbteilungName("Testabteilung");
+  }
 	  
     @Test
-	@DatabaseSetup("/db-export.xml")
+	@DatabaseSetup("/dbunit/db-export.xml")
 	public void testFindAll() {
-		Assert.assertTrue(abteilungRepository.findAll().isEmpty());
+		Assert.assertTrue(!abteilungRepository.findAll().isEmpty());
+		
 	}
+    
+    @Test
+    @DatabaseSetup("/dbunit/db-export.xml")
+    public void testSave(){
+    	int before = abteilungRepository.findAll().size();
+    	abteilungRepository.save(abteilung);
+    	int after = abteilungRepository.findAll().size();
+    	
+    	
+    	Assert.assertTrue(before != after);
+    }
   
   
 

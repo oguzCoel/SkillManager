@@ -7,5 +7,6 @@ public interface AbteilungRepository extends JpaRepository<Abteilung, Integer> {
 	
 	public Abteilung findByAbteilungId(Integer id);
 	
+	
 
 }
