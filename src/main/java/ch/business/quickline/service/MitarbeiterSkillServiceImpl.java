@@ -32,7 +32,7 @@ public class MitarbeiterSkillServiceImpl implements MitarbeiterSkillService{
 		
 	try { 
 		
-		if(mitarbeiterSkill.getMasterBewertung().equals(null)){
+		if(mitarbeiterSkill.getMasterBewertung()==null){
 			mitarbeiterSkill.setMasterBewertung(0);
 		}
 		
@@ -40,15 +40,16 @@ public class MitarbeiterSkillServiceImpl implements MitarbeiterSkillService{
 			mitarbeiterSkill.setSelbstBewertung(0);
 		}
 		
+		
 		}
 		catch (NullPointerException ex){
 			ex.printStackTrace();
 		}
 		
-		mitarbeiterSkillRepository.save(mitarbeiterSkill);
-		
-		triggerMitarbeiterAfterSave(mitarbeiterSkill);
-		triggerSkillAfterSave(mitarbeiterSkill);
+	mitarbeiterSkillRepository.save(mitarbeiterSkill);
+	
+	triggerMitarbeiterAfterSave(mitarbeiterSkill);
+	triggerSkillAfterSave(mitarbeiterSkill);
 		
 
 	}
