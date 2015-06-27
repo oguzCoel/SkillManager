@@ -9,6 +9,60 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
+  
+ <build>
+ <pluginManagement>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.1</version>
+      <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+      </configuration>
+    </plugin>
+    
+    
+<plugin>
+  <groupId>org.jbehave</groupId>
+  <artifactId>jbehave-maven-plugin</artifactId>
+  <executions>
+	<execution>
+	<id>unpack-view-resources</id>
+	<phase>process-resources</phase>
+	<goals>
+	<goal>unpack-view-resources</goal>
+	</goals>
+	</execution>
+    <execution>
+      <id>embeddable-stories</id>
+      <phase>integration-test</phase>
+      <configuration>
+        <scope>test</scope>
+        <includes>
+          <include>**/*Stories.java</include>
+        </includes>
+      </configuration>
+      <goals>
+        <goal>run-stories-as-embeddables</goal>
+      </goals>
+    </execution>
+  </executions>  
+   <dependencies>
+      <dependency>
+         <groupId>log4j</groupId>
+         <artifactId>log4j</artifactId>
+         <version>1.2.17</version>
+         <scope>compile</scope>
+      </dependency>
+   </dependencies>
+  
+</plugin>  
+</plugins>
+</pluginManagement>
+</build>
+  
   <repositories>
     <repository>
         <id>prime-repo</id>
@@ -18,11 +72,7 @@
     </repository>
   </repositories>
   
-  
-  
-  
   <dependencies>
-  
   	<dependency>
   		<groupId>com.sun.faces</groupId>
   		<artifactId>jsf-api</artifactId>
@@ -41,20 +91,17 @@
   		<artifactId>primefaces</artifactId>
   		<version>5.2</version>
   	</dependency>
-  	
   	<dependency>
   		<groupId>org.primefaces.extensions</groupId>
   		<artifactId>all-themes</artifactId>
   		<version>1.0.8</version>
   		<type>pom</type>
   	</dependency>
-  
   	<dependency>  
    		<groupId>org.primefaces.themes</groupId>  
     	<artifactId>all-themes</artifactId>  
     	<version>1.0.10</version>  
 	</dependency>
-	
 	<dependency>
 		<groupId>ch.business.quickline</groupId>
 		<artifactId>primefaces-ronin</artifactId>
@@ -70,9 +117,6 @@
   		<artifactId>jstl</artifactId>
   		<version>1.2</version>
   	</dependency>
-  	
-  	
-  	
   	<dependency>
   		<groupId>mysql</groupId>
   		<artifactId>mysql-connector-java</artifactId>
@@ -172,5 +216,16 @@
 		<artifactId>spring-security-config</artifactId>
 		<version>4.0.1.RELEASE</version>
 	</dependency>
+	<dependency>
+		<groupId>org.jbehave</groupId>
+		<artifactId>jbehave-spring</artifactId>
+		<version>4.0.1</version>
+	</dependency>
+
   </dependencies>
+  
+
+  
+  
+  
 </project>
