@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,13 +17,14 @@ import org.springframework.stereotype.Component;
 
 
 
+
 @Component
 @RequestScoped
 public class LoginController {
   
     private String username; 
     private String password;
-
+    final Logger logger = Logger.getLogger(LoginController.class);
     
     private AuthenticationManager authenticationManager;
 
@@ -34,7 +36,7 @@ public class LoginController {
             SecurityContextHolder.getContext().setAuthentication(result);
         } catch (AuthenticationException e) {
             e.printStackTrace();
-            System.out.println("Hallo");
+           logger.error("Fehler beim Anmelden. Details" +e.getMessage());
             return null;
         }
         
