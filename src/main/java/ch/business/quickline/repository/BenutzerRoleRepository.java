@@ -8,5 +8,6 @@ import ch.business.quickline.domain.BenutzerRole;
 public interface BenutzerRoleRepository extends JpaRepository<BenutzerRole, Integer>{
 	
 	public BenutzerRole findByBenutzer(Benutzer benutzer);
+	public BenutzerRole save(BenutzerRole benutzerRole);
 
 }

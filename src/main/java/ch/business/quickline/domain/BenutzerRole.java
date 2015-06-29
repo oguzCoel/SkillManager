@@ -6,7 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -63,5 +65,50 @@ public class BenutzerRole implements java.io.Serializable {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((benutzer == null) ? 0 : benutzer.hashCode());
+		result = prime * result
+				+ ((benutzerRoleId == null) ? 0 : benutzerRoleId.hashCode());
+		result = prime * result + ((role == null) ? 0 : role.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BenutzerRole other = (BenutzerRole) obj;
+		if (benutzer == null) {
+			if (other.benutzer != null)
+				return false;
+		} else if (!benutzer.equals(other.benutzer))
+			return false;
+		if (benutzerRoleId == null) {
+			if (other.benutzerRoleId != null)
+				return false;
+		} else if (!benutzerRoleId.equals(other.benutzerRoleId))
+			return false;
+		if (role == null) {
+			if (other.role != null)
+				return false;
+		} else if (!role.equals(other.role))
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+	
+	
 
 }

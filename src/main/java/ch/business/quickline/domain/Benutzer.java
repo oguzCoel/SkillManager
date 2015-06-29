@@ -106,5 +106,11 @@ public class Benutzer implements java.io.Serializable {
 	public void setBenutzerRoles(Set<BenutzerRole> benutzerRoles) {
 		this.benutzerRoles = benutzerRoles;
 	}
+	
+	
+	
+	
+	
+	
 
 }

@@ -277,5 +277,9 @@ public class Mitarbeiter implements java.io.Serializable {
 	public String toString(){
 		return String.format("%s " + "%s", getMitarbeiterVorname(), getMitarbeiterNachname() );
 	}
+	
+	
+	
+	
 
 }
