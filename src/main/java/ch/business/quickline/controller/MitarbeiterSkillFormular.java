@@ -97,28 +97,27 @@ public class MitarbeiterSkillFormular {
 	}
 	
 	public void save() throws Exception{
-		mitarbeiterSkillToUpdate = mitarbeiterSkillService.findByMitarbeiterAndSkill(getMitarbeiterSkillToInsert().getMitarbeiter(), getMitarbeiterSkillToInsert().getSkill());
-		String secondname = mitarbeiterSkillToUpdate.getMitarbeiter().getMitarbeiterNachname();
-		String firstname = mitarbeiterSkillToUpdate.getMitarbeiter().getMitarbeiterVorname();
-		String effectedskill = mitarbeiterSkillToUpdate.getSkill().getSkillName();
-		if(mitarbeiterSkillToUpdate == null){
-			mitarbeiterSkillService.save(mitarbeiterSkillToInsert);
-			logger.info("Mitarbeiter insert Skill: " + effectedskill +" Nachname: "+secondname +" Vorname: "+ firstname);
+		try {
+			mitarbeiterSkillToUpdate = mitarbeiterSkillService.findByMitarbeiterAndSkill(getMitarbeiterSkillToInsert().getMitarbeiter(), getMitarbeiterSkillToInsert().getSkill());
+			String secondname = mitarbeiterSkillToUpdate.getMitarbeiter().getMitarbeiterNachname();
+			String firstname = mitarbeiterSkillToUpdate.getMitarbeiter().getMitarbeiterVorname();
+			String effectedskill = mitarbeiterSkillToUpdate.getSkill().getSkillName();
+			if(mitarbeiterSkillToUpdate == null){
+				mitarbeiterSkillService.save(mitarbeiterSkillToInsert);
+				logger.info("Mitarbeiter insert Skill: " + effectedskill +" Nachname: "+secondname +" Vorname: "+ firstname);
+			}	
+			else { mitarbeiterSkillToUpdate.setMasterBewertung(getMitarbeiterSkillToInsert().getMasterBewertung());
+					mitarbeiterSkillToUpdate.setSelbstBewertung(getMitarbeiterSkillToInsert().getSelbstBewertung());
+					mitarbeiterSkillService.save(mitarbeiterSkillToUpdate);
+					
+					logger.info("Mitarbeiter update Skill: " + effectedskill +" Nachname: "+secondname +" Vorname: "+ firstname);
+			}
+			
+			unternehmenViewController.init();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("Fehler beim Abspeichern Mitarbeiter Skill. Details" +e.getMessage());
 		}
-		
-		
-		
-		else { mitarbeiterSkillToUpdate.setMasterBewertung(getMitarbeiterSkillToInsert().getMasterBewertung());
-				mitarbeiterSkillToUpdate.setSelbstBewertung(getMitarbeiterSkillToInsert().getSelbstBewertung());
-				mitarbeiterSkillService.save(mitarbeiterSkillToUpdate);
-				
-				logger.info("Mitarbeiter update Skill: " + effectedskill +" Nachname: "+secondname +" Vorname: "+ firstname);
-		}
-		
-		unternehmenViewController.init();
-		//mitarbeiterViewController.initValues();
-		//mitarbeiterViewController.init();
-		
 		
 	}
 }
