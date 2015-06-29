@@ -1,5 +1,6 @@
 package ch.business.quickline.config;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableGlobalMethodSecurity( prePostEnabled = true )
 @ComponentScan(basePackages={"ch.business.quickline.service"})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	// Log
+	final Logger logger = Logger.getLogger(SecurityConfig.class);
 	
 	@Autowired
 	UserDetailsService userDetailsService;
@@ -36,23 +39,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
               .roles( "USER" );
       */
     	
-    	auth.userDetailsService(userDetailsService);
-    	
-    	
-    	
-    	
-    		
-    	
-      
+    	try {
+			auth.userDetailsService(userDetailsService);
+		} catch (Exception e) {
+			logger.error("Fehler aufgetreten bei Autendification. Details: "+ e.getMessage() );
+		}
+    	  	
     } 
     @Override
     public void configure( WebSecurity web ) throws Exception
     {
-        // This is here to ensure that the static content (JavaScript, CSS, etc)
-        // is accessible from the login page without authentication
-    	web
-            .ignoring()
-                .antMatchers("/javax.faces.resource/**");
+        try {
+			// This is here to ensure that the static content (JavaScript, CSS, etc)
+			// is accessible from the login page without authentication
+			web.ignoring().antMatchers("/javax.faces.resource/**");
+		} catch (Exception e) {
+			logger.error("Fehler aufgetreten bei Configuration. Details: "+ e.getMessage() );
+			// TODO: handle exception
+		}
                 
          
     }
@@ -75,17 +79,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                .permitAll();
     	*/
     	
-    	http.csrf().disable()
-    	.authorizeRequests()
-    	.anyRequest().authenticated()
-    	.and()
-    	.formLogin();;
-    	
-    	
-    	
-    	
-    
-    	
+    	try {
+			http.csrf().disable().authorizeRequests().anyRequest()
+					.authenticated().and().formLogin();
+		} catch (Exception e) {
+			logger.error("Fehler aufgetreten bei Configuration HTTP Security. Details: "+ e.getMessage() );
+		}
+    	  	
                 	
     }
     
