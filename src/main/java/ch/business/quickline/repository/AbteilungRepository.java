@@ -5,8 +5,7 @@ import ch.business.quickline.domain.Abteilung;
 
 public interface AbteilungRepository extends JpaRepository<Abteilung, Integer> {
 	
-	public Abteilung findByAbteilungId(Integer id);
-	
-	
+	public Abteilung findByAbteilungId(Integer id);	
+	public Abteilung findByAbteilungName(String name);
 
 }

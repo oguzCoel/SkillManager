@@ -18,8 +18,6 @@ public class DbUnitSteps {
 
   @BeforeStory
   public void deleteAllData() throws SQLException, DatabaseUnitException {
-    DatabaseDataSourceConnection dbConn = new DatabaseDataSourceConnection(dataSource);
-    IDataSet dataSet = dbConn.createDataSet(new String[] { "Abteilung" });
-    DatabaseOperation.DELETE_ALL.execute(dbConn, dataSet);
+ 
   }
 }

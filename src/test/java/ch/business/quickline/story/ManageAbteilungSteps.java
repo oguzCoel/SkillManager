@@ -16,7 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import ch.business.quickline.domain.Abteilung;
+import ch.business.quickline.domain.Mitarbeiter;
+import ch.business.quickline.domain.Skill;
 import ch.business.quickline.service.AbteilungService;
+import ch.business.quickline.service.MitarbeiterService;
+import ch.business.quickline.service.SkillService;
 
 
 
@@ -24,32 +28,26 @@ import ch.business.quickline.service.AbteilungService;
 @Component
 public class ManageAbteilungSteps {
 
-  @Autowired
-  private AbteilungService abteilungService;
+@Autowired
+private AbteilungService abteilungService;
+  
+ 
+Abteilung abteilung = new Abteilung();
+  
 		
-  @Given("the list of abteilungen $abteilungTable")
-  public void createAbteilung( ExamplesTable abteilungTable ){
-    for( Parameters p: abteilungTable.getRowsAsParameters()){
-      Abteilung abteilung = new Abteilung();
-      abteilung.setAbteilungName(p.valueAs("AbteilungName", String.class));
-      abteilungService.save(abteilung);
-    }
+  @When("der Admin einen neue Abteilung 'abteilung' erfasst")
+  public void createSkill(){
+   
+	  
+	  abteilung.setAbteilungName("TestAbteilung");
+	  abteilungService.save(abteilung);
   }
 		
-  @When("When the user adds the abteilung $testabteilung")
-  public void addStudent(String tesabteilung) throws ParseException{
-    Abteilung abteilung = new Abteilung();
-    abteilung.setAbteilungName(tesabteilung);
-    abteilungService.save(abteilung);
+  @Then("ist 'abteilung' in der Datenbank gespeichert")
+  public void lookForAbteilung() {
+    
+	  Assert.assertTrue(abteilungService.findALL().contains(abteilung) );
   }
 		
-  @Then("the list of abteilung is $abteilungTable")
-  public void assertStudentTable(ExamplesTable studTable){
-    Iterator<Abteilung> iter = abteilungService.findALL().iterator();
-    for( Parameters p: studTable.getRowsAsParameters()){
-      if( !iter.hasNext()) Assert.fail("unexpected end of list");
-      Abteilung actual = iter.next();
-      Assert.assertEquals(p.valueAs("AbteilungName", String.class), actual.getAbteilungName());
-    }
-  }
+  
 }

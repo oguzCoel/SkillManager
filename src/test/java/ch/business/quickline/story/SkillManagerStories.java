@@ -28,7 +28,7 @@ public class SkillManagerStories extends JUnitStories {
         new StoryReporterBuilder()
         .withCodeLocation(CodeLocations.codeLocationFromClass(getClass()))
         .withDefaultFormats()
-        .withFormats(Format.HTML, Format.XML))
+        .withFormats(Format.HTML, Format.CONSOLE))
         .useParameterConverters(
           new ParameterConverters().addConverters(
             new ParameterConverters.DateConverter( 
@@ -41,7 +41,7 @@ public class SkillManagerStories extends JUnitStories {
 
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
     					JpaConfig.class);
-    context.scan("ch.hfict.esta.stories");
+    context.scan("ch.business.quickline.story");
 
       return new SpringStepsFactory(configuration(), context);
   }
