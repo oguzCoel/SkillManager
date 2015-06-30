@@ -9,5 +9,6 @@ public interface QualifikationService {
 	public Qualifikation save (Qualifikation qualifikation);
 	public List<Qualifikation> findAll();
 	public Qualifikation findByQualifikationId(Integer id);
+	public void deleteByQualifikationId(Integer id);
 
 }

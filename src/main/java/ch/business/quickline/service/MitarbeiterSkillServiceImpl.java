@@ -178,5 +178,15 @@ public class MitarbeiterSkillServiceImpl implements MitarbeiterSkillService{
 		skillService.save(mitarbeiterSkill.getSkill());
 	}
 	
+	
+	public void deleteByMitarbeiter (Mitarbeiter mitarbeiter){
+		
+		mitarbeiterSkillRepository.deleteByMitarbeiter(mitarbeiter);
+	}
+	
+	public void deleteBySkill (Skill skill){
+		
+		mitarbeiterSkillRepository.deleteBySkill(skill);
+	}
 
 }

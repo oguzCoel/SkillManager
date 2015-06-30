@@ -30,4 +30,9 @@ public class QualifikationServiceImpl implements QualifikationService {
 		return qualifikationRepository.findByQualifikationId(id);
 	}
 	
+	public void deleteByQualifikationId(Integer id){
+		
+		qualifikationRepository.deleteByQualifikationId(id);
+	}
+	
 }

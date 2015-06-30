@@ -12,5 +12,7 @@ public interface SkillMasterRepository extends JpaRepository <SkillMaster, Integ
 	
 	public List<SkillMaster> findByMitarbeiter(Mitarbeiter mitarbeiter);
 	public SkillMaster findBySkill(Skill skill);
+	public Integer deleteByMitarbeiter (Mitarbeiter mitarbeiter);
+	public Integer deleteBySkill (Skill skill);
 
 }

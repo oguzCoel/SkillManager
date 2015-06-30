@@ -25,4 +25,9 @@ public class BenutzerRoleServiceImpl implements BenutzerRoleService {
 		
 		return benutzerRoleRepository.findByBenutzer(benutzer);
 	}
+	
+	public void deleteByBenutzer(Benutzer benutzer){
+		
+		benutzerRoleRepository.deleteByBenutzer(benutzer);
+	}
 }

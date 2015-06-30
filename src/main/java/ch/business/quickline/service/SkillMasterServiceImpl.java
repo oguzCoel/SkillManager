@@ -33,4 +33,14 @@ public class SkillMasterServiceImpl implements SkillMasterService {
 		return skillMasterRepository.findBySkill(skill);
 	}
 
+	
+	public void deleteByMitarbeiter (Mitarbeiter mitarbeiter){
+		
+		skillMasterRepository.deleteByMitarbeiter(mitarbeiter);
+	}
+	
+	public void deleteBySkill(Skill skill){
+		
+		skillMasterRepository.deleteBySkill(skill);
+	}
 }

@@ -48,5 +48,9 @@ public class SkillServiceImpl implements SkillService {
     public long count(){
     	return skillRepository.count();
     }
+    
+    public void deleteBySkillId(Integer id){
+    	skillRepository.deleteBySkillId(id);
+    }
 
 }

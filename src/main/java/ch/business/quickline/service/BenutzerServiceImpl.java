@@ -30,4 +30,9 @@ public class BenutzerServiceImpl implements BenutzerService {
 		return benutzerRepository.findByMitarbeiter(mitarbeiter);
 	}
 
+	
+	public void deleteByMitarbeiter (Mitarbeiter mitarbeiter){
+		
+		benutzerRepository.deleteByMitarbeiter(mitarbeiter);
+	}
 }

@@ -8,5 +8,6 @@ public interface SkillRepository extends JpaRepository<Skill, Integer> {
 	
 	public Skill findBySkillId(Integer id);
 	public long count();
+	public Integer deleteBySkillId(Integer id);
 
 }

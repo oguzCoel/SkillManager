@@ -14,6 +14,7 @@ public interface MitarbeiterService {
 	public Double retrieveMasterBewertungDurchschnitt(Integer id);
 	public Double retrieveSelbstBewertungDurchschnitt(Integer id);
 	public long count ();
+	public void deleteByMitarbeiterId(Integer id);
 	
 
 

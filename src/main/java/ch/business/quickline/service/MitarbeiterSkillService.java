@@ -21,6 +21,8 @@ public interface MitarbeiterSkillService {
 	public Long countBySkill(Skill skill);
 	public List<MitarbeiterSkill> findBySkillAndMasterBewertungGreaterThanEqualOrderByMasterBewertung(Skill skill, Integer masterBewertung );
 	public MitarbeiterSkill findByMitarbeiterAndSkill (Mitarbeiter mitarbeiter, Skill skill);
+	public void deleteByMitarbeiter (Mitarbeiter mitarbeiter);
+	public void deleteBySkill (Skill skill);
 
  
 }

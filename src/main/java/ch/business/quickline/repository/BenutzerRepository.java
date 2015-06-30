@@ -9,5 +9,6 @@ public interface BenutzerRepository extends JpaRepository<Benutzer, Integer> {
 	
 	public Benutzer findByBenutzerName(String benutzerName);
 	public Benutzer findByMitarbeiter (Mitarbeiter mitarbeiter);
+	public Integer deleteByMitarbeiter(Mitarbeiter mitarbeiter);
 
 }

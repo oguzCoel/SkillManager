@@ -7,5 +7,6 @@ import ch.business.quickline.domain.Qualifikation;
 public interface QualifikationRepository extends JpaRepository<Qualifikation, Integer> {
 	
 	public Qualifikation findByQualifikationId(Integer id);
+	public Integer deleteByQualifikationId(Integer id);
 
 }

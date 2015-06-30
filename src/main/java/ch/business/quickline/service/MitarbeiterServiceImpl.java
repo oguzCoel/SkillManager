@@ -69,6 +69,11 @@ public class MitarbeiterServiceImpl implements MitarbeiterService {
 	}
 	
 	
+	public void deleteByMitarbeiterId(Integer id){
+		
+		mitarbeiterRepository.deleteByMitarbeiterId(id);
+	}
+	
 	
 	
 	

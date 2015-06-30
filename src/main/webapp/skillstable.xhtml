@@ -8,6 +8,11 @@
     <ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
         	<ui:insert>
+        	
+         <f:metadata>
+			<f:viewParam name="sd" value="#{skillTable.id}"/>
+			<f:event type="preRenderView" listener="#{skillTable.delete}"/>
+		</f:metadata>
         	<h:form>
 				<p:growl id="messages" showDetail="true" />        	
         		<p:toolbar>
@@ -34,6 +39,10 @@
 			    	  <p:link outcome="skillsedit">
                           <f:param name="seid" value="#{skills.skillId}"/>
                           <i class=" icon-pencil" style="margin-top:5px;"></i>
+                      </p:link>
+                      <p:link outcome="skillstable" action="#{skillTable.delete}">
+                          <f:param name="sd" value="#{skills.skillId}"/>
+                          <i class=" icon-delete" style="margin-top:5px;"></i>
                       </p:link>
 			    </p:column>
 			  
