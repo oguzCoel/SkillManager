@@ -123,7 +123,7 @@ public class MitarbeiterSkillServiceImpl implements MitarbeiterSkillService{
 	}
 
 	
-	private void triggerMitarbeiterAfterSave(MitarbeiterSkill mitarbeiterSkill){
+	public void triggerMitarbeiterAfterSave(MitarbeiterSkill mitarbeiterSkill){
 		Double masterBewertungSum = 0.0;
 		Double masterBewertungAvg; 
 		Double selbstBewertungSum = 0.0;
@@ -151,7 +151,7 @@ public class MitarbeiterSkillServiceImpl implements MitarbeiterSkillService{
 	}
 	
 	
-	private void triggerSkillAfterSave(MitarbeiterSkill mitarbeiterSkill){
+	public void triggerSkillAfterSave(MitarbeiterSkill mitarbeiterSkill){
 		Double masterBewertungSum = 0.0;
 		Double masterBewertungAvg; 
 		Double selbstBewertungSum = 0.0;
