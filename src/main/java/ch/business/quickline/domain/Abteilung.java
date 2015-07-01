@@ -90,7 +90,7 @@ public class Abteilung implements java.io.Serializable {
 		this.abteilungTasks = abteilungTasks;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "abteilung")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "abteilung")
 	public Set<Mitarbeiter> getMitarbeiters() {
 		return this.mitarbeiters;
 	}

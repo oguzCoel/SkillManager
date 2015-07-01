@@ -2,8 +2,8 @@ Manage Abteilungs
 
 Scenario: Neuen Skill erfassen
 
-When der Admin einen neue Abteilung 'abteilung' erfasst
-Then ist 'abteilung' in der Datenbank gespeichert
+When der Admin einen neue Abteilung 'AbteilungX' erfasst
+Then ist AbteilungX in der Datenbank gespeichert
 
 
 

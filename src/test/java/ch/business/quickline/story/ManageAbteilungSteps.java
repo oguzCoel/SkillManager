@@ -35,18 +35,18 @@ private AbteilungService abteilungService;
 Abteilung abteilung = new Abteilung();
   
 		
-  @When("der Admin einen neue Abteilung 'abteilung' erfasst")
-  public void createSkill(){
+  @When("der Admin einen neue Abteilung '$testabteilung' erfasst")
+  public void createSkill(String testabteilung){
    
 	  
-	  abteilung.setAbteilungName("TestAbteilung");
+	  abteilung.setAbteilungName(testabteilung);
 	  abteilungService.save(abteilung);
   }
 		
-  @Then("ist 'abteilung' in der Datenbank gespeichert")
+  @Then("ist AbteilungX in der Datenbank gespeichert")
   public void lookForAbteilung() {
     
-	  Assert.assertTrue(abteilungService.findALL().contains(abteilung) );
+	  Assert.assertTrue("check if new Abteilung exist", abteilungService.findALL().contains(abteilung)  );
   }
 		
   
