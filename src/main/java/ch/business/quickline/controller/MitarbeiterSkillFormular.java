@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -23,7 +24,8 @@ import ch.business.quickline.service.SkillService;
 @Component
 @Scope("request")
 public class MitarbeiterSkillFormular {
-	
+// Log
+	final Logger logger = Logger.getLogger(MitarbeiterSkillFormular.class);
 	@Autowired
 	private MitarbeiterService mitarbeiterService;
 
@@ -63,10 +65,7 @@ public class MitarbeiterSkillFormular {
 		for (SkillMaster skillMaster : authorities){
 			
 			skills.add(skillMaster.getSkill());
-		}
-		
-		
-		
+		}	
 	}
 
 
@@ -100,23 +99,27 @@ public class MitarbeiterSkillFormular {
 	}
 	
 	public void save() throws Exception{
-		mitarbeiterSkillToUpdate = mitarbeiterSkillService.findByMitarbeiterAndSkill(getMitarbeiterSkillToInsert().getMitarbeiter(), getMitarbeiterSkillToInsert().getSkill());
-		
-		if(mitarbeiterSkillToUpdate == null){
-			mitarbeiterSkillService.save(mitarbeiterSkillToInsert);
+		try {
+			mitarbeiterSkillToUpdate = mitarbeiterSkillService.findByMitarbeiterAndSkill(getMitarbeiterSkillToInsert().getMitarbeiter(), getMitarbeiterSkillToInsert().getSkill());
+			String secondname = mitarbeiterSkillToUpdate.getMitarbeiter().getMitarbeiterNachname();
+			String firstname = mitarbeiterSkillToUpdate.getMitarbeiter().getMitarbeiterVorname();
+			String effectedskill = mitarbeiterSkillToUpdate.getSkill().getSkillName();
+			if(mitarbeiterSkillToUpdate == null){
+				mitarbeiterSkillService.save(mitarbeiterSkillToInsert);
+				logger.info("Mitarbeiter insert Skill: " + effectedskill +" Nachname: "+secondname +" Vorname: "+ firstname);
+			}	
+			else { mitarbeiterSkillToUpdate.setMasterBewertung(getMitarbeiterSkillToInsert().getMasterBewertung());
+					mitarbeiterSkillToUpdate.setSelbstBewertung(getMitarbeiterSkillToInsert().getSelbstBewertung());
+					mitarbeiterSkillService.save(mitarbeiterSkillToUpdate);
+					
+					logger.info("Mitarbeiter update Skill: " + effectedskill +" Nachname: "+secondname +" Vorname: "+ firstname);
+			}
+			
+			unternehmenViewController.init();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("Fehler beim Abspeichern Mitarbeiter Skill. Details" +e.getMessage());
 		}
-		
-		
-		
-		else { mitarbeiterSkillToUpdate.setMasterBewertung(getMitarbeiterSkillToInsert().getMasterBewertung());
-				mitarbeiterSkillToUpdate.setSelbstBewertung(getMitarbeiterSkillToInsert().getSelbstBewertung());
-				mitarbeiterSkillService.save(mitarbeiterSkillToUpdate);
-		}
-		
-		unternehmenViewController.init();
-		//mitarbeiterViewController.initValues();
-		//mitarbeiterViewController.init();
-		
 		
 	}
 }

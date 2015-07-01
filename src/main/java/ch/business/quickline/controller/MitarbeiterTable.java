@@ -13,6 +13,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -31,6 +32,8 @@ import ch.business.quickline.service.SkillMasterService;
 @Component
 @ViewScoped
 public class MitarbeiterTable implements Serializable {
+	// Log
+		final Logger logger = Logger.getLogger(MitarbeiterTable.class);
 	
 
 
@@ -121,10 +124,15 @@ public class MitarbeiterTable implements Serializable {
 	}
 
 	public void save()throws Exception{
+		try {
+			mitarbeiterService.save(mitarbeiter);
+			init();
+			unternehmenViewController.init();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("Fehler beim Abspeichern . Details" +e.getMessage());
+		}
 		
-		mitarbeiterService.save(mitarbeiter);
-		init();
-		unternehmenViewController.init();	
 		
 	}
 	
