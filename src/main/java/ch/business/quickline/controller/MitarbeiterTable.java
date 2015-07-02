@@ -15,6 +15,7 @@ import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import ch.business.quickline.domain.Abteilung;
@@ -136,6 +137,7 @@ public class MitarbeiterTable implements Serializable {
 		
 	}
 	
+	@PreAuthorize("hasRole ('ROLE_ADMIN')")
 	public void delete(){
 		mitarbeiterToDelete = mitarbeiterService.findByMitarbeiterId(id);
 		benutzerToDelete = benutzerService.findByMitarbeiter(mitarbeiterToDelete);

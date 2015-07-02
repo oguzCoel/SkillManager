@@ -10,6 +10,7 @@ import javax.faces.bean.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import ch.business.quickline.domain.MitarbeiterSkill;
@@ -66,6 +67,7 @@ public class SkillTable implements Serializable {
 		this.id = id;
 	}
 
+	@PreAuthorize("hasRole ('ROLE_ADMIN')")
 	public void delete (){
 		skillToDelete = skillService.findBySkillId(id);
 		

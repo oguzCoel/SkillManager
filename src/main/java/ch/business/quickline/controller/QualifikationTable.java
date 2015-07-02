@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import ch.business.quickline.domain.Qualifikation;
@@ -56,6 +57,7 @@ public class QualifikationTable {
 		this.id = id;
 	}
 
+	@PreAuthorize("hasRole ('ROLE_ADMIN')")
 	public void delete(){
 		qualifikationToDelete = qualifikationService.findByQualifikationId(id);
 		
