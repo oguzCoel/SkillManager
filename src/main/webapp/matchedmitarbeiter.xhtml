@@ -18,9 +18,6 @@
      
     <h:body>
         <p:dataTable var="mitarbeiter" value="#{matchedMitarbeiter.matchedMitarbeiter}">
-            <p:column headerText="Id">
-                <h:outputText value="#{mitarbeiter.getMitarbeiter().getMitarbeiterId()}" />
-            </p:column>
  
             <p:column headerText="Vorname">
                 <h:outputText value="#{mitarbeiter.getMitarbeiter().getMitarbeiterVorname()}" />

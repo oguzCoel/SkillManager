@@ -15,7 +15,7 @@
 	
 	
 
-	<ui:composition template="/templates/default/template2.xhtml">
+	<ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
       <ui:insert>
       	<h:form>
@@ -29,8 +29,6 @@
 						 			</f:selectItems>
 						        </p:selectOneMenu>
 						        
-						        
-						        
 						         <p:selectOneMenu id="mitarbeiter" value="#{mitarbeiterFinder.masterBewertung}" panelStyle="width:180px">
 						                      
 						            <f:selectItems value="#{mitarbeiterFinder.masterBewertungValues}" >
@@ -40,24 +38,10 @@
 						 
 						        </p:selectOneMenu>
 						        
-						        
-						        
 						         <p:commandButton value="Submit" action="#{mitarbeiterFinder.save}" />
-						        
-						        <h:link outcome="matchedmitarbeiter"  value="auswerten">
-						        
-						     
-						        	 
- 										
-     
-										
-								</h:link>
 								
 									
-		</h:form>
-        		
- 				    				
- 							
+		</h:form>		
 	</ui:insert>
 	</ui:define>
 	</ui:composition>
