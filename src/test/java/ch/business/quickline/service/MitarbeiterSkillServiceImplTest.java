@@ -49,6 +49,10 @@ public class MitarbeiterSkillServiceImplTest {
 	private Skill skill;
 	private MitarbeiterSkill mitarbeiterSkill;
 	private List<MitarbeiterSkill> mitarbeiterSkills;
+	private Double mitarbeiterMasterBewertungDurchschnittBeforeSave;
+	private Double mitarbeiterSelbstBewertungDurchschnittBeforeSave;
+	private Double skillMasterBewertungDurchschnittBeforeSave;
+	private Double skillSelbstBewertungDurchschnittBeforeSave;
 
 	@Before
 	public  void setUp() {
@@ -65,14 +69,22 @@ public class MitarbeiterSkillServiceImplTest {
 		mitarbeiterSkill.setMitarbeiter(mitarbeiter);
 		mitarbeiterSkill.setSkill(skill);
 		mitarbeiterSkill.setMasterBewertung(5);
+		mitarbeiterMasterBewertungDurchschnittBeforeSave = mitarbeiter.getMitarbeiterMasterBewertungDurchschnitt();
+		mitarbeiterSelbstBewertungDurchschnittBeforeSave = mitarbeiter.getMitarbeiterSelbstBewertungDurchschnitt();
+		skillMasterBewertungDurchschnittBeforeSave = skill.getSkillMasterBewertungDurchschnitt();
+		skillSelbstBewertungDurchschnittBeforeSave = skill.getSkillSelbstBewertungDurchschnitt();
+		
 		
 		Assert.assertFalse(mitarbeiterSkillService.findAll().contains(mitarbeiterSkill));
 		mitarbeiterSkillService.save(mitarbeiterSkill);
 		Assert.assertTrue(mitarbeiterSkillService.findAll().contains(mitarbeiterSkill));
+		Assert.assertNotEquals(mitarbeiter.getMitarbeiterMasterBewertungDurchschnitt(), mitarbeiterMasterBewertungDurchschnittBeforeSave);
+		Assert.assertNotEquals(mitarbeiter.getMitarbeiterSelbstBewertungDurchschnitt(), mitarbeiterSelbstBewertungDurchschnittBeforeSave);
+		Assert.assertNotEquals(skill.getSkillMasterBewertungDurchschnitt(), skillMasterBewertungDurchschnittBeforeSave);
+		Assert.assertNotEquals(skill.getSkillSelbstBewertungDurchschnitt(), skillSelbstBewertungDurchschnittBeforeSave);
 	}
 
 	@Test
-	@DatabaseSetup("/dbunit/db-export.xml")
 	public void testFindByMitarbeiterOrderByMasterBewertungDesc() {
 		mitarbeiterSkills = mitarbeiterSkillService.findByMitarbeiterOrderByMasterBewertungDesc(mitarbeiter);
 		
@@ -82,37 +94,52 @@ public class MitarbeiterSkillServiceImplTest {
 
 	@Test
 	public void testFindByMitarbeiterOrderBySelbstBewertungDesc() {
-		fail("Not yet implemented");
+		mitarbeiterSkills = mitarbeiterSkillService.findByMitarbeiterOrderBySelbstBewertungDesc(mitarbeiter);
+		
+		Assert.assertEquals(mitarbeiterSkills.get(0).getMitarbeiter(), this.mitarbeiter);
+		Assert.assertTrue(mitarbeiterSkills.get(0).getSelbstBewertung() >= mitarbeiterSkills.get(1).getMasterBewertung());
 	}
 
 	@Test
 	public void testFindBySkillOrderByMasterBewertungDesc() {
-		fail("Not yet implemented");
+		mitarbeiterSkills = mitarbeiterSkillService.findBySkillOrderByMasterBewertungDesc(skill);
+		
+		Assert.assertEquals(mitarbeiterSkills.get(0).getSkill(), this.skill);
+		Assert.assertTrue(mitarbeiterSkills.get(0).getMasterBewertung() >= mitarbeiterSkills.get(1).getMasterBewertung());
 	}
 
 	@Test
 	public void testFindBySkillOrderBySelbstBewertungDesc() {
-		fail("Not yet implemented");
+		mitarbeiterSkills = mitarbeiterSkillService.findBySkillOrderBySelbstBewertungDesc(skill);
+		
+		Assert.assertEquals(mitarbeiterSkills.get(0).getSkill(), this.skill);
+		Assert.assertTrue(mitarbeiterSkills.get(0).getSelbstBewertung() >= mitarbeiterSkills.get(1).getSelbstBewertung());
 	}
 
-	@Test
-	public void testRetrieveMasterBewertungGlobalAverage() {
-		fail("Not yet implemented");
-	}
 
 	@Test
-	public void testRetrieveSelbstBewertungGlobalAverage() {
-		fail("Not yet implemented");
+	public void testCountBySkill(){
+		mitarbeiterSkills = mitarbeiterSkillService.findBySkill(skill);
+		
+		Assert.assertEquals(mitarbeiterSkills.size(), mitarbeiterSkillService.countBySkill(skill).intValue());
 	}
+	
+	
 
 	@Test
+	@DatabaseSetup("/dbunit/db-export.xml")
 	public void testDeleteByMitarbeiter() {
-		fail("Not yet implemented");
+		Assert.assertFalse(mitarbeiterSkillService.findByMitarbeiter(mitarbeiter).isEmpty());
+		mitarbeiterSkillService.deleteByMitarbeiter(mitarbeiter);
+		Assert.assertTrue(mitarbeiterSkillService.findByMitarbeiter(mitarbeiter).isEmpty());
 	}
 
 	@Test
+	@DatabaseSetup("/dbunit/db-export.xml")
 	public void testDeleteBySkill() {
-		fail("Not yet implemented");
+		Assert.assertFalse(mitarbeiterSkillService.findBySkill(skill).isEmpty());
+		mitarbeiterSkillService.deleteBySkill(skill);
+		Assert.assertTrue(mitarbeiterSkillService.findBySkill(skill).isEmpty());
 	}
 
 }
