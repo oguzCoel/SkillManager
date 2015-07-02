@@ -26,7 +26,6 @@ public class BenutzerProfileController {
 	@PostConstruct
 	public void init (){
 		
-		System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
 		benutzer = benutzerService.findByBenutzerName(benutzerName);
 	}
 	

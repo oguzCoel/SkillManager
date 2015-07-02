@@ -118,9 +118,7 @@ public class MitarbeiterFinder {
 		matchedMitarbeiter.setSkill(getSkill());
 		matchedMitarbeiter.setMasterBewertung(getMasterBewertung());
 		matchedMitarbeiter.init();
-		
-		System.out.println(matchedMitarbeiter.getSkill().getSkillName());
-		
+				
 		return "matchedmitarbeiter.xhtml";
 	}
 	
