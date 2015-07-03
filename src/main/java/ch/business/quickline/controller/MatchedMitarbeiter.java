@@ -23,24 +23,12 @@ public class MatchedMitarbeiter {
 	@Autowired
 	MitarbeiterSkillService mitarbeiterSkillService;
 	
-	
-	//@ManagedProperty(value="#{mitarbeiterFinder.skill}")
 	private Skill skill;
-	
-	//@ManagedProperty(value="#{mitarbeiterFinder.masterBewertung}")
 	private Integer masterBewertung;
-	
-	
-	
 	private List<MitarbeiterSkill> matchedMitarbeiter;
 	
 	
-	
-	
 	public void init (){
-		//skill = mitarbeiterFinder.getSkill();
-		//masterBewertung = mitarbeiterFinder.getMasterBewertung();
-		
 		matchedMitarbeiter = mitarbeiterSkillService.findBySkillAndMasterBewertungGreaterThanEqualOrderByMasterBewertung(skill, masterBewertung);
 	}
 
@@ -67,6 +55,8 @@ public class MatchedMitarbeiter {
 	public void setMasterBewertung(Integer masterBewertung) {
 		this.masterBewertung = masterBewertung;
 	}
+	
+	
 	
 	
 	

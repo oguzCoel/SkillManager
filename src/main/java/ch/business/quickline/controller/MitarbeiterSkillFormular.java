@@ -44,6 +44,9 @@ public class MitarbeiterSkillFormular {
 	@Autowired
 	private UnternehmenViewController unternehmenViewController;
 	
+	@Autowired
+	private MitarbeiterViewController mitarbeiterViewController;
+	
 
 	
 	
@@ -116,6 +119,9 @@ public class MitarbeiterSkillFormular {
 			}
 			
 			unternehmenViewController.init();
+			mitarbeiterViewController.setId(mitarbeiter.getMitarbeiterId());
+			mitarbeiterViewController.initValues();
+			mitarbeiterViewController.init();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			logger.error("Fehler beim Abspeichern Mitarbeiter Skill. Details" +e.getMessage());

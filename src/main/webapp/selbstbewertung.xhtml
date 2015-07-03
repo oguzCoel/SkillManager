@@ -8,23 +8,16 @@
     <ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
         	<ui:insert>
-        		<h:form>
-        	
-						        
-					 <p:outputLabel for="skillsselbst" value="Skills:"  />
-						        <h:selectOneMenu id="skillsselbst" value="#{selbstBewertungsFormular.mitarbeiterSkillToInsert.skill}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
-						                      
-						            <f:selectItems value="#{selbstBewertungsFormular.skills}" />
-						 
-						        </h:selectOneMenu>
-						        
-						           <h:panelGrid columns="2" cellpadding="5">
-								        <h:outputText value="SelbstBewertung:" />
-								        <p:rating value="#{selbstBewertungsFormular.mitarbeiterSkillToInsert.selbstBewertung}" />
-								   </h:panelGrid>    
-								   
-								   	<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="false" update="@form" ajax="false" action="#{selbstBewertungsFormular.save}"/>
-								    	        
+ 				 <h:form>
+					<p:outputLabel for="skillsselbst" value="Skills:" />
+					<h:selectOneMenu id="skillsselbst" value="#{selbstBewertungsFormular.mitarbeiterSkillToInsert.skill}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
+						<f:selectItems value="#{selbstBewertungsFormular.skills}" />
+					</h:selectOneMenu>
+					<h:panelGrid columns="2" cellpadding="5">
+						<h:outputText value="SelbstBewertung:" />
+						<p:rating value="#{selbstBewertungsFormular.mitarbeiterSkillToInsert.selbstBewertung}" />
+					</h:panelGrid>
+					<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="false" update="@form" ajax="false" action="#{selbstBewertungsFormular.save}"/>
 				</h:form>
         	</ui:insert>            
  

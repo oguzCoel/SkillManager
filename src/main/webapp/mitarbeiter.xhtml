@@ -67,6 +67,19 @@
 		<f:viewParam name="m_myauswertung2" value="#{mitarbeiterBarchartController.id}"/>
 		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.init}"/>
 		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.getChartSeries}"/>
+		<f:viewParam name="fsmid" value="#{mitarbeiterViewController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.initValues}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.init}"/>
+		<f:viewParam name="fsmbid" value="#{mitarbeiterBarchartController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.init}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.getChartSeries}"/>
+		<f:viewParam name="fssmid" value="#{mitarbeiterViewController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.initValues}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.init}"/>
+		<f:viewParam name="fssmbid" value="#{mitarbeiterBarchartController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.init}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.getChartSeries}"/>
+		
 	</f:metadata>
 
     <ui:define name="content">
@@ -148,8 +161,6 @@
                  
             </div>
         </div>
-        
-        
        		 <div class="Container100 Responisve100">
       	 <div class="Row"> 
        			<div class="Container100 Responsive50">
