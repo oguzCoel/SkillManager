@@ -2,6 +2,7 @@ package ch.business.quickline.controller;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -36,11 +37,16 @@ public class MitarbeiterViewController implements Serializable {
     private MeterGaugeChartModel selbstBewertungenIndividual;
     private Double masterBewertungDurchschnitt;
     private Double selbstBewertungDurchschnitt;
+    private String masterBewertungDurchschnittString;
+    private String selbstBewertungDurchschnittString;
 	private Mitarbeiter mitarbeiter;
 	private Set<Qualifikation> qualifikations;
 	private Set<MitarbeiterQualifikation> mitarbeiterQualifikations;
 	private List<MitarbeiterSkill> mitarbeiterSkills;
 	private List<MitarbeiterSkill> mitarbeiterInterests;
+	
+    private DecimalFormat df = new DecimalFormat("#.###");
+
 
    
 	@ManagedProperty("#{param.id}")
@@ -68,6 +74,8 @@ public class MitarbeiterViewController implements Serializable {
 		mitarbeiterInterests = mitarbeiterSkillService.findByMitarbeiterOrderBySelbstBewertungDesc(mitarbeiter);
     	masterBewertungDurchschnitt = mitarbeiterService.retrieveMasterBewertungDurchschnitt(mitarbeiter.getMitarbeiterId());
     	selbstBewertungDurchschnitt = mitarbeiterService.retrieveSelbstBewertungDurchschnitt(mitarbeiter.getMitarbeiterId());
+		masterBewertungDurchschnittString = df.format(mitarbeiterService.retrieveMasterBewertungDurchschnitt(mitarbeiter.getMitarbeiterId()));
+		selbstBewertungDurchschnittString = df.format(mitarbeiterService.retrieveSelbstBewertungDurchschnitt(mitarbeiter.getMitarbeiterId()));
     	
     }
     
@@ -93,13 +101,13 @@ public class MitarbeiterViewController implements Serializable {
     @PostConstruct
     private void createMeterGaugeModels(){
         masterBewertungenIndividual = initMeterGaugeModel();
-        //masterBewertungenIndividual.setTitle("Masterbewertungen");
+        masterBewertungenIndividual.setTitle("Masterbewertungen");
         masterBewertungenIndividual.setGaugeLabel("Skill");
         masterBewertungenIndividual.setValue(masterBewertungDurchschnitt);
         
          
         selbstBewertungenIndividual = initMeterGaugeModel();
-        //selbstBewertungenIndividual.setTitle("Selbstbewertungen");
+        selbstBewertungenIndividual.setTitle("Selbstbewertungen");
         selbstBewertungenIndividual.setGaugeLabel("Interesse");
         selbstBewertungenIndividual.setValue(selbstBewertungDurchschnitt);
     }
@@ -138,6 +146,29 @@ public class MitarbeiterViewController implements Serializable {
 	public void setSelbstBewertungDurchschnitt(
 			Double selbstBewertungDurchschnitt) {
 		this.selbstBewertungDurchschnitt = selbstBewertungDurchschnitt;
+	}
+	
+	
+
+	public String getMasterBewertungDurchschnittString() {
+		return masterBewertungDurchschnittString;
+	}
+
+
+	public void setMasterBewertungDurchschnittString(
+			String masterBewertungDurchschnittString) {
+		this.masterBewertungDurchschnittString = masterBewertungDurchschnittString;
+	}
+
+
+	public String getSelbstBewertungDurchschnittString() {
+		return selbstBewertungDurchschnittString;
+	}
+
+
+	public void setSelbstBewertungDurchschnittString(
+			String selbstBewertungDurchschnittString) {
+		this.selbstBewertungDurchschnittString = selbstBewertungDurchschnittString;
 	}
 
 

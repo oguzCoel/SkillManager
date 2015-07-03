@@ -39,7 +39,7 @@ public class ManageBenutzerSteps {
 	public void initAbteilung(Integer id){
 		
 		abteilung = abteilungService.findByAbteilungId(id);
-		System.out.println(abteilung.getAbteilungName());
+		
 	}
 	
 	@Given("eine MitarbeiterX in der AbteilungX, mit Vornamen '$vorname' und Nachname '$nachname', geboren am $geburtsdatum und angestellt seit $anstellungsdatum")
