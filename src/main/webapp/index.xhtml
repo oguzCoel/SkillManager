@@ -149,7 +149,7 @@
                             <div class="ContainerIndent">
                                 
                                 <h:form id="form_masterbewertungranking">
-                                    <p:dataList value="#{unternehmenViewController.mitarbeiterMasterBewertungRangliste}" var="mitarbeiter" type="ordered" paginator="true" rows="5" styleClass="paginated">
+                                    <p:dataList value="#{unternehmenViewController.mitarbeiterMasterBewertungRangliste}" var="mitarbeiter" type="ordered">
                                         <f:facet name="header">
                                             Top Mitarbeiter nach Masterbewertungen
                                         </f:facet>
@@ -168,7 +168,7 @@
                             <div class="ContainerIndent">
                             	
                                 <h:form id="form_selbstbewertungranking">
-                                    <p:dataList value="#{unternehmenViewController.mitarbeiterSelbstBewertungRangliste}" var="mitarbeiter" type="ordered" paginator="true" rows="5" styleClass="paginated">
+                                    <p:dataList value="#{unternehmenViewController.mitarbeiterSelbstBewertungRangliste}" var="mitarbeiter" type="ordered">
                                         <f:facet name="header">
                                             Top Mitarbeiter nach Interesse
                                         </f:facet>

@@ -23,6 +23,13 @@
         	</h:form>
         	<h:form>
 			  <p:dataTable id="mitarbeitertable" var="mitarbeiters" value="#{mitarbeiterTable.mitarbeiters}">
+			  <p:column style="width:32px">
+            	<p:link outcome="mitarbeiter">
+                	<f:param name="mtid" value="#{mitarbeiters.mitarbeiterId}"/>
+					<f:param name="mtbid" value="#{mitarbeiters.mitarbeiterId}"/>
+                	<i class="fa fa-table gray Fs18" style="margin-top:5px;"></i>
+           		</p:link>
+       		</p:column>
 			    <p:column headerText="Id">
 			        <h:outputText value="#{mitarbeiters.mitarbeiterId}" />
 			    </p:column>
@@ -40,7 +47,7 @@
 			        <h:outputText value="#{mitarbeiters.mitarbeiterRolle}" />
 			    </p:column>
 			    
-			    <p:column>
+			    <p:column style="width:50px">
 			    	  <p:link outcome="mitarbeiteredit">
                           <f:param name="meid" value="#{mitarbeiters.mitarbeiterId}"/>
                           <i class=" icon-pencil" style="margin-top:5px;"></i>

@@ -79,6 +79,18 @@
 		<f:viewParam name="fssmbid" value="#{mitarbeiterBarchartController.id}"/>
 		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.init}"/>
 		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.getChartSeries}"/>
+		<f:viewParam name="mmid" value="#{mitarbeiterViewController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.initValues}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.init}"/>
+		<f:viewParam name="mmbid" value="#{mitarbeiterBarchartController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.init}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.getChartSeries}"/>
+		<f:viewParam name="mtid" value="#{mitarbeiterViewController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.initValues}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterViewController.init}"/>
+		<f:viewParam name="mtbid" value="#{mitarbeiterBarchartController.id}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.init}"/>
+		<f:event type="preRenderView" listener="#{mitarbeiterBarchartController.getChartSeries}"/>
 		
 	</f:metadata>
 

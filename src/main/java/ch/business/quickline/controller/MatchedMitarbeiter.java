@@ -55,10 +55,5 @@ public class MatchedMitarbeiter {
 	public void setMasterBewertung(Integer masterBewertung) {
 		this.masterBewertung = masterBewertung;
 	}
-	
-	
-	
-	
-	
 
 }

@@ -23,6 +23,12 @@
         	</h:form>
         	<h:form>
 			  <p:dataTable id="skillstable" var="skills" value="#{skillTable.skills}">
+			  	<p:column style="width:32px">
+            	<p:link outcome="skill">
+                	<f:param name="stid" value="#{skills.skillId}"/>
+                	<i class="fa fa-table gray Fs18" style="margin-top:5px;"></i>
+           		</p:link>
+       		  </p:column>
 			    <p:column headerText="Id">
 			        <h:outputText value="#{skills.skillId}" />
 			    </p:column>
@@ -35,7 +41,7 @@
 			        <h:outputText value="#{skills.gruppe}" />
 			    </p:column>
 			 
-			    <p:column>
+			    <p:column style="width:50px">
 			    	  <p:link outcome="skillsedit">
                           <f:param name="seid" value="#{skills.skillId}"/>
                           <i class=" icon-pencil" style="margin-top:5px;"></i>
