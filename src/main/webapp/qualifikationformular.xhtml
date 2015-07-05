@@ -1,0 +1,36 @@
+
+ <html xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+              <ui:composition  template="/templates/default/template.xhtml">
+ 			<ui:define name="content">
+        	<ui:insert>
+        		<h:form>
+    <p:panel id="panel" header="Qualifikation Erfassung">
+        <p:focus context="panel"/>
+        <p:messages />
+        <h:panelGrid columns="3">
+            <p:outputLabel for="qualifikationname" value="Bezeichnung: " />
+            <p:inputText id="qualifikationname" value="#{qualifikationFormularController.qualifikation.qualifikationName}" required="true" label="Bezeichnung">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+            <p:message for="qualifikationname" />
+			   <p:outputLabel for="typ" value="Typ: " />
+            <p:inputText id="typ" value="#{qualifikationFormularController.qualifikation.qualifikationTyp}" required="true" label="Bezeichnung">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+            <p:message for="typ" />
+        </h:panelGrid> 
+			<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="false" update="@form" styleClass="ui-priority-primary" actionListener="#{qualifikationFormularController.save}"/>
+    </p:panel>
+
+			</h:form>
+
+       	</ui:insert>            
+ 
+        </ui:define>
+      
+    </ui:composition>        
+ </html>

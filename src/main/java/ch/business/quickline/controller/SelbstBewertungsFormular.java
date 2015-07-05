@@ -2,7 +2,9 @@ package ch.business.quickline.controller;
 
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import ch.business.quickline.service.BenutzerService;
 import ch.business.quickline.service.MitarbeiterSkillService;
 import ch.business.quickline.service.SkillService;
 
+@ManagedBean
 @Component
 @Scope("request")
 public class SelbstBewertungsFormular {
@@ -31,6 +34,11 @@ public class SelbstBewertungsFormular {
 	
 	@Autowired
 	private UnternehmenViewController unternehmenViewController;
+	
+	@Autowired
+	private MitarbeiterViewController mitarbeiterViewController;
+	
+
 	
 	
 	
@@ -76,19 +84,22 @@ public class SelbstBewertungsFormular {
 		
 		if(mitarbeiterSkillToUpdate == null){
 			mitarbeiterSkillService.save(mitarbeiterSkillToInsert);
+			
 		}
 		
 		else { mitarbeiterSkillToUpdate.setMasterBewertung(getMitarbeiterSkillToInsert().getMasterBewertung());
 		mitarbeiterSkillToUpdate.setSelbstBewertung(getMitarbeiterSkillToInsert().getSelbstBewertung());
 		mitarbeiterSkillService.save(mitarbeiterSkillToUpdate);
 		
+	
+		
 		}
 		
-		
+
 		unternehmenViewController.init();
-		//mitarbeiterViewController.initValues();
-		//mitarbeiterViewController.init();
-		
+		mitarbeiterViewController.setId(mitarbeiter.getMitarbeiterId());
+		mitarbeiterViewController.initValues();
+		mitarbeiterViewController.init();
 		
 	}
 	

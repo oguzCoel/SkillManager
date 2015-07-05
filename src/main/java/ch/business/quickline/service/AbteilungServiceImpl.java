@@ -32,5 +32,10 @@ public class AbteilungServiceImpl implements AbteilungService {
 		
 		return abteilungRepository.findByAbteilungId(id);
 	}
+	
+	public Abteilung findByAbteilungName(String name){
+		
+		return abteilungRepository.findByAbteilungName(name);
+	}
 
 }

@@ -1,41 +1,36 @@
-<!DOCTYPE html>
-<html   xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:p="http://primefaces.org/ui"
-		xmlns:f="http://java.sun.com/jsf/core">
-		
-
-     
-    <h:head>
-        <title>Matchedmitarbeiter</title>
-        <style type="text/css">
-            .ui-widget {
-                font-size: 90%;
-            }
-        </style>
-    </h:head>
-     
-    <h:body>
-        <p:dataTable var="mitarbeiter" value="#{matchedMitarbeiter.matchedMitarbeiter}">
-            <p:column headerText="Id">
-                <h:outputText value="#{mitarbeiter.getMitarbeiter().getMitarbeiterId()}" />
-            </p:column>
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 
  
+    <ui:composition template="/templates/default/template.xhtml">
+        <ui:define name="content">
+        	<ui:insert>
+        	<h:form>
+        <p:dataTable var="mitarbeiter" value="#{matchedMitarbeiter.matchedMitarbeiter}">
+             <p:column style="width:32px">
+            	<p:link outcome="mitarbeiter">
+                	<f:param name="mmid" value="#{mitarbeiter.mitarbeiter.mitarbeiterId}"/>
+					<f:param name="mmbid" value="#{mitarbeiter.mitarbeiter.mitarbeiterId}"/>
+                	<i class="fa fa-table gray Fs18" style="margin-top:5px;"></i>
+           		</p:link>
+       		</p:column>
             <p:column headerText="Vorname">
                 <h:outputText value="#{mitarbeiter.getMitarbeiter().getMitarbeiterVorname()}" />
             </p:column>
- 
             <p:column headerText="Nachname">
                 <h:outputText value="#{mitarbeiter.getMitarbeiter().getMitarbeiterNachname()}" />
             </p:column>
-            
             <p:column headerText="Bewertung">
                 <h:outputText value="#{mitarbeiter.getMasterBewertung()}" />
             </p:column>
- 
-            
         </p:dataTable>
-    </h:body>
-     
-</html>
+			</h:form>
+        	</ui:insert>            
+ 
+        </ui:define>
+    </ui:composition>        
+ 
+</html> 

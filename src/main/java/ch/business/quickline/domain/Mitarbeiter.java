@@ -40,8 +40,8 @@ public class Mitarbeiter implements java.io.Serializable {
 	private int mitarbeiterHausNummer;
 	private int mitarbeiterPlz;
 	private String mitarbeiterWohnort;
-	private BigDecimal mitarbeiterMasterBewertungDurchschnitt;
-	private BigDecimal mitarbeiterSelbstBewertungDurchschnitt;
+	private Double mitarbeiterMasterBewertungDurchschnitt;
+	private Double mitarbeiterSelbstBewertungDurchschnitt;
 	private Set<Benutzer> benutzers = new HashSet<Benutzer>(0);
 	private Set<MitarbeiterSkill> mitarbeiterSkills = new HashSet<MitarbeiterSkill>(
 			0);
@@ -76,8 +76,8 @@ public class Mitarbeiter implements java.io.Serializable {
 			Date mitarbeiterGeburtsDatum, Date mitarbeiterAnstellungsDatum,
 			String mitarbeiterAdresse, int mitarbeiterHausNummer,
 			int mitarbeiterPlz, String mitarbeiterWohnort,
-			BigDecimal mitarbeiterMasterBewertungDurchschnitt,
-			BigDecimal mitarbeiterSelbstBewertungDurchschnitt,
+			Double mitarbeiterMasterBewertungDurchschnitt,
+			Double mitarbeiterSelbstBewertungDurchschnitt,
 			Set<Benutzer> benutzers, Set<MitarbeiterSkill> mitarbeiterSkills,
 			Set<SkillMaster> skillMasters,
 			Set<MitarbeiterTask> mitarbeiterTasks,
@@ -102,7 +102,7 @@ public class Mitarbeiter implements java.io.Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = IDENTITY) 
 	@Column(name = "MitarbeiterID", unique = true, nullable = false)
 	public Integer getMitarbeiterId() {
 		return this.mitarbeiterId;
@@ -205,23 +205,23 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterWohnort = mitarbeiterWohnort;
 	}
 
-	@Column(name = "MitarbeiterMasterBewertungDurchschnitt", precision = 10)
-	public BigDecimal getMitarbeiterMasterBewertungDurchschnitt() {
+	@Column(name = "MitarbeiterMasterBewertungDurchschnitt", precision = 10, scale=2)
+	public Double getMitarbeiterMasterBewertungDurchschnitt() {
 		return this.mitarbeiterMasterBewertungDurchschnitt;
 	}
 
 	public void setMitarbeiterMasterBewertungDurchschnitt(
-			BigDecimal mitarbeiterMasterBewertungDurchschnitt) {
+			Double mitarbeiterMasterBewertungDurchschnitt) {
 		this.mitarbeiterMasterBewertungDurchschnitt = mitarbeiterMasterBewertungDurchschnitt;
 	}
 
-	@Column(name = "MitarbeiterSelbstBewertungDurchschnitt", precision = 10)
-	public BigDecimal getMitarbeiterSelbstBewertungDurchschnitt() {
+	@Column(name = "MitarbeiterSelbstBewertungDurchschnitt", precision = 10, scale=2)
+	public Double getMitarbeiterSelbstBewertungDurchschnitt() {
 		return this.mitarbeiterSelbstBewertungDurchschnitt;
 	}
 
 	public void setMitarbeiterSelbstBewertungDurchschnitt(
-			BigDecimal mitarbeiterSelbstBewertungDurchschnitt) {
+			Double mitarbeiterSelbstBewertungDurchschnitt) {
 		this.mitarbeiterSelbstBewertungDurchschnitt = mitarbeiterSelbstBewertungDurchschnitt;
 	}
 
@@ -271,8 +271,15 @@ public class Mitarbeiter implements java.io.Serializable {
 		this.mitarbeiterQualifikations = mitarbeiterQualifikations;
 	}
 	
+	
+	
+	@Override
 	public String toString(){
 		return String.format("%s " + "%s", getMitarbeiterVorname(), getMitarbeiterNachname() );
 	}
+	
+	
+	
+	
 
 }

@@ -9,5 +9,6 @@ public interface AbteilungService {
 	public Abteilung save(Abteilung abteilung);
 	public List<Abteilung> findALL();
 	public Abteilung findByAbteilungId(Integer id);
+	public Abteilung findByAbteilungName(String name);
 
 }

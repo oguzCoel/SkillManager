@@ -11,9 +11,10 @@ public interface MitarbeiterService {
 	public List<Mitarbeiter> mitarbeiterMasterBewertungRangliste();
 	public List<Mitarbeiter> mitarbeiterSelbstBewertungRangliste();
 	public Mitarbeiter findByMitarbeiterId(Integer id);
-	public BigDecimal retrieveMasterBewertungDurchschnitt(Integer id);
-	public BigDecimal retrieveSelbstBewertungDurchschnitt(Integer id);
+	public Double retrieveMasterBewertungDurchschnitt(Integer id);
+	public Double retrieveSelbstBewertungDurchschnitt(Integer id);
 	public long count ();
+	public void deleteByMitarbeiterId(Integer id);
 	
 
 

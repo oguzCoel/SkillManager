@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 
+ 
+    <ui:composition template="/templates/default/template.xhtml">
+        <ui:define name="content">
+        	<ui:insert>
+        	
+         <f:metadata>
+			<f:viewParam name="sd" value="#{skillTable.id}"/>
+			<f:event type="preRenderView" listener="#{skillTable.delete}"/>
+		</f:metadata>
+        	<h:form>
+				<p:growl id="messages" showDetail="true" />        	
+        		<p:toolbar>
+        			<f:facet name="right">
+        				<p:commandButton value="Neu" icon="ui-icon-plus" ajax="false" action="skillformular" />
+        			</f:facet>
+        		</p:toolbar>
+        	</h:form>
+        	<h:form>
+			  <p:dataTable id="skillstable" var="skills" value="#{skillTable.skills}">
+			  	<p:column style="width:32px">
+            	<p:link outcome="skill">
+                	<f:param name="stid" value="#{skills.skillId}"/>
+                	<i class="fa fa-table gray Fs18" style="margin-top:5px;"></i>
+           		</p:link>
+       		  </p:column>
+			    <p:column headerText="Id">
+			        <h:outputText value="#{skills.skillId}" />
+			    </p:column>
+			 
+			    <p:column headerText="Name">
+			        <h:outputText value="#{skills.skillName} " />
+			    </p:column>
+			 
+			    <p:column headerText="Gruppe">
+			        <h:outputText value="#{skills.gruppe}" />
+			    </p:column>
+			 
+			    <p:column style="width:50px">
+			    	  <p:link outcome="skillsedit">
+                          <f:param name="seid" value="#{skills.skillId}"/>
+                          <i class=" icon-pencil" style="margin-top:5px;"></i>
+                      </p:link>
+                      <p:link outcome="skillstable" action="#{skillTable.delete}">
+                          <f:param name="sd" value="#{skills.skillId}"/>
+                          <i class=" icon-delete" style="margin-top:5px;"></i>
+                      </p:link>
+			    </p:column>
+			  
+			</p:dataTable>
+			</h:form>
+        	</ui:insert>            
+ 
+        </ui:define>
+    </ui:composition>        
+ 
+</html> 

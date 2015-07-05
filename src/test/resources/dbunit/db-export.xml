@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <Abteilung AbteilungID="1" AbteilungName="Team Engineering &amp; Operations"/>
+  <Abteilung AbteilungID="2" AbteilungName="Team Projekte &amp; Support"/>
+  <Abteilung AbteilungID="3" AbteilungName="Team Marketing &amp; Sales"/>
+  <Abteilung AbteilungID="4" AbteilungName="Finance &amp; Administration"/>
+  <Projekt/>
+  <AbteilungProjekt/>
+  <Task/>
+  <AbteilungTask/>
+  <Mitarbeiter MitarbeiterID="1" MitarbeiterVorname="Fritz" MitarbeiterNachname="Meier" MitarbeiterRolle="Network Engineer" MitarbeiterAbteilung="1" MitarbeiterGeburtsDatum="1965-12-31" MitarbeiterAnstellungsDatum="2009-06-01" MitarbeiterAdresse="Hauptstrasse" MitarbeiterHausNummer="9" MitarbeiterPLZ="4147" MitarbeiterWohnort="Aesch" MitarbeiterMasterBewertungDurchschnitt="2.857142857" MitarbeiterSelbstBewertungDurchschnitt="3.0"/>
+  <Mitarbeiter MitarbeiterID="2" MitarbeiterVorname="Arquisch" MitarbeiterNachname="Armon" MitarbeiterRolle="Network Engineer" MitarbeiterAbteilung="1" MitarbeiterGeburtsDatum="1959-12-12" MitarbeiterAnstellungsDatum="2001-03-01" MitarbeiterAdresse="Birseckstrasse" MitarbeiterHausNummer="10" MitarbeiterPLZ="4132" MitarbeiterWohnort="Muttenz" MitarbeiterMasterBewertungDurchschnitt="3.8" MitarbeiterSelbstBewertungDurchschnitt="3.4"/>
+  <Mitarbeiter MitarbeiterID="3" MitarbeiterVorname="Roger" MitarbeiterNachname="Bachmann" MitarbeiterRolle="System Engineer" MitarbeiterAbteilung="1" MitarbeiterGeburtsDatum="1972-01-13" MitarbeiterAnstellungsDatum="2004-03-01" MitarbeiterAdresse="Bottmingerstrasse" MitarbeiterHausNummer="23" MitarbeiterPLZ="4102" MitarbeiterWohnort="Binningen" MitarbeiterMasterBewertungDurchschnitt="4.538461538" MitarbeiterSelbstBewertungDurchschnitt="4.0"/>
+  <Mitarbeiter MitarbeiterID="4" MitarbeiterVorname="Mauro" MitarbeiterNachname="Cappelletti" MitarbeiterRolle="Chief Technical Officer" MitarbeiterAbteilung="1" MitarbeiterGeburtsDatum="1959-12-13" MitarbeiterAnstellungsDatum="1999-07-01" MitarbeiterAdresse="Hauptstrasse" MitarbeiterHausNummer="10" MitarbeiterPLZ="4106" MitarbeiterWohnort="Therwil" MitarbeiterMasterBewertungDurchschnitt="4.375" MitarbeiterSelbstBewertungDurchschnitt="4.125"/>
+  <Mitarbeiter MitarbeiterID="5" MitarbeiterVorname="Patrizia" MitarbeiterNachname="Corsitto" MitarbeiterRolle="Junior Network Engineer" MitarbeiterAbteilung="1" MitarbeiterGeburtsDatum="1972-01-14" MitarbeiterAnstellungsDatum="2014-07-01" MitarbeiterAdresse="Tramstrasse" MitarbeiterHausNummer="32" MitarbeiterPLZ="4123" MitarbeiterWohnort="Allschwil" MitarbeiterMasterBewertungDurchschnitt="2.631578947" MitarbeiterSelbstBewertungDurchschnitt="2.526315789"/>
+  <Mitarbeiter MitarbeiterID="6" MitarbeiterVorname="Vanessa" MitarbeiterNachname="Eigenmann" MitarbeiterRolle="Projektleiterin" MitarbeiterAbteilung="1" MitarbeiterGeburtsDatum="1972-01-15" MitarbeiterAnstellungsDatum="2014-07-01" MitarbeiterAdresse="Weidenstrasse" MitarbeiterHausNummer="56" MitarbeiterPLZ="4125" MitarbeiterWohnort="Riehen" MitarbeiterMasterBewertungDurchschnitt="3.0" MitarbeiterSelbstBewertungDurchschnitt="2.0"/>
+  <Mitarbeiter MitarbeiterID="7" MitarbeiterVorname="Mirko" MitarbeiterNachname="Milekic" MitarbeiterRolle="System Engineer" MitarbeiterAbteilung="1" MitarbeiterGeburtsDatum="1959-12-18" MitarbeiterAnstellungsDatum="2014-10-01" MitarbeiterAdresse="Rheinstrasse" MitarbeiterHausNummer="43" MitarbeiterPLZ="4410" MitarbeiterWohnort="Liestal" MitarbeiterMasterBewertungDurchschnitt="3.428571428" MitarbeiterSelbstBewertungDurchschnitt="3.464285714"/>
+  <Mitarbeiter MitarbeiterID="8" MitarbeiterVorname="Sergio" MitarbeiterNachname="Filli" MitarbeiterRolle="Field Engineer" MitarbeiterAbteilung="1" MitarbeiterGeburtsDatum="1966-01-03" MitarbeiterAnstellungsDatum="2002-10-01" MitarbeiterAdresse="Baslerstrasse" MitarbeiterHausNummer="20" MitarbeiterPLZ="4310" MitarbeiterWohnort="Rheinfelden" MitarbeiterMasterBewertungDurchschnitt="3.636363636" MitarbeiterSelbstBewertungDurchschnitt="3.636363636"/>
+  <Benutzer BenutzerID="1" Mitarbeiter="1" BenutzerName="fmeier" BenutzerPasswort="password" BenutzerEmail="fmeier@qlb.ch"/>
+  <Benutzer BenutzerID="2" Mitarbeiter="2" BenutzerName="aarmon" BenutzerPasswort="password" BenutzerEmail="aarmon@qlb.ch"/>
+  <Benutzer BenutzerID="3" Mitarbeiter="3" BenutzerName="rbachmann" BenutzerPasswort="password" BenutzerEmail="rbachmann@qlb.ch"/>
+  <Benutzer BenutzerID="4" Mitarbeiter="4" BenutzerName="mcappelletti" BenutzerPasswort="password" BenutzerEmail="mcappelletti@qlb.ch"/>
+  <Benutzer BenutzerID="5" Mitarbeiter="5" BenutzerName="pcorsitto" BenutzerPasswort="password" BenutzerEmail="pcorsitto@qlb.ch"/>
+  <Benutzer BenutzerID="6" Mitarbeiter="6" BenutzerName="veigenmann" BenutzerPasswort="password" BenutzerEmail="veigenmann@qlb.ch"/>
+  <Benutzer BenutzerID="7" Mitarbeiter="7" BenutzerName="mmilekic" BenutzerPasswort="password" BenutzerEmail="mmilekic@qlb.ch"/>
+  <Benutzer BenutzerID="8" Mitarbeiter="8" BenutzerName="sfilli" BenutzerPasswort="password" BenutzerEmail="sfilli@qlb.ch"/>
+  <Role RoleID="1" RoleName="ROLE_ADMIN"/>
+  <Role RoleID="2" RoleName="ROLE_USER"/>
+  <BenutzerRole BenutzerRoleId="1" Benutzer="1" Role="2"/>
+  <BenutzerRole BenutzerRoleId="2" Benutzer="2" Role="2"/>
+  <BenutzerRole BenutzerRoleId="3" Benutzer="3" Role="2"/>
+  <BenutzerRole BenutzerRoleId="4" Benutzer="4" Role="2"/>
+  <BenutzerRole BenutzerRoleId="5" Benutzer="5" Role="1"/>
+  <BenutzerRole BenutzerRoleId="6" Benutzer="6" Role="2"/>
+  <BenutzerRole BenutzerRoleId="7" Benutzer="7" Role="2"/>
+  <BenutzerRole BenutzerRoleId="8" Benutzer="8" Role="2"/>
+  <Gruppe GruppeID="1" GruppeName="Coding"/>
+  <Gruppe GruppeID="2" GruppeName="Kommunikation"/>
+  <Gruppe GruppeID="3" GruppeName="Facility"/>
+  <Gruppe GruppeID="4" GruppeName="Fieldforce"/>
+  <Gruppe GruppeID="5" GruppeName="Hardware"/>
+  <Gruppe GruppeID="6" GruppeName="HLK"/>
+  <Gruppe GruppeID="7" GruppeName="IT"/>
+  <Gruppe GruppeID="8" GruppeName="Linux"/>
+  <Gruppe GruppeID="9" GruppeName="Netzwerk"/>
+  <Gruppe GruppeID="10" GruppeName="Physik"/>
+  <Gruppe GruppeID="11" GruppeName="Scripting"/>
+  <Gruppe GruppeID="12" GruppeName="Security"/>
+  <Gruppe GruppeID="13" GruppeName="Voice"/>
+  <Gruppe GruppeID="14" GruppeName="Windows"/>
+  <Gruppe GruppeID="15" GruppeName="Storage"/>
+  <Gruppe GruppeID="16" GruppeName="VM"/>
+  <Gruppe GruppeID="17" GruppeName="Datenbank"/>
+  <Gruppe GruppeID="18" GruppeName="Fieldforce"/>
+  <Qualifikation QualifikationID="1" QualifikationName="Informatiker/in EFZ" QualifikationTyp="Ausbildung"/>
+  <Qualifikation QualifikationID="2" QualifikationName="Elektriker/EFZ" QualifikationTyp="Ausbildung"/>
+  <Qualifikation QualifikationID="3" QualifikationName="Techniker/in Informatik HF" QualifikationTyp="Ausbildung"/>
+  <Qualifikation QualifikationID="4" QualifikationName="Informatiker/in FH" QualifikationTyp="Ausbildung"/>
+  <Qualifikation QualifikationID="5" QualifikationName="Proejektleiter/in (Management)" QualifikationTyp="Ausbildung"/>
+  <Qualifikation QualifikationID="6" QualifikationName="Microsoft Certified Application Professional" QualifikationTyp="Weiterbildung"/>
+  <Qualifikation QualifikationID="7" QualifikationName="Cisco Certified Network Associate Routing and Switching" QualifikationTyp="Weiterbildung"/>
+  <Qualifikation QualifikationID="8" QualifikationName="Junior Level Linux Professional" QualifikationTyp="Weiterbildung"/>
+  <Qualifikation QualifikationID="9" QualifikationName="Advanced Level Linux Professional" QualifikationTyp="Weiterbildung"/>
+  <Qualifikation QualifikationID="10" QualifikationName="Senior Level Linux Professional" QualifikationTyp="Weiterbildung"/>
+  <Qualifikation QualifikationID="11" QualifikationName="ITIL Foundation" QualifikationTyp="Weiterbildung"/>
+  <Qualifikation QualifikationID="12" QualifikationName="VMware Certified Professional &#8211; Cloud (VCP-Cloud)" QualifikationTyp="Weiterbildung"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="1" Mitarbeiter="1" Qualifikation="1"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="2" Mitarbeiter="1" Qualifikation="3"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="3" Mitarbeiter="1" Qualifikation="6"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="4" Mitarbeiter="1" Qualifikation="7"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="5" Mitarbeiter="1" Qualifikation="12"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="6" Mitarbeiter="2" Qualifikation="2"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="7" Mitarbeiter="2" Qualifikation="4"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="8" Mitarbeiter="2" Qualifikation="5"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="9" Mitarbeiter="3" Qualifikation="1"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="10" Mitarbeiter="3" Qualifikation="6"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="11" Mitarbeiter="3" Qualifikation="8"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="12" Mitarbeiter="3" Qualifikation="9"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="13" Mitarbeiter="3" Qualifikation="10"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="14" Mitarbeiter="3" Qualifikation="11"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="15" Mitarbeiter="3" Qualifikation="12"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="16" Mitarbeiter="4" Qualifikation="1"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="17" Mitarbeiter="4" Qualifikation="2"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="18" Mitarbeiter="4" Qualifikation="4"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="19" Mitarbeiter="4" Qualifikation="5"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="20" Mitarbeiter="4" Qualifikation="7"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="21" Mitarbeiter="5" Qualifikation="1"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="22" Mitarbeiter="5" Qualifikation="11"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="23" Mitarbeiter="6" Qualifikation="5"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="24" Mitarbeiter="7" Qualifikation="1"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="25" Mitarbeiter="7" Qualifikation="6"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="26" Mitarbeiter="7" Qualifikation="8"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="27" Mitarbeiter="7" Qualifikation="11"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="28" Mitarbeiter="8" Qualifikation="2"/>
+  <MitarbeiterQualifikation MitarbeiterQualifikationId="29" Mitarbeiter="8" Qualifikation="7"/>
+  <Skill SkillID="1" Gruppe="1" SkillName="Perl" SkillBeschreibung="Definiert die F&#228;higkeit, Programme in Perl zu schreiben" SkillMasterBewertungDurchschnitt="3.5" SkillSelbstBewertungDurchschnitt="2.0"/>
+  <Skill SkillID="2" Gruppe="1" SkillName="PHP" SkillBeschreibung="Definiert die F&#228;higkeit, Programme in PHP zu schreiben" SkillMasterBewertungDurchschnitt="3.0" SkillSelbstBewertungDurchschnitt="5.0"/>
+  <Skill SkillID="3" Gruppe="1" SkillName="Python" SkillBeschreibung="Definiert die F&#228;higkeit, Programme in Python zu schreiben" SkillMasterBewertungDurchschnitt="3.0" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="4" Gruppe="1" SkillName="Ruby" SkillMasterBewertungDurchschnitt="1.5" SkillSelbstBewertungDurchschnitt="2.0"/>
+  <Skill SkillID="5" Gruppe="2" SkillName="Representation" SkillBeschreibung="Definiert die F&#228;higkeit, sich gegen&#252;ber Kunden entsprechend zu representieren" SkillMasterBewertungDurchschnitt="3.0" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="6" Gruppe="3" SkillName="GLS" SkillBeschreibung="Kann &#252;ber das GLS monitoren und Aktionen ausl&#246;sen" SkillMasterBewertungDurchschnitt="3.0" SkillSelbstBewertungDurchschnitt="2.5"/>
+  <Skill SkillID="7" Gruppe="3" SkillName="Gebaeudeerkentnisse" SkillBeschreibung="Definiert die F&#228;higkeit, der Kentnisse &#252;ber die Geb&#228;udeinfrastruktur (DC, POP)" SkillMasterBewertungDurchschnitt="3.0" SkillSelbstBewertungDurchschnitt="1.0"/>
+  <Skill SkillID="8" Gruppe="3" SkillName="Datacenter" SkillBeschreibung="Kennt die Verhaltensordung, Begriffe und die wichtigsten Prozesse" SkillMasterBewertungDurchschnitt="2.0" SkillSelbstBewertungDurchschnitt="3.0"/>
+  <Skill SkillID="9" Gruppe="3" SkillName="Energieversorgung Datacenter" SkillBeschreibung="Kennt die Stromeinf&#252;hrung, Verteilung, USV und NEA" SkillMasterBewertungDurchschnitt="1.0" SkillSelbstBewertungDurchschnitt="3.0"/>
+  <Skill SkillID="10" Gruppe="3" SkillName="Videoueberwachung" SkillBeschreibung="Kennt die Hardware, Funktionsprinzip und Grafikoberfl&#228;che des Video&#252;berwachungssystem" SkillMasterBewertungDurchschnitt="4.0" SkillSelbstBewertungDurchschnitt="4.0"/>
+  <Skill SkillID="11" Gruppe="3" SkillName="Brandmeldung und Brandloeschun" SkillBeschreibung="Kennt die Zusammenh&#228;nge der beiden Systeme und die entsprechenden Kontaktstellen" SkillMasterBewertungDurchschnitt="2.0" SkillSelbstBewertungDurchschnitt="2.0"/>
+  <Skill SkillID="12" Gruppe="3" SkillName="Belueftung und Befeuchtung" SkillBeschreibung="Kennt die Funktionsweise und Kontaktstellen" SkillMasterBewertungDurchschnitt="3.0" SkillSelbstBewertungDurchschnitt="4.0"/>
+  <Skill SkillID="13" Gruppe="4" SkillName="Cabeling" SkillBeschreibung="Kennt die Stecker, Kabeltypen und kann damit Umgehen" SkillMasterBewertungDurchschnitt="1.0" SkillSelbstBewertungDurchschnitt="3.0"/>
+  <Skill SkillID="14" Gruppe="4" SkillName="Rack" SkillBeschreibung="Kennt den Umgang und Montage mit Racks PDUs und Leistungsschutzschalter" SkillMasterBewertungDurchschnitt="5.0" SkillSelbstBewertungDurchschnitt="4.0"/>
+  <Skill SkillID="15" Gruppe="5" SkillName="Cisco Hardware" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung" SkillMasterBewertungDurchschnitt="5.0" SkillSelbstBewertungDurchschnitt="5.0"/>
+  <Skill SkillID="16" Gruppe="5" SkillName="Extreme Hardware" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung" SkillMasterBewertungDurchschnitt="5.0" SkillSelbstBewertungDurchschnitt="5.0"/>
+  <Skill SkillID="17" Gruppe="5" SkillName="Zyxel Hardware" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung" SkillMasterBewertungDurchschnitt="3.0" SkillSelbstBewertungDurchschnitt="3.0"/>
+  <Skill SkillID="18" Gruppe="5" SkillName="Moxa Hardware" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung"/>
+  <Skill SkillID="19" Gruppe="5" SkillName="HP Hardware" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung" SkillMasterBewertungDurchschnitt="4.0" SkillSelbstBewertungDurchschnitt="5.0"/>
+  <Skill SkillID="20" Gruppe="5" SkillName="Hexatronic Hardware" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung"/>
+  <Skill SkillID="21" Gruppe="5" SkillName="RAD Hardware" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung"/>
+  <Skill SkillID="22" Gruppe="5" SkillName="Ciena Hardware" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung"/>
+  <Skill SkillID="23" Gruppe="5" SkillName="Paketfront Hardware" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung"/>
+  <Skill SkillID="24" Gruppe="5" SkillName="Optiken" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung"/>
+  <Skill SkillID="25" Gruppe="6" SkillName="Kaelteerzeugung" SkillBeschreibung="Kennt die Hardware, Funktionsbeschrieb und kann gem&#228;ss Interventions-Handbuch enst&#246;ren"/>
+  <Skill SkillID="26" Gruppe="6" SkillName="Kuehlkreis" SkillBeschreibung="Kennt die Hardware, Funktionsbeschrieb und kann gem&#228;ss Interventions-Handbuch enst&#246;ren"/>
+  <Skill SkillID="27" Gruppe="6" SkillName="Umluftkuehler" SkillBeschreibung="Kennt die Hardware, Funktionsbeschrieb und kann gem&#228;ss Interventions-Handbuch enst&#246;ren"/>
+  <Skill SkillID="28" Gruppe="6" SkillName="Regel und Steuertechnik" SkillBeschreibung="Kennt die Betriebsparameter und das Prinzip des K&#252;hlprozesses"/>
+  <Skill SkillID="29" Gruppe="5" SkillName="Neitur Hardware" SkillBeschreibung="Kennt die Hardwarespezifikationen in Gr&#246;sse, Performance, Einsatzm&#246;glichkeiten und Problembehebung" SkillMasterBewertungDurchschnitt="5.0" SkillSelbstBewertungDurchschnitt="2.0"/>
+  <Skill SkillID="30" Gruppe="5" SkillName="Netapp Shelf" SkillMasterBewertungDurchschnitt="3.5" SkillSelbstBewertungDurchschnitt="2.5"/>
+  <Skill SkillID="31" Gruppe="5" SkillName="Cisco Blades" SkillMasterBewertungDurchschnitt="3.0" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="32" Gruppe="8" SkillName="Apache" SkillBeschreibung="Definiert die F&#228;higkeit ein Apache zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="3.5" SkillSelbstBewertungDurchschnitt="4.0"/>
+  <Skill SkillID="33" Gruppe="8" SkillName="Bind9" SkillBeschreibung="Definiert die F&#228;higkeit ein Bind9 zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="3.5" SkillSelbstBewertungDurchschnitt="2.5"/>
+  <Skill SkillID="34" Gruppe="8" SkillName="Postfix" SkillBeschreibung="Definiert die F&#228;higkeit ein Postfix zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="2.5" SkillSelbstBewertungDurchschnitt="2.0"/>
+  <Skill SkillID="35" Gruppe="8" SkillName="Linux Know How" SkillBeschreibung="Definiert das Wissen &#252;ber Linux Allgemein" SkillMasterBewertungDurchschnitt="4.5" SkillSelbstBewertungDurchschnitt="4.0"/>
+  <Skill SkillID="36" Gruppe="17" SkillName="MySQL" SkillBeschreibung="Definiert die F&#228;higkeit MySQL zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="1.5" SkillSelbstBewertungDurchschnitt="1.5"/>
+  <Skill SkillID="37" Gruppe="8" SkillName="LDAP" SkillBeschreibung="Definiert die F&#228;higkeit LDAP zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="3.0" SkillSelbstBewertungDurchschnitt="2.0"/>
+  <Skill SkillID="38" Gruppe="8" SkillName="PureFTPD" SkillBeschreibung="Definiert die F&#228;higkeit PureFTPD zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="1.5" SkillSelbstBewertungDurchschnitt="2.0"/>
+  <Skill SkillID="39" Gruppe="8" SkillName="Icinga" SkillBeschreibung="Definiert die F&#228;higkeit Icinga zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="4.5" SkillSelbstBewertungDurchschnitt="4.5"/>
+  <Skill SkillID="40" Gruppe="8" SkillName="PRTG" SkillBeschreibung="Definiert die F&#228;higkeit PRTG zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="3.5" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="41" Gruppe="8" SkillName="OTRS" SkillBeschreibung="Definiert die F&#228;higkeit OTRS zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="3.0" SkillSelbstBewertungDurchschnitt="2.5"/>
+  <Skill SkillID="42" Gruppe="8" SkillName="PowerDNS" SkillBeschreibung="Definiert die F&#228;higkeit PowerDNS zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="3.5" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="43" Gruppe="8" SkillName="Cacti" SkillBeschreibung="Definiert die F&#228;higkeit ein Cacti zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="3.5" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="44" Gruppe="8" SkillName="Easy RedMine" SkillBeschreibung="Definiert die F&#228;higkeit Easy RedMine zu installieren, konfigurieren, verwalten und debuggen" SkillMasterBewertungDurchschnitt="2.5" SkillSelbstBewertungDurchschnitt="2.0"/>
+  <Skill SkillID="45" Gruppe="8" SkillName="DokuWiki" SkillBeschreibung="Definiert die F&#228;higkeit DokuWiki zu installieren, konfigurieren, verwalten und debuggen"/>
+  <Skill SkillID="46" Gruppe="8" SkillName="Smokeping" SkillBeschreibung="Definiert die F&#228;higkeit Smokeping zu installieren, konfigurieren, verwalten und debuggen"/>
+  <Skill SkillID="47" Gruppe="8" SkillName="Webapplikationen" SkillBeschreibung="Definiert die F&#228;higkeit eine Webapplikationen zu installieren, konfigurieren, verwalten und debuggen"/>
+  <Skill SkillID="48" Gruppe="8" SkillName="SSL-Zertifikat"/>
+  <Skill SkillID="49" Gruppe="9" SkillName="Sophos" SkillBeschreibung="Definiert die F&#228;higkeit Sophos zu installieren und betreiben"/>
+  <Skill SkillID="50" Gruppe="9" SkillName="Layer2 Forwarding" SkillBeschreibung="Kennt Switching" SkillMasterBewertungDurchschnitt="4.5" SkillSelbstBewertungDurchschnitt="4.0"/>
+  <Skill SkillID="51" Gruppe="9" SkillName="OSPF" SkillBeschreibung="Definiert die F&#228;higkeit OSPF zu konfigurieren, Analysieren, Debuggen &amp; Entwicklen" SkillMasterBewertungDurchschnitt="3.5" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="52" Gruppe="9" SkillName="BGP" SkillBeschreibung="Definiert die F&#228;higkeit BGP konfigurieren, Analysieren, Debuggen &amp; Entwicklen" SkillMasterBewertungDurchschnitt="4.0" SkillSelbstBewertungDurchschnitt="4.0"/>
+  <Skill SkillID="53" Gruppe="9" SkillName="MPLS" SkillBeschreibung="Definiert die F&#228;higkeit MPLS zu konfigurieren, Analysieren, Debuggen &amp; Entwicklen" SkillMasterBewertungDurchschnitt="3.5" SkillSelbstBewertungDurchschnitt="2.5"/>
+  <Skill SkillID="54" Gruppe="9" SkillName="Redundanz Protokolle" SkillBeschreibung="Definiert die F&#228;higkeit Spanning Tree, HSRP, VRRP, EAPS zu konfigurieren, analysieren, debuggen und Entwickeln" SkillMasterBewertungDurchschnitt="2.0" SkillSelbstBewertungDurchschnitt="2.0"/>
+  <Skill SkillID="55" Gruppe="9" SkillName="IPv4 Adressierung" SkillMasterBewertungDurchschnitt="4.5" SkillSelbstBewertungDurchschnitt="4.5"/>
+  <Skill SkillID="56" Gruppe="9" SkillName="IPv6 Adressierung" SkillMasterBewertungDurchschnitt="4.0" SkillSelbstBewertungDurchschnitt="4.0"/>
+  <Skill SkillID="57" Gruppe="9" SkillName="Multicast" SkillBeschreibung="Definiert die Kentnisse &#252;ber Multicast-Protokolle und kann analysieren und entst&#246;ren" SkillMasterBewertungDurchschnitt="2.5" SkillSelbstBewertungDurchschnitt="2.5"/>
+  <Skill SkillID="58" Gruppe="9" SkillName="Becs"/>
+  <Skill SkillID="59" Gruppe="9" SkillName="Cisco ASA"/>
+  <Skill SkillID="60" Gruppe="9" SkillName="Cisco UCS"/>
+  <Skill SkillID="61" Gruppe="5" SkillName="Cisco Router und Switch" SkillMasterBewertungDurchschnitt="3.4" SkillSelbstBewertungDurchschnitt="3.6"/>
+  <Skill SkillID="62" Gruppe="9" SkillName="VoIP"/>
+  <Skill SkillID="63" Gruppe="9" SkillName="Wireless"/>
+  <Skill SkillID="64" Gruppe="9" SkillName="WDM"/>
+  <Skill SkillID="65" Gruppe="9" SkillName="HFC"/>
+  <Skill SkillID="66" Gruppe="10" SkillName="Elektrotechnik"/>
+  <Skill SkillID="67" Gruppe="10" SkillName="Hydraulik"/>
+  <Skill SkillID="68" Gruppe="10" SkillName="Thermodynamik"/>
+  <Skill SkillID="69" Gruppe="11" SkillName="Bash" SkillBeschreibung="Definiert die F&#228;higkeit Abl&#228;ufe mit Bashscripts zu automatisieren"/>
+  <Skill SkillID="70" Gruppe="12" SkillName="Hochspannungsanlagen"/>
+  <Skill SkillID="71" Gruppe="13" SkillName="Patton" SkillBeschreibung="Definiert die F&#228;higkeit eine PattonBox zu installieren, konfigurieren und debuggen"/>
+  <Skill SkillID="72" Gruppe="13" SkillName="vPBX"/>
+  <Skill SkillID="73" Gruppe="13" SkillName="CarrierSystem"/>
+  <Skill SkillID="74" Gruppe="13" SkillName="Telefonhardware"/>
+  <Skill SkillID="75" Gruppe="14" SkillName="Exchange"/>
+  <Skill SkillID="76" Gruppe="14" SkillName="Active Directory" SkillMasterBewertungDurchschnitt="4.5" SkillSelbstBewertungDurchschnitt="4.5"/>
+  <Skill SkillID="77" Gruppe="14" SkillName="Windows DNS" SkillMasterBewertungDurchschnitt="5.0" SkillSelbstBewertungDurchschnitt="5.0"/>
+  <Skill SkillID="78" Gruppe="14" SkillName="Windows DHCP" SkillMasterBewertungDurchschnitt="4.0" SkillSelbstBewertungDurchschnitt="4.0"/>
+  <Skill SkillID="79" Gruppe="14" SkillName="Group Policy" SkillMasterBewertungDurchschnitt="4.0" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="80" Gruppe="15" SkillName="Volumes und LUNs" SkillBeschreibung="erstellen, l&#246;schen und ver&#228;ndern physikalische Volumes" SkillMasterBewertungDurchschnitt="4.0" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="81" Gruppe="15" SkillName="vFilter" SkillBeschreibung="erstellen, l&#246;schen und ver&#228;ndern Virtuelle Volumes" SkillMasterBewertungDurchschnitt="4.0" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="82" Gruppe="15" SkillName="Backup und Mirroring" SkillMasterBewertungDurchschnitt="4.0" SkillSelbstBewertungDurchschnitt="3.5"/>
+  <Skill SkillID="83" Gruppe="15" SkillName="Storage Tools" SkillMasterBewertungDurchschnitt="4.5" SkillSelbstBewertungDurchschnitt="4.5"/>
+  <Skill SkillID="84" Gruppe="16" SkillName="ESX" SkillBeschreibung="Installieren, konfigurieren, verwalten, upgraden und debuggen" SkillMasterBewertungDurchschnitt="4.666666666" SkillSelbstBewertungDurchschnitt="4.333333333"/>
+  <Skill SkillID="85" Gruppe="16" SkillName="vSphere" SkillBeschreibung="installieren, konfigurieren, verwalten, upgraden und debuggen" SkillMasterBewertungDurchschnitt="3.333333333" SkillSelbstBewertungDurchschnitt="3.333333333"/>
+  <Skill SkillID="86" Gruppe="16" SkillName="VM Tools" SkillBeschreibung="vSphere Client, vSphere PowerGUI" SkillMasterBewertungDurchschnitt="5.0" SkillSelbstBewertungDurchschnitt="4.0"/>
+  <Skill SkillID="87" Gruppe="16" SkillName="Horizon View" SkillBeschreibung="VDI, neue VMS erstellen ver&#228;ndern, pool konfigurieren und debuggen"/>
+  <Skill SkillID="88" Gruppe="17" SkillName="SQL" SkillBeschreibung="SQL Befehle in den Engines MySQL MS SQL und Oracle"/>
+  <Skill SkillID="89" Gruppe="17" SkillName="DB Admin" SkillBeschreibung="DB erstellen, Backup und Troubleshooting"/>
+  <Skill SkillID="90" Gruppe="17" SkillName="ERM/UML"/>
+  <Skill SkillID="91" Gruppe="12" SkillName="PKI"/>
+  <Skill SkillID="92" Gruppe="12" SkillName="Intrusion Prevention"/>
+  <Skill SkillID="93" Gruppe="12" SkillName="Firewall Grundbegriffe"/>
+  <Skill SkillID="94" Gruppe="12" SkillName="Anti-Virus"/>
+  <Skill SkillID="95" Gruppe="12" SkillName="Anti-Spam"/>
+  <MitarbeiterSkill MitarbeiterSkillId="1" Mitarbeiter="1" Skill="8" MasterBewertung="2" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="2" Mitarbeiter="1" Skill="9" MasterBewertung="1" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="3" Mitarbeiter="1" Skill="10" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="4" Mitarbeiter="1" Skill="11" MasterBewertung="2" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="5" Mitarbeiter="1" Skill="12" MasterBewertung="3" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="6" Mitarbeiter="1" Skill="13" MasterBewertung="1" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="7" Mitarbeiter="1" Skill="14" MasterBewertung="5" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="8" Mitarbeiter="1" Skill="7" MasterBewertung="3" SelbstBewertung="1"/>
+  <MitarbeiterSkill MitarbeiterSkillId="9" Mitarbeiter="5" Skill="1" MasterBewertung="2" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="10" Mitarbeiter="3" Skill="1" MasterBewertung="5" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="11" Mitarbeiter="7" Skill="2" MasterBewertung="1" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="12" Mitarbeiter="3" Skill="2" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="13" Mitarbeiter="7" Skill="3" MasterBewertung="2" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="14" Mitarbeiter="5" Skill="3" MasterBewertung="4" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="15" Mitarbeiter="7" Skill="4" MasterBewertung="1" SelbstBewertung="1"/>
+  <MitarbeiterSkill MitarbeiterSkillId="16" Mitarbeiter="5" Skill="4" MasterBewertung="2" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="17" Mitarbeiter="6" Skill="5" MasterBewertung="3" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="18" Mitarbeiter="2" Skill="5" MasterBewertung="3" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="19" Mitarbeiter="8" Skill="6" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="20" Mitarbeiter="1" Skill="6" MasterBewertung="2" SelbstBewertung="1"/>
+  <MitarbeiterSkill MitarbeiterSkillId="21" Mitarbeiter="8" Skill="15" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="22" Mitarbeiter="4" Skill="16" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="23" Mitarbeiter="7" Skill="17" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="24" Mitarbeiter="8" Skill="19" MasterBewertung="4" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="25" Mitarbeiter="2" Skill="29" MasterBewertung="5" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="26" Mitarbeiter="2" Skill="30" MasterBewertung="3" SelbstBewertung="1"/>
+  <MitarbeiterSkill MitarbeiterSkillId="27" Mitarbeiter="8" Skill="30" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="28" Mitarbeiter="8" Skill="31" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="29" Mitarbeiter="2" Skill="31" MasterBewertung="3" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="30" Mitarbeiter="5" Skill="32" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="31" Mitarbeiter="7" Skill="32" MasterBewertung="3" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="32" Mitarbeiter="5" Skill="33" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="33" Mitarbeiter="7" Skill="33" MasterBewertung="4" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="34" Mitarbeiter="5" Skill="34" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="35" Mitarbeiter="7" Skill="34" MasterBewertung="2" SelbstBewertung="1"/>
+  <MitarbeiterSkill MitarbeiterSkillId="36" Mitarbeiter="5" Skill="35" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="37" Mitarbeiter="7" Skill="35" MasterBewertung="4" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="38" Mitarbeiter="5" Skill="36" MasterBewertung="1" SelbstBewertung="1"/>
+  <MitarbeiterSkill MitarbeiterSkillId="39" Mitarbeiter="7" Skill="36" MasterBewertung="2" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="40" Mitarbeiter="5" Skill="37" MasterBewertung="1" SelbstBewertung="1"/>
+  <MitarbeiterSkill MitarbeiterSkillId="41" Mitarbeiter="7" Skill="37" MasterBewertung="5" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="42" Mitarbeiter="5" Skill="38" MasterBewertung="2" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="43" Mitarbeiter="7" Skill="38" MasterBewertung="1" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="44" Mitarbeiter="5" Skill="39" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="45" Mitarbeiter="7" Skill="39" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="46" Mitarbeiter="5" Skill="40" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="47" Mitarbeiter="7" Skill="40" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="48" Mitarbeiter="5" Skill="41" MasterBewertung="3" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="49" Mitarbeiter="7" Skill="41" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="50" Mitarbeiter="5" Skill="42" MasterBewertung="2" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="51" Mitarbeiter="7" Skill="42" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="52" Mitarbeiter="5" Skill="43" MasterBewertung="2" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="53" Mitarbeiter="7" Skill="43" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="54" Mitarbeiter="5" Skill="44" MasterBewertung="2" SelbstBewertung="1"/>
+  <MitarbeiterSkill MitarbeiterSkillId="55" Mitarbeiter="7" Skill="44" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="56" Mitarbeiter="4" Skill="50" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="57" Mitarbeiter="8" Skill="50" MasterBewertung="4" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="58" Mitarbeiter="1" Skill="51" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="59" Mitarbeiter="8" Skill="51" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="60" Mitarbeiter="1" Skill="52" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="61" Mitarbeiter="4" Skill="52" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="62" Mitarbeiter="4" Skill="53" MasterBewertung="4" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="63" Mitarbeiter="8" Skill="53" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="64" Mitarbeiter="1" Skill="54" MasterBewertung="2" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="65" Mitarbeiter="8" Skill="54" MasterBewertung="2" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="66" Mitarbeiter="1" Skill="55" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="67" Mitarbeiter="4" Skill="55" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="68" Mitarbeiter="4" Skill="56" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="69" Mitarbeiter="1" Skill="56" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="70" Mitarbeiter="4" Skill="57" MasterBewertung="2" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="71" Mitarbeiter="8" Skill="57" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="72" Mitarbeiter="2" Skill="61" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="73" Mitarbeiter="4" Skill="61" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="74" Mitarbeiter="8" Skill="61" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="75" Mitarbeiter="7" Skill="61" MasterBewertung="1" SelbstBewertung="2"/>
+  <MitarbeiterSkill MitarbeiterSkillId="76" Mitarbeiter="5" Skill="61" MasterBewertung="1" SelbstBewertung="1"/>
+  <MitarbeiterSkill MitarbeiterSkillId="77" Mitarbeiter="3" Skill="76" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="78" Mitarbeiter="7" Skill="76" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="79" Mitarbeiter="3" Skill="77" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="80" Mitarbeiter="7" Skill="77" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="81" Mitarbeiter="3" Skill="78" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="82" Mitarbeiter="7" Skill="78" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="83" Mitarbeiter="3" Skill="79" MasterBewertung="4" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="84" Mitarbeiter="7" Skill="79" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="85" Mitarbeiter="3" Skill="80" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="86" Mitarbeiter="7" Skill="80" MasterBewertung="4" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="87" Mitarbeiter="3" Skill="81" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="88" Mitarbeiter="7" Skill="81" MasterBewertung="5" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="89" Mitarbeiter="3" Skill="82" MasterBewertung="5" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="90" Mitarbeiter="7" Skill="82" MasterBewertung="3" SelbstBewertung="3"/>
+  <MitarbeiterSkill MitarbeiterSkillId="91" Mitarbeiter="3" Skill="83" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="92" Mitarbeiter="7" Skill="83" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="93" Mitarbeiter="5" Skill="84" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="94" Mitarbeiter="7" Skill="84" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="95" Mitarbeiter="3" Skill="84" MasterBewertung="5" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="96" Mitarbeiter="7" Skill="85" MasterBewertung="4" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="97" Mitarbeiter="3" Skill="85" MasterBewertung="5" SelbstBewertung="5"/>
+  <MitarbeiterSkill MitarbeiterSkillId="98" Mitarbeiter="5" Skill="85" MasterBewertung="1" SelbstBewertung="1"/>
+  <MitarbeiterSkill MitarbeiterSkillId="99" Mitarbeiter="3" Skill="86" MasterBewertung="5" SelbstBewertung="4"/>
+  <MitarbeiterSkill MitarbeiterSkillId="100" Mitarbeiter="7" Skill="86" MasterBewertung="2" SelbstBewertung="2"/>
+  <MitarbeiterTask/>
+  <ProjektTask/>
+  <SkillMaster SkillMasterId="1" Mitarbeiter="7" Skill="1"/>
+  <SkillMaster SkillMasterId="2" Mitarbeiter="5" Skill="2"/>
+  <SkillMaster SkillMasterId="3" Mitarbeiter="3" Skill="3"/>
+  <SkillMaster SkillMasterId="4" Mitarbeiter="3" Skill="4"/>
+  <SkillMaster SkillMasterId="5" Mitarbeiter="4" Skill="5"/>
+  <SkillMaster SkillMasterId="6" Mitarbeiter="2" Skill="6"/>
+  <SkillMaster SkillMasterId="7" Mitarbeiter="8" Skill="7"/>
+  <SkillMaster SkillMasterId="8" Mitarbeiter="2" Skill="8"/>
+  <SkillMaster SkillMasterId="9" Mitarbeiter="2" Skill="9"/>
+  <SkillMaster SkillMasterId="10" Mitarbeiter="2" Skill="10"/>
+  <SkillMaster SkillMasterId="11" Mitarbeiter="2" Skill="11"/>
+  <SkillMaster SkillMasterId="12" Mitarbeiter="2" Skill="12"/>
+  <SkillMaster SkillMasterId="13" Mitarbeiter="8" Skill="13"/>
+  <SkillMaster SkillMasterId="14" Mitarbeiter="8" Skill="14"/>
+  <SkillMaster SkillMasterId="15" Mitarbeiter="2" Skill="15"/>
+  <SkillMaster SkillMasterId="16" Mitarbeiter="2" Skill="16"/>
+  <SkillMaster SkillMasterId="17" Mitarbeiter="2" Skill="17"/>
+  <SkillMaster SkillMasterId="18" Mitarbeiter="2" Skill="19"/>
+  <SkillMaster SkillMasterId="19" Mitarbeiter="8" Skill="20"/>
+  <SkillMaster SkillMasterId="20" Mitarbeiter="8" Skill="21"/>
+  <SkillMaster SkillMasterId="21" Mitarbeiter="1" Skill="22"/>
+  <SkillMaster SkillMasterId="22" Mitarbeiter="4" Skill="23"/>
+  <SkillMaster SkillMasterId="23" Mitarbeiter="2" Skill="24"/>
+  <SkillMaster SkillMasterId="24" Mitarbeiter="2" Skill="25"/>
+  <SkillMaster SkillMasterId="25" Mitarbeiter="2" Skill="26"/>
+  <SkillMaster SkillMasterId="26" Mitarbeiter="2" Skill="27"/>
+  <SkillMaster SkillMasterId="27" Mitarbeiter="2" Skill="28"/>
+  <SkillMaster SkillMasterId="28" Mitarbeiter="1" Skill="29"/>
+  <SkillMaster SkillMasterId="29" Mitarbeiter="1" Skill="30"/>
+  <SkillMaster SkillMasterId="30" Mitarbeiter="1" Skill="31"/>
+  <SkillMaster SkillMasterId="31" Mitarbeiter="3" Skill="32"/>
+  <SkillMaster SkillMasterId="32" Mitarbeiter="3" Skill="33"/>
+  <SkillMaster SkillMasterId="33" Mitarbeiter="3" Skill="34"/>
+  <SkillMaster SkillMasterId="34" Mitarbeiter="3" Skill="35"/>
+  <SkillMaster SkillMasterId="35" Mitarbeiter="3" Skill="36"/>
+  <SkillMaster SkillMasterId="36" Mitarbeiter="3" Skill="37"/>
+  <SkillMaster SkillMasterId="37" Mitarbeiter="3" Skill="38"/>
+  <SkillMaster SkillMasterId="38" Mitarbeiter="3" Skill="39"/>
+  <SkillMaster SkillMasterId="39" Mitarbeiter="3" Skill="40"/>
+  <SkillMaster SkillMasterId="40" Mitarbeiter="3" Skill="41"/>
+  <SkillMaster SkillMasterId="41" Mitarbeiter="3" Skill="42"/>
+  <SkillMaster SkillMasterId="42" Mitarbeiter="3" Skill="43"/>
+  <SkillMaster SkillMasterId="43" Mitarbeiter="3" Skill="44"/>
+  <SkillMaster SkillMasterId="44" Mitarbeiter="3" Skill="45"/>
+  <SkillMaster SkillMasterId="45" Mitarbeiter="3" Skill="46"/>
+  <SkillMaster SkillMasterId="46" Mitarbeiter="3" Skill="47"/>
+  <SkillMaster SkillMasterId="47" Mitarbeiter="3" Skill="48"/>
+  <SkillMaster SkillMasterId="48" Mitarbeiter="3" Skill="49"/>
+  <SkillMaster SkillMasterId="49" Mitarbeiter="2" Skill="50"/>
+  <SkillMaster SkillMasterId="50" Mitarbeiter="2" Skill="51"/>
+  <SkillMaster SkillMasterId="51" Mitarbeiter="2" Skill="52"/>
+  <SkillMaster SkillMasterId="52" Mitarbeiter="2" Skill="53"/>
+  <SkillMaster SkillMasterId="53" Mitarbeiter="2" Skill="54"/>
+  <SkillMaster SkillMasterId="54" Mitarbeiter="2" Skill="55"/>
+  <SkillMaster SkillMasterId="55" Mitarbeiter="2" Skill="56"/>
+  <SkillMaster SkillMasterId="56" Mitarbeiter="2" Skill="57"/>
+  <SkillMaster SkillMasterId="57" Mitarbeiter="4" Skill="58"/>
+  <SkillMaster SkillMasterId="58" Mitarbeiter="1" Skill="59"/>
+  <SkillMaster SkillMasterId="59" Mitarbeiter="1" Skill="60"/>
+  <SkillMaster SkillMasterId="60" Mitarbeiter="3" Skill="61"/>
+  <SkillMaster SkillMasterId="61" Mitarbeiter="3" Skill="62"/>
+  <SkillMaster SkillMasterId="62" Mitarbeiter="4" Skill="63"/>
+  <SkillMaster SkillMasterId="63" Mitarbeiter="2" Skill="64"/>
+  <SkillMaster SkillMasterId="64" Mitarbeiter="4" Skill="65"/>
+  <SkillMaster SkillMasterId="65" Mitarbeiter="2" Skill="66"/>
+  <SkillMaster SkillMasterId="66" Mitarbeiter="4" Skill="67"/>
+  <SkillMaster SkillMasterId="67" Mitarbeiter="4" Skill="68"/>
+  <SkillMaster SkillMasterId="68" Mitarbeiter="3" Skill="69"/>
+  <SkillMaster SkillMasterId="69" Mitarbeiter="2" Skill="70"/>
+  <SkillMaster SkillMasterId="70" Mitarbeiter="3" Skill="71"/>
+  <SkillMaster SkillMasterId="71" Mitarbeiter="3" Skill="72"/>
+  <SkillMaster SkillMasterId="72" Mitarbeiter="3" Skill="73"/>
+  <SkillMaster SkillMasterId="73" Mitarbeiter="3" Skill="74"/>
+  <SkillMaster SkillMasterId="74" Mitarbeiter="3" Skill="75"/>
+  <SkillMaster SkillMasterId="75" Mitarbeiter="1" Skill="76"/>
+  <SkillMaster SkillMasterId="76" Mitarbeiter="1" Skill="77"/>
+  <SkillMaster SkillMasterId="77" Mitarbeiter="1" Skill="78"/>
+  <SkillMaster SkillMasterId="78" Mitarbeiter="1" Skill="79"/>
+  <SkillMaster SkillMasterId="79" Mitarbeiter="1" Skill="80"/>
+  <SkillMaster SkillMasterId="80" Mitarbeiter="1" Skill="81"/>
+  <SkillMaster SkillMasterId="81" Mitarbeiter="1" Skill="82"/>
+  <SkillMaster SkillMasterId="82" Mitarbeiter="1" Skill="83"/>
+  <SkillMaster SkillMasterId="83" Mitarbeiter="1" Skill="84"/>
+  <SkillMaster SkillMasterId="84" Mitarbeiter="1" Skill="85"/>
+  <SkillMaster SkillMasterId="85" Mitarbeiter="1" Skill="86"/>
+  <SkillMaster SkillMasterId="86" Mitarbeiter="1" Skill="87"/>
+  <SkillMaster SkillMasterId="87" Mitarbeiter="1" Skill="88"/>
+  <SkillMaster SkillMasterId="88" Mitarbeiter="1" Skill="89"/>
+  <SkillMaster SkillMasterId="89" Mitarbeiter="1" Skill="90"/>
+  <SkillMaster SkillMasterId="90" Mitarbeiter="1" Skill="91"/>
+  <SkillMaster SkillMasterId="91" Mitarbeiter="1" Skill="92"/>
+  <SkillMaster SkillMasterId="92" Mitarbeiter="1" Skill="93"/>
+  <SkillMaster SkillMasterId="93" Mitarbeiter="1" Skill="94"/>
+  <SkillMaster SkillMasterId="94" Mitarbeiter="3" Skill="95"/>
+  <SkillTask/>
+</dataset>

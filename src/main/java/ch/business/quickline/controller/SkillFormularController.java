@@ -9,6 +9,7 @@ import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import ch.business.quickline.domain.Gruppe;
@@ -36,6 +37,12 @@ public class SkillFormularController {
 	
 	@Autowired
 	private MitarbeiterService mitarbeiterService;
+	
+	@Autowired
+	private SkillTable skillTable;
+	
+	@Autowired
+	private UnternehmenViewController unternehmenViewController;
 	
 	
 	private Skill skill = new Skill();
@@ -82,11 +89,14 @@ public class SkillFormularController {
 		this.gruppen = gruppen;
 	}
 	
-	
+	@PreAuthorize("hasRole ('ROLE_ADMIN')")
 	public void save(){
 		skillService.save(skill);
 		skillMaster.setSkill(skill);
 		skillMasterService.save(skillMaster);
+		skillTable.init();
+		unternehmenViewController.init();
+
 		
 		FacesMessage msg = new FacesMessage
 				(getSkill().getSkillName() + "  erfolgreich registriert");

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"> 
+ 
+    <ui:composition template="/templates/default/template.xhtml">
+        <ui:define name="content">
+        	<ui:insert>
+         <f:metadata>
+			<f:viewParam name="qd" value="#{qualifikationTable.id}"/>
+			<f:event type="preRenderView" listener="#{qualifikationTable.delete}"/>
+		</f:metadata>
+        	<h:form>
+				<p:growl id="messages" showDetail="true" />        	
+        		<p:toolbar>
+        			<f:facet name="right">
+        				<p:commandButton value="Neu" icon="ui-icon-plus" ajax="false" action="skillformular" />
+        			</f:facet>
+        		</p:toolbar>
+        	</h:form>
+        	<h:form>
+			  <p:dataTable id="qualifikationtable" var="qualifikation" value="#{qualifikationTable.qualifikations}">
+			    <p:column headerText="Id">
+			        <h:outputText value="#{qualifikation.qualifikationId}" />
+			    </p:column>
+			 
+			    <p:column headerText="Bezeichnung">
+			        <h:outputText value="#{qualifikation.qualifikationName} " />
+			    </p:column>
+			 
+			    <p:column headerText="Typ">
+			        <h:outputText value="#{qualifikation.qualifikationTyp}" />
+			    </p:column>
+			 
+			    <p:column style="width:50px">
+			    	  <p:link outcome="qualifikationedit">
+                          <f:param name="qeid" value="#{qualifikation.qualifikationId}"/>
+                          <i class=" icon-pencil" style="margin-top:5px;"></i>
+                      </p:link>
+                      <p:link outcome="qualifikationtable" action="#{qualifikationTable.delete}">
+                          <f:param name="qd" value="#{qualifikation.qualifikationId}"/>
+                          <i class=" icon-delete" style="margin-top:5px;"></i>
+                      </p:link>
+			    </p:column>
+			  
+			</p:dataTable>
+			</h:form>
+        
+        	</ui:insert>            
+ 
+        </ui:define>
+    </ui:composition>        
+ 
+</html> 

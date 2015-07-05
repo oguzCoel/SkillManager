@@ -33,20 +33,24 @@ public class SkillServiceImpl implements SkillService {
 	}
 	
 	
-	public BigDecimal retrieveMasterBewertungDurchschnitt(Integer id){
-    	BigDecimal average = findBySkillId(id).getSkillMasterBewertungDurchschnitt();
+	public Double retrieveMasterBewertungDurchschnitt(Integer id){
+    	Double average = findBySkillId(id).getSkillMasterBewertungDurchschnitt();
     	
     	return average;
 }
 
-    public BigDecimal retrieveSelbstBewertungDurchschnitt(Integer id){
-    	BigDecimal average = findBySkillId(id).getSkillSelbstBewertungDurchschnitt();
+    public Double retrieveSelbstBewertungDurchschnitt(Integer id){
+    	Double average = findBySkillId(id).getSkillSelbstBewertungDurchschnitt();
     	
     	return average;
 }
     
     public long count(){
     	return skillRepository.count();
+    }
+    
+    public void deleteBySkillId(Integer id){
+    	skillRepository.deleteBySkillId(id);
     }
 
 }

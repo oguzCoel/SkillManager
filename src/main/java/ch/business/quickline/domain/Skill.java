@@ -32,8 +32,8 @@ public class Skill implements java.io.Serializable {
 	private Gruppe gruppe;
 	private String skillName;
 	private String skillBeschreibung;
-	private BigDecimal skillMasterBewertungDurchschnitt;
-	private BigDecimal skillSelbstBewertungDurchschnitt;
+	private Double skillMasterBewertungDurchschnitt;
+	private Double skillSelbstBewertungDurchschnitt;
 	private Set<SkillTask> skillTasks = new HashSet<SkillTask>(0);
 	private Set<SkillMaster> skillMasters = new HashSet<SkillMaster>(0);
 	private Set<MitarbeiterSkill> mitarbeiterSkills = new HashSet<MitarbeiterSkill>(
@@ -48,8 +48,8 @@ public class Skill implements java.io.Serializable {
 	}
 
 	public Skill(Gruppe gruppe, String skillName, String skillBeschreibung,
-			BigDecimal skillMasterBewertungDurchschnitt,
-			BigDecimal skillSelbstBewertungDurchschnitt,
+			Double skillMasterBewertungDurchschnitt,
+			Double skillSelbstBewertungDurchschnitt,
 			Set<SkillTask> skillTasks, Set<SkillMaster> skillMasters,
 			Set<MitarbeiterSkill> mitarbeiterSkills) {
 		this.gruppe = gruppe;
@@ -73,7 +73,7 @@ public class Skill implements java.io.Serializable {
 		this.skillId = skillId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Gruppe", nullable = false)
 	public Gruppe getGruppe() {
 		return this.gruppe;
@@ -101,23 +101,23 @@ public class Skill implements java.io.Serializable {
 		this.skillBeschreibung = skillBeschreibung;
 	}
 
-	@Column(name = "SkillMasterBewertungDurchschnitt", precision = 10)
-	public BigDecimal getSkillMasterBewertungDurchschnitt() {
+	@Column(name = "SkillMasterBewertungDurchschnitt", precision = 10, scale=2)
+	public Double getSkillMasterBewertungDurchschnitt() {
 		return this.skillMasterBewertungDurchschnitt;
 	}
 
 	public void setSkillMasterBewertungDurchschnitt(
-			BigDecimal skillMasterBewertungDurchschnitt) {
+			Double skillMasterBewertungDurchschnitt) {
 		this.skillMasterBewertungDurchschnitt = skillMasterBewertungDurchschnitt;
 	}
 
-	@Column(name = "SkillSelbstBewertungDurchschnitt", precision = 10)
-	public BigDecimal getSkillSelbstBewertungDurchschnitt() {
+	@Column(name = "SkillSelbstBewertungDurchschnitt", precision = 10, scale=2)
+	public Double getSkillSelbstBewertungDurchschnitt() {
 		return this.skillSelbstBewertungDurchschnitt;
 	}
 
 	public void setSkillSelbstBewertungDurchschnitt(
-			BigDecimal skillSelbstBewertungDurchschnitt) {
+			Double skillSelbstBewertungDurchschnitt) {
 		this.skillSelbstBewertungDurchschnitt = skillSelbstBewertungDurchschnitt;
 	}
 

@@ -8,6 +8,6 @@ public interface MitarbeiterRepository extends JpaRepository<Mitarbeiter, Intege
 	
 	public Mitarbeiter findByMitarbeiterId(Integer id);
 	public long count ();
-	
+	public Integer deleteByMitarbeiterId (Integer id);
 
 }

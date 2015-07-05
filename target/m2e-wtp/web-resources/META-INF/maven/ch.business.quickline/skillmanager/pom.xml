@@ -5,9 +5,38 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   
+  <reporting>
+  	<plugins>
+  		<plugin>
+  			<artifactId>maven-surefire-report-plugin</artifactId>
+  			<version>2.18.1</version>
+  		</plugin>
+  	</plugins>
+  </reporting>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  
+  
+ <build>
+ <pluginManagement>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.1</version>
+      <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+      </configuration>
+    </plugin>
+    
+    
+ 
+</plugins>
+</pluginManagement>
+</build>
   
   <repositories>
     <repository>
@@ -18,11 +47,7 @@
     </repository>
   </repositories>
   
-  
-  
-  
   <dependencies>
-  
   	<dependency>
   		<groupId>com.sun.faces</groupId>
   		<artifactId>jsf-api</artifactId>
@@ -41,20 +66,17 @@
   		<artifactId>primefaces</artifactId>
   		<version>5.2</version>
   	</dependency>
-  	
   	<dependency>
   		<groupId>org.primefaces.extensions</groupId>
   		<artifactId>all-themes</artifactId>
   		<version>1.0.8</version>
   		<type>pom</type>
   	</dependency>
-  
   	<dependency>  
    		<groupId>org.primefaces.themes</groupId>  
     	<artifactId>all-themes</artifactId>  
     	<version>1.0.10</version>  
 	</dependency>
-	
 	<dependency>
 		<groupId>ch.business.quickline</groupId>
 		<artifactId>primefaces-ronin</artifactId>
@@ -65,14 +87,18 @@
   		<artifactId>slf4j-simple</artifactId>
   		<version>1.7.10</version>
   	</dependency>
+
+  	<dependency>
+  		<groupId>org.slf4j</groupId>
+  		<artifactId>slf4j-log4j12</artifactId>
+  		<version>1.7.12</version>
+  	</dependency>
+  	
   	<dependency>
   		<groupId>javax.servlet</groupId>
   		<artifactId>jstl</artifactId>
   		<version>1.2</version>
   	</dependency>
-  	
-  	
-  	
   	<dependency>
   		<groupId>mysql</groupId>
   		<artifactId>mysql-connector-java</artifactId>
@@ -119,11 +145,7 @@
   		<artifactId>javax.annotation-api</artifactId>
   		<version>1.2</version>
   	</dependency>
-  	<dependency>
-  		<groupId>org.slf4j</groupId>
-  		<artifactId>slf4j-log4j12</artifactId>
-  		<version>1.7.12</version>
-  	</dependency>
+
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-test</artifactId>
@@ -135,6 +157,18 @@
   		<version>1.4.186</version>
   		<scope>test</scope>
   	</dependency>
+  	<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>2.5.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.springtestdbunit</groupId>
+			<artifactId>spring-test-dbunit</artifactId>
+			<version>1.2.1</version>
+			<scope>test</scope>
+		</dependency>
   	<dependency>
   		<groupId>org.glassfish.web</groupId>
   		<artifactId>el-impl</artifactId>
@@ -160,5 +194,21 @@
 		<artifactId>spring-security-config</artifactId>
 		<version>4.0.1.RELEASE</version>
 	</dependency>
+	<dependency>
+		<groupId>org.jbehave</groupId>
+		<artifactId>jbehave-spring</artifactId>
+		<version>4.0.1</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.easymock</groupId>
+		<artifactId>easymock</artifactId>
+		<version>3.3.1</version>
+	</dependency>
   </dependencies>
+  
+
+  
+  
+  
 </project>

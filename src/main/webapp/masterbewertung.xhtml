@@ -9,27 +9,22 @@
         <ui:define name="content">
         	<ui:insert>
         		<h:form>
-        			 <p:outputLabel for="mitarbeiter" value="Mitarbeiter:"  />
-						        <h:selectOneMenu id="mitarbeiter" value="#{mitarbeiterSkillFormular.mitarbeiterSkillToInsert.mitarbeiter}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
-						                      
-						            <f:selectItems value="#{mitarbeiterSkillFormular.mitarbeiters}" />
-						 
-						        </h:selectOneMenu>
+        			<p:outputLabel for="mitarbeiter" value="Mitarbeiter:"  />
+					<h:selectOneMenu id="mitarbeiter" value="#{mitarbeiterSkillFormular.mitarbeiterSkillToInsert.mitarbeiter}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">	                      
+						<f:selectItems value="#{mitarbeiterSkillFormular.mitarbeiters}" />
+					</h:selectOneMenu>
 						        
 					 <p:outputLabel for="skills" value="Skills:"  />
-						        <h:selectOneMenu id="skills" value="#{mitarbeiterSkillFormular.mitarbeiterSkillToInsert.skill}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
-						                      
-						            <f:selectItems value="#{mitarbeiterSkillFormular.skills}" />
-						 
-						        </h:selectOneMenu>
+					 <h:selectOneMenu id="skills" value="#{mitarbeiterSkillFormular.mitarbeiterSkillToInsert.skill}" converter="omnifaces.SelectItemsConverter" panelStyle="width:180px">
+						<f:selectItems value="#{mitarbeiterSkillFormular.skills}" />
+					 </h:selectOneMenu>
 						        
-						           <h:panelGrid columns="2" cellpadding="5">
-								        <h:outputText value="Masterbewertung:" />
-								        <p:rating value="#{mitarbeiterSkillFormular.mitarbeiterSkillToInsert.masterBewertung}" />
-								   </h:panelGrid>    
+					 <h:panelGrid columns="2" cellpadding="5">
+						 <h:outputText value="Masterbewertung:" />
+						 <p:rating value="#{mitarbeiterSkillFormular.mitarbeiterSkillToInsert.masterBewertung}" />
+					 </h:panelGrid>    
 								   
-								   	<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="false" update="@form" ajax="false" action="#{mitarbeiterSkillFormular.save}"/>
-								    	        
+					<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="false" update="@form" ajax="false" action="#{mitarbeiterSkillFormular.save}"/>
 				</h:form>
         	</ui:insert>            
  

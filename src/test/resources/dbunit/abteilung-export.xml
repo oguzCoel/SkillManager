@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <abteilung AbteilungID="1" AbteilungName="Team Engineering &amp; Operations"/>
+  <abteilung AbteilungID="2" AbteilungName="Team Projekte &amp; Support"/>
+  <abteilung AbteilungID="3" AbteilungName="Team Marketing &amp; Sales"/>
+  <abteilung AbteilungID="4" AbteilungName="Finance &amp; Administration"/>
+</dataset>

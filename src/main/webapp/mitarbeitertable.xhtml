@@ -8,6 +8,11 @@
     <ui:composition template="/templates/default/template.xhtml">
         <ui:define name="content">
         	<ui:insert>
+        	
+        <f:metadata>
+			<f:viewParam name="md" value="#{mitarbeiterTable.id}"/>
+			<f:event type="preRenderView" listener="#{mitarbeiterTable.delete}"/>
+		</f:metadata>
         	<h:form>
 				<p:growl id="messages" showDetail="true" />        	
         		<p:toolbar>
@@ -18,6 +23,13 @@
         	</h:form>
         	<h:form>
 			  <p:dataTable id="mitarbeitertable" var="mitarbeiters" value="#{mitarbeiterTable.mitarbeiters}">
+			  <p:column style="width:32px">
+            	<p:link outcome="mitarbeiter">
+                	<f:param name="mtid" value="#{mitarbeiters.mitarbeiterId}"/>
+					<f:param name="mtbid" value="#{mitarbeiters.mitarbeiterId}"/>
+                	<i class="fa fa-table gray Fs18" style="margin-top:5px;"></i>
+           		</p:link>
+       		</p:column>
 			    <p:column headerText="Id">
 			        <h:outputText value="#{mitarbeiters.mitarbeiterId}" />
 			    </p:column>
@@ -33,6 +45,17 @@
 			 
 			    <p:column headerText="Rolle">
 			        <h:outputText value="#{mitarbeiters.mitarbeiterRolle}" />
+			    </p:column>
+			    
+			    <p:column style="width:50px">
+			    	  <p:link outcome="mitarbeiteredit">
+                          <f:param name="meid" value="#{mitarbeiters.mitarbeiterId}"/>
+                          <i class=" icon-pencil" style="margin-top:5px;"></i>
+                      </p:link>
+                      <p:link outcome="mitarbeitertable" action="#{mitarbeiterTable.delete}">
+                          <f:param name="md" value="#{mitarbeiters.mitarbeiterId}"/>
+                          <i class="icon-delete" style="margin-top:5px;"></i>
+                      </p:link>
 			    </p:column>
 			</p:dataTable>
 			</h:form>

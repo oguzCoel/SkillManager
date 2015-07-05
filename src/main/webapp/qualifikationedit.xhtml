@@ -1,0 +1,57 @@
+
+ <html xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+                
+                
+              <ui:composition  template="/templates/default/template.xhtml">
+
+ 			<ui:define name="content">
+        	<ui:insert>
+        	
+        <f:metadata>
+		<f:viewParam name="qeid" value="#{qualifikationEditController.id}"/>
+		<f:event type="preRenderView" listener="#{qualifikationEditController.init}"/>
+		</f:metadata>
+        		<h:form>
+
+
+    <p:panel id="panel3" header="#{qualifikationEditController.qualifikation.qualifikationName}">
+        <p:focus context="panel3"/>
+        <p:messages />
+
+
+ 
+
+        <h:panelGrid columns="3">
+            <p:outputLabel for="e_qualifikationname" value="Bezeichnung: " />
+            <p:inplace id="e_qualifikationname">
+            	<p:inputText value="#{qualifikationEditController.qualifikation.qualifikationName}"/>
+            </p:inplace>
+            <p:message for="e_qualifikationname" />
+
+        	
+        	
+			<p:outputLabel for="e_typ" value="Typ:"/>
+			<p:inplace  id="e_typ" >
+			<p:inputText  value="#{qualifikationEditController.qualifikation.qualifikationTyp}" />
+          	</p:inplace>
+          	<p:message for="e_typ" />
+          
+        </h:panelGrid> 
+
+			<p:commandButton value="Speichern" validateClient="true" style="margin-right:10px" async="false" update="@form" styleClass="ui-priority-primary" actionListener="#{qualifikationEditController.save}"/>
+			
+
+    		</p:panel>
+
+			</h:form>
+
+       	</ui:insert>            
+ 
+        </ui:define>
+      
+    </ui:composition>        
+ </html>

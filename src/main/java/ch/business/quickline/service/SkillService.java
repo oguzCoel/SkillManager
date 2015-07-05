@@ -9,8 +9,9 @@ public interface SkillService {
 	public Skill save (Skill skill);
 	public List<Skill>findAll();
 	public Skill findBySkillId(Integer id);
-	public BigDecimal retrieveMasterBewertungDurchschnitt(Integer id);
-	public BigDecimal retrieveSelbstBewertungDurchschnitt(Integer id); 
+	public Double retrieveMasterBewertungDurchschnitt(Integer id);
+	public Double retrieveSelbstBewertungDurchschnitt(Integer id); 
 	public long count();
+	public void deleteBySkillId(Integer id);
 
 }

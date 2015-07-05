@@ -51,14 +51,14 @@ public class MitarbeiterServiceImpl implements MitarbeiterService {
 		return mitarbeiterRepository.findByMitarbeiterId(id);
 	}
 	
-	public BigDecimal retrieveMasterBewertungDurchschnitt(Integer id){
-	    	BigDecimal average = findByMitarbeiterId(id).getMitarbeiterMasterBewertungDurchschnitt();
+	public Double retrieveMasterBewertungDurchschnitt(Integer id){
+	    	Double average = findByMitarbeiterId(id).getMitarbeiterMasterBewertungDurchschnitt();
 	    	
 	    	return average;
 	}
 	
-	public BigDecimal retrieveSelbstBewertungDurchschnitt(Integer id){
-	    	BigDecimal average = findByMitarbeiterId(id).getMitarbeiterSelbstBewertungDurchschnitt();
+	public Double retrieveSelbstBewertungDurchschnitt(Integer id){
+	    	Double average = findByMitarbeiterId(id).getMitarbeiterSelbstBewertungDurchschnitt();
 	    	
 	    	return average;
 	}
@@ -68,6 +68,11 @@ public class MitarbeiterServiceImpl implements MitarbeiterService {
 		return mitarbeiterRepository.count();
 	}
 	
+	
+	public void deleteByMitarbeiterId(Integer id){
+		
+		mitarbeiterRepository.deleteByMitarbeiterId(id);
+	}
 	
 	
 	

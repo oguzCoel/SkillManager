@@ -8,8 +8,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import ch.business.quickline.domain.Abteilung;
@@ -27,6 +29,8 @@ import ch.business.quickline.service.RoleService;
 @Component
 @Scope("request")
 public class MitarbeiterFormularController implements Serializable {
+	//Log
+	final Logger logger = Logger.getLogger(MitarbeiterFormularController.class);
 	
 	@Autowired
 	private MitarbeiterService mitarbeiterService;
@@ -140,26 +144,30 @@ public class MitarbeiterFormularController implements Serializable {
 		this.abteilung = abteilung;
 	}
 
-	
+	@PreAuthorize("hasRole ('ROLE_ADMIN')")
 	public void save()throws Exception{
-		mitarbeiterService.save(mitarbeiter);
-		benutzer.setMitarbeiter(mitarbeiter);
-		benutzerService.save(benutzer);
-		benutzerRole.setBenutzer(benutzer);
-		benutzerRoleService.save(benutzerRole);
-		unternehmenViewController.init();
-		mitarbeiterTable.init();
 		
-		FacesMessage msg = new FacesMessage
-				(getMitarbeiter().getMitarbeiterVorname() + " " +
-		getMitarbeiter().getMitarbeiterNachname() + " erfolgreich registriert");
-        FacesContext.getCurrentInstance().addMessage(null, msg);
+		try {
+			mitarbeiterService.save(mitarbeiter);
+			benutzer.setMitarbeiter(mitarbeiter);
+			benutzerService.save(benutzer);
+			benutzerRole.setBenutzer(benutzer);
+			benutzerRoleService.save(benutzerRole);
+			unternehmenViewController.init();
+			mitarbeiterTable.init();
+			FacesMessage msg = new FacesMessage(getMitarbeiter()
+					.getMitarbeiterVorname()
+					+ " "
+					+ getMitarbeiter().getMitarbeiterNachname()
+					+ " erfolgreich registriert");
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		} catch (Exception e) {
+			logger.error("Fehler beim Abspeichern Mitarbeiter. Details" +e.getMessage());
+		}
 		
 			
 		
 	}
-	
-	
 	
 
 }
